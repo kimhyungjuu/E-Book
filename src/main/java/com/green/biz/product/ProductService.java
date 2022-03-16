@@ -3,18 +3,28 @@ package com.green.biz.product;
 import java.util.List;
 
 import com.green.biz.dto.ProductVO;
-import com.green.biz.dto.SalesQuantity;
+
+import utils.Criteria;
 
 public interface ProductService {
-	public List<ProductVO> listProduct(String name);
+
+	List<ProductVO> getNewProductList();
+
+	List<ProductVO> getBestProductList();
+
+	List<ProductVO> getFreeProductList();
 	
-	public ProductVO getProduct(ProductVO vo);
-	
-	public void insertProduct(ProductVO vo);
-	
-	public void updateProduct(ProductVO vo);
-	
-	public void deleteProduct(ProductVO vo);
-	
-	public List<SalesQuantity> getProductSales();
+	ProductVO getProduct(ProductVO vo);
+
+	List<ProductVO> getProductListByKind(ProductVO vo);
+
+	// 전체 상품의 갯수 조회
+	int countProductList(String title);
+
+	// 상품 목록 조회
+	List<ProductVO> listProduct(String title);
+
+	// 페이지별 상품목록 조회
+	List<ProductVO> getListWithPaging(Criteria criteria, String title);
+
 }

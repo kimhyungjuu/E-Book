@@ -1,13 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-   <footer>
+  pageEncoding="UTF-8"%>    
     <!-- Footer Start -->
         <div class="footer">
             <div class="container-fluid">
@@ -103,8 +95,8 @@
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/slick/slick.min.js"></script>
+        <script src="easing/easing.min.js"></script>
+        <script src="slick/slick.min.js"></script>
         
         <!-- Template Javascript -->
         <script src="js/main.js"></script>

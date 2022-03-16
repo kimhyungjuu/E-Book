@@ -3,19 +3,17 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
- <%@ include file="../header.jsp" %>
-<%@ include file="sub_menu.jsp" %>
-</head>
-  
- <body>
+     <%@ include file="../header.jsp" %>
+     </head>
+     <body>
         
-    <!-- Breadcrumb Start -->
+        <!-- Breadcrumb Start -->
         <div class="breadcrumb-wrap">
             <div class="container-fluid">
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">홈</a></li>
-                    <li class="breadcrumb-item"><a href="#">마이 페이지</a></li>
-                    <li class="breadcrumb-item active">위시리스트</li>
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Products</a></li>
+                    <li class="breadcrumb-item active">Wishlist</li>
                 </ul>
             </div>
         </div>
@@ -33,7 +31,7 @@
                                         <tr>
                                             <th>Product</th>
                                             <th>Price</th>
-                                            
+                                            <th>Quantity</th>
                                             <th>Add to Cart</th>
                                             <th>Remove</th>
                                         </tr>
@@ -42,7 +40,7 @@
                                         <tr>
                                             <td>
                                                 <div class="img">
-                                                    <a href="#"><img src="img/product-6.jpg" alt="Image"></a>
+                                                    <a href="#"><img src="resources/img/product-6.jpg" alt="Image"></a>
                                                     <p>Product Name</p>
                                                 </div>
                                             </td>
@@ -57,7 +55,78 @@
                                             <td><button class="btn-cart">Add to Cart</button></td>
                                             <td><button><i class="fa fa-trash"></i></button></td>
                                         </tr>
-                                        
+                                        <tr>
+                                            <td>
+                                                <div class="img">
+                                                    <a href="#"><img src="resources/img/product-7.jpg" alt="Image"></a>
+                                                    <p>Product Name</p>
+                                                </div>
+                                            </td>
+                                            <td>$99</td>
+                                            <td>
+                                                <div class="qty">
+                                                    <button class="btn-minus"><i class="fa fa-minus"></i></button>
+                                                    <input type="text" value="1">
+                                                    <button class="btn-plus"><i class="fa fa-plus"></i></button>
+                                                </div>
+                                            </td>
+                                            <td><button class="btn-cart">Add to Cart</button></td>
+                                            <td><button><i class="fa fa-trash"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="img">
+                                                    <a href="#"><img src="resources/img/product-8.jpg" alt="Image"></a>
+                                                    <p>Product Name</p>
+                                                </div>
+                                            </td>
+                                            <td>$99</td>
+                                            <td>
+                                                <div class="qty">
+                                                    <button class="btn-minus"><i class="fa fa-minus"></i></button>
+                                                    <input type="text" value="1">
+                                                    <button class="btn-plus"><i class="fa fa-plus"></i></button>
+                                                </div>
+                                            </td>
+                                            <td><button class="btn-cart">Add to Cart</button></td>
+                                            <td><button><i class="fa fa-trash"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="img">
+                                                    <a href="#"><img src="resources/img/product-9.jpg" alt="Image"></a>
+                                                    <p>Product Name</p>
+                                                </div>
+                                            </td>
+                                            <td>$99</td>
+                                            <td>
+                                                <div class="qty">
+                                                    <button class="btn-minus"><i class="fa fa-minus"></i></button>
+                                                    <input type="text" value="1">
+                                                    <button class="btn-plus"><i class="fa fa-plus"></i></button>
+                                                </div>
+                                            </td>
+                                            <td><button class="btn-cart">Add to Cart</button></td>
+                                            <td><button><i class="fa fa-trash"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="img">
+                                                    <a href="#"><img src="resources/img/product-10.jpg" alt="Image"></a>
+                                                    <p>Product Name</p>
+                                                </div>
+                                            </td>
+                                            <td>$99</td>
+                                            <td>
+                                                <div class="qty">
+                                                    <button class="btn-minus"><i class="fa fa-minus"></i></button>
+                                                    <input type="text" value="1">
+                                                    <button class="btn-plus"><i class="fa fa-plus"></i></button>
+                                                </div>
+                                            </td>
+                                            <td><button class="btn-cart">Add to Cart</button></td>
+                                            <td><button><i class="fa fa-trash"></i></button></td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
