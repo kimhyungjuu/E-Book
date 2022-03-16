@@ -9,7 +9,9 @@
 
 	<!-- 회원 존재 여부 조회 -->
 	<select id="confirmID" resultType="String">
-		SELECT pwd FROM member WHERE id=#{id}
+		SELECT pwd 
+		FROM member 
+		WHERE id=#{id}
 	</select>
 
 	<!-- 회원 등록 -->

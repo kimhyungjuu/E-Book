@@ -16,9 +16,9 @@
 	<mvc:resources location="/WEB-INF/resources/img/" mapping="/img/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/resources/ebook-image/" mapping="/ebook-image/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/resources/js/" mapping="/js/**"></mvc:resources>
-	<mvc:resources location="/WEB-INF/resources/lib/easing/" mapping="/easing/**"></mvc:resources>
-	<mvc:resources location="/WEB-INF/resources/lib/slick/" mapping="/slick/**"></mvc:resources>
-	<mvc:resources location="/WEB-INF/resources/lib/slick/fonts" mapping="/fonts/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/resources/lib/easing/" mapping="/easing/**"/>
+	<mvc:resources location="/WEB-INF/resources/lib/slick/" mapping="/slick/**"/>
+	<mvc:resources location="/WEB-INF/resources/lib/slick/fonts" mapping="/fonts/**"/>
 	<mvc:resources location="/WEB-INF/views/member/" mapping="/member/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/views/mypage/" mapping="/mypage/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/views/product/" mapping="/product/**"></mvc:resources>

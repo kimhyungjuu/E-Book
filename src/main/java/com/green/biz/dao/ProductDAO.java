@@ -64,7 +64,7 @@ public class ProductDAO {
 		return mybatis.selectList("mappings.product-mapping.listWithPaging", map);
 	}
 	
-	/*
+	/* TODO: listProduct 이름변경 필요
 	 * // 상품 목록 조회 public List<ProductVO> listProduct(String name) {
 	 * 
 	 * return mybatis.selectList("mappings.product-mapping.listbook", name); }
