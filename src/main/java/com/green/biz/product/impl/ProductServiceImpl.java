@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.green.biz.dao.ProductDAO;
 import com.green.biz.dto.ProductVO;
+import com.green.biz.dto.SalesQuantity;
 import com.green.biz.product.ProductService;
 
 import utils.Criteria;
@@ -64,4 +65,31 @@ public class ProductServiceImpl implements ProductService {
 		
 		return pDao.getListWithPaging(criteria, title);
 	}
+
+	/*
+	 * @Override public List<ProductVO> listProduct(String name) { return
+	 * pDao.listProduct(name); }
+	 */
+
+	@Override
+	public void insertProduct(ProductVO vo) {
+		pDao.insertProduct(vo);		
+	}
+
+	@Override
+	public void updateProduct(ProductVO vo) {
+		pDao.updateProduct(vo);
+		
+	}
+
+	@Override
+	public void deleteProduct(ProductVO vo) {
+		pDao.deleteProduct(vo);
+	}
+
+	@Override
+	public List<SalesQuantity> getProductSales() {
+		return pDao.getProductSales();
+	}
+
 }

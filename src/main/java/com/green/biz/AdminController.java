@@ -198,7 +198,8 @@ public class AdminController {
 	
 	/*
 	 * 鼻ヶ薑爾 熱薑
-	 */
+	 * TODO: 說除還 釭褥!!
+	 *
 	@RequestMapping(value="/admin_product_update")
 	public String adminProductUpdate(@RequestParam(value="product_image") MultipartFile uploadFile,
 					@RequestParam(value="nonmakeImg") String origImage,
@@ -246,6 +247,7 @@ public class AdminController {
 			return "redirect:admin_product_list";
 		}
 	}
+	*/
 	
 	@PostMapping(value="/admin_product_delete")
 	public String adminProductDelete( ProductVO vo, HttpSession session) {

@@ -22,5 +22,6 @@ public class ProductVO {
 	private String likeyn;
 	private Timestamp regdate;
 	private String author;
+	//TODO: DB추가필요
 	private int rseq;
 }
