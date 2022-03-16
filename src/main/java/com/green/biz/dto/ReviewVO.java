@@ -13,7 +13,7 @@ public class ReviewVO {
 	private int bseq;
 	private int rseq;
 	private String id;
-	private Timestamp regdate;
+	private Timestamp indate;
 	private int rating;
 	private String content;
 }

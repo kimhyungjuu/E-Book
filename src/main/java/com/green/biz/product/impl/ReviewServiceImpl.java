@@ -16,15 +16,15 @@ public class ReviewServiceImpl implements ReviewService {
 	private ReviewDAO reviewDao;
 
 	@Override
-	public void insertReview(ReviewVO vo) {
+	public void insertReview(ReviewVO rv) {
 
-		reviewDao.insertReview(vo);
+		reviewDao.insertReview(rv);
 	}
 
 	@Override
-	public List<ReviewVO> listReview(ReviewVO vo) {
+	public List<ReviewVO> listReview(ReviewVO rv) {
 		
-		return reviewDao.listReview(vo);
+		return reviewDao.listReview(rv);
 	}
 
 	@Override
@@ -34,9 +34,9 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public void updateReview(ReviewVO vo) {
+	public void updateReview(ReviewVO rv) {
 
-		reviewDao.updateReview(vo);
+		reviewDao.updateReview(rv);
 	}
 
 }

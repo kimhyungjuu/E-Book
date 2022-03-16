@@ -3,7 +3,6 @@ package com.green.biz.product;
 import java.util.List;
 
 import com.green.biz.dto.ProductVO;
-import com.green.biz.dto.SalesQuantity;
 
 import utils.Criteria;
 
@@ -19,24 +18,13 @@ public interface ProductService {
 
 	List<ProductVO> getProductListByKind(ProductVO vo);
 
-	// ï¿½ï¿½Ã¼ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È¸
+	// ÀüÃ¼ »óÇ°ÀÇ °¹¼ö Á¶È¸
 	int countProductList(String title);
 
-	// ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ ï¿½È¸
+	// »óÇ° ¸ñ·Ï Á¶È¸
 	List<ProductVO> listProduct(String title);
 
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ ï¿½È¸
+	// ÆäÀÌÁöº° »óÇ°¸ñ·Ï Á¶È¸
 	List<ProductVO> getListWithPaging(Criteria criteria, String title);
 
-  public List<ProductVO> listProduct(String name);
-	
-	public ProductVO getProduct(ProductVO vo);
-	
-	public void insertProduct(ProductVO vo);
-	
-	public void updateProduct(ProductVO vo);
-	
-	public void deleteProduct(ProductVO vo);
-	
-	public List<SalesQuantity> getProductSales();
 }

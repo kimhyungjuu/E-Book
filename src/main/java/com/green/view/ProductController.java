@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.green.biz.dto.MemberVO;
 import com.green.biz.dto.ProductVO;
@@ -28,7 +30,7 @@ public class ProductController {
 	
 	//@RequestMapping(value="/product_detail", method=RequestMethod.GET)
 	@GetMapping(value="/product-detail")
-	public String productDetailAction(HttpSession session, ProductVO vo, Model model, ReviewVO rv) {
+	public String productDetailAction(ProductVO vo, Model model, ReviewVO rv) {
 
 		// 제품 상세 조회
 		ProductVO product = productService.getProduct(vo);
@@ -65,7 +67,18 @@ public class ProductController {
 			return "redirect:product-detail";
 		}
  	}
-
+	
+	@PostMapping(value="/review_delete")
+	public String reviewDelete(@RequestParam(value="rseq") int[] rseq) {
+		
+		for(int i=0; i<rseq.length; i++) {
+			System.out.println(("삭제할 review rseq = ") + rseq[i]);
+			reviewService.deleteReview(rseq[i]);
+		}
+		
+		return "product/product-detail";
+	}
+	
 }
 
 	

@@ -12,6 +12,6 @@ public class AddressVO {
 	private String sido;
 	private String gugun;
 	private String dong;
-	private String zipCode;
+	private String zipcode;
 	private String bunji;
 }

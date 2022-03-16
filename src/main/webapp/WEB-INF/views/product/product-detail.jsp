@@ -164,9 +164,9 @@
 								
 								<div id="reviews" class="container tab-pane fade">
 									
+								<form name="myform" id="myform" method="post" >
 									<div class="reviews-submit">
 										<h4>책에 대한 리뷰를 남겨주세요! </h4>
-										<form name="myform" id="myform" method="post" >
 											<fieldset>
 												<input type="radio" name="rating" value="5" id="rate5">
 												<label for="rate5">★</label>
@@ -187,22 +187,40 @@
 													<input type="button" value="리뷰작성" class="submit" id="review" onclick="location.href='post_save'">												
 												</div>
 											</div>
+										</div>
+									</form>
+									
+									
+								 
+									<div class="reviews-submitted">
+										<form name="formm" id="theform" method="post">
+											<c:forEach items="${reviewList}" var="reviewVO">
+												<c:choose>
+													<c:when test="${reviewList.size() == 0 }">
+														<h4 style="text-align: center;">리뷰가 없습니다.</h4>
+													</c:when>
+													<c:otherwise>
+													
+														<div class="reviewer">
+															${reviewVO.id} &nbsp; <span>${reviewVO.indate}</span> 
+															<input type="checkbox" name="rseq" value="${reviewVO.rseq }">
+															<a href="#" onclick="go_review_delete()"
+																style="font-size: 14px;">삭제</a><br>
+														</div>
+														<div class="ratting ${reviewVO.rating}"></div>
+														<p>${reviewVO.content}</p>
+													</c:otherwise>
+												</c:choose>
+											</c:forEach>
 										</form>
 									</div>
-									<div class="reviews-submitted">
-										<c:forEach items="${reviewList}" var="reviewVO">
-										
-										<div class="reviewer">
-											${reviewVO.id} &nbsp; 
-											<span>${reviewVO.regdate}</span>
-										</div>
-										<a href="#" onclick="go_review_delete()">삭제</a>
-										<div class="ratting ${reviewVO.rating}"></div>
-										<p>${reviewVO.content}</p>
 									
-										</c:forEach>
-									</div>
+									
 								</div>
+								
+								
+								
+								
 							</div>
 						</div>
 					</div>

@@ -10,7 +10,7 @@
 	<!-- 리뷰 조회 -->
 	<select id="listReview" resultType="review">
 		SELECT * FROM review
-		WHERE bseq=#{bseq} ORDER BY rseq DESC
+		WHERE bseq=#{bseq}
 	</select>
 	
 	<!-- 리뷰 삭제는 실제 review 테이블이 대상 -->

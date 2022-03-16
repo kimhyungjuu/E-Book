@@ -15,15 +15,15 @@ public class ReviewDAO {
 	private SqlSessionTemplate mybatis;
 	
 	// 리뷰 작성
-	public void insertReview(ReviewVO vo) {
+	public void insertReview(ReviewVO rv) {
 		
-		mybatis.insert("mappings.review-mapping.insertReview",vo);
+		mybatis.insert("mappings.review-mapping.insertReview", rv);
 	}
 	
 	// 리뷰 목록
-	public List<ReviewVO> listReview(ReviewVO vo) {
+	public List<ReviewVO> listReview(ReviewVO rv) {
 		
-		return mybatis.selectList("mappings.review-mapping.listReview", vo);
+		return mybatis.selectList("mappings.review-mapping.listReview", rv);
 	}
 	
 	// 리뷰목록에서 항목 삭제
@@ -33,8 +33,8 @@ public class ReviewDAO {
 	}
 	
 	// 리뷰목록에서 항목 업데이트
-	public void updateReview(ReviewVO vo) {
+	public void updateReview(ReviewVO rv) {
 		
-		mybatis.delete("mappings.review-mapping.updateReview", vo);
+		mybatis.delete("mappings.review-mapping.updateReview", rv);
 	}
 }
