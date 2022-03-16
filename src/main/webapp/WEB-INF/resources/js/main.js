@@ -34,7 +34,7 @@
     
     
     // Header slider
-    $('.header-slider').slick({
+    $('.header-slider').not('.slick-initialized').slick({
         autoplay: true,
         dots: true,
         infinite: true,
@@ -44,7 +44,7 @@
     
     
     // Product Slider 4 Column
-    $('.product-slider-4').slick({
+    $('.product-slider-4').not('.slick-initialized').slick({
         autoplay: true,
         infinite: true,
         dots: false,
@@ -80,7 +80,7 @@
     
     
     // Product Slider 3 Column
-    $('.product-slider-3').slick({
+    $('.product-slider-3').not('.slick-initialized').slick({
         autoplay: true,
         infinite: true,
         dots: false,
@@ -110,7 +110,7 @@
     
     
     // Product Detail Slider
-    $('.product-slider-single').slick({
+    $('.product-slider-single').not('.slick-initialized').slick({
         infinite: true,
         autoplay: true,
         dots: false,
@@ -119,7 +119,7 @@
         slidesToScroll: 1,
         asNavFor: '.product-slider-single-nav'
     });
-    $('.product-slider-single-nav').slick({
+    $('.product-slider-single-nav').not('.slick-initialized').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
         dots: false,
@@ -130,7 +130,7 @@
     
     
     // Brand Slider
-    $('.brand-slider').slick({
+    $('.brand-slider').not('.slick-initialized').slick({
         speed: 5000,
         autoplay: true,
         autoplaySpeed: 0,
@@ -173,7 +173,7 @@
     
     
     // Review slider
-    $('.review-slider').slick({
+    $('.review-slider').not('.slick-initialized').slick({
         autoplay: true,
         dots: false,
         infinite: true,
@@ -191,7 +191,7 @@
     
     
     // Widget slider
-    $('.sidebar-slider').slick({
+    $('.sidebar-slider').not('.slick-initialized').slick({
         autoplay: true,
         dots: false,
         infinite: true,
@@ -236,4 +236,33 @@
         }
     });
 })(jQuery);
+
+function go_wishlist() {
+	alert("위시리스트에 담았습니다.");
+}
+
+function go_review_delete() {
+		document.formm.action = "review_delete";
+		document.formm.submit();
+	}
+
+
+function post_review() {
+	if($("#review").val()=="") {
+		alert("리뷰를 입력해주세요!");
+		$("#review").focus();
+	} else {
+		$("#myform").attr("action", "/save").submit();
+		
+		//if(msg == true)
+	}
+}
+
+// 파라미터로 받은 숫자를 별점으로 변환하는 스크립트
+$(".1").html("&#9733; &#9734; &#9734; &#9734; &#9734;");
+$(".2").html("&#9733; &#9733; &#9734; &#9734; &#9734;");
+$(".3").html("&#9733; &#9733; &#9733; &#9734; &#9734;");
+$(".4").html("&#9733; &#9733; &#9733; &#9733; &#9734;");
+$(".5").html("&#9733; &#9733; &#9733; &#9733; &#9733;"); 
+
 

@@ -2,23 +2,26 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
- <configuration>
-   	<typeAliases>
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.green.biz.dto.ProductVO" alias="product" />
+		<typeAlias type="com.green.biz.dto.MemberVO" alias="member" />
+		<typeAlias type="com.green.biz.dto.AddressVO" alias="address"/>
+		<typeAlias type="com.green.biz.dto.ReviewVO" alias="review" />
+	</typeAliases>
+	
+	<!--  SQL 매핑파일 등록 -->
+	<mappers>
+		<mapper resource="mappings/product-mapping.xml" />
+		<mapper resource="mappings/review-mapping.xml" />
+	</mappers>
+</configuration>
 
-  	</typeAliases> 
-  	
-  	<!--  SQL 매핑파일 등록 -->
-   	<mappers>
-  		
 
-  	</mappers>
- </configuration>
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
