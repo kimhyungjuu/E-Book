@@ -10,6 +10,7 @@ import com.green.biz.dto.ProductVO;
 import com.green.biz.product.ProductService;
 
 import utils.Criteria;
+import com.green.biz.dto.SalesQuantity;
 
 @Service("productService")
 public class ProductServiceImpl implements ProductService {
@@ -33,15 +34,22 @@ public class ProductServiceImpl implements ProductService {
 	public List<ProductVO> getFreeProductList() {
 
 		return pDao.getFreeProductList();
+
+
+	@Override
+	public List<ProductVO> listProduct(String name) {
+		return pDao.listProduct(name);
+
 	}
 
 	@Override
 	public ProductVO getProduct(ProductVO vo) {
-		
+
 		return pDao.getProduct(vo);
 	}
 
 	@Override
+
 	public List<ProductVO> getProductListByKind(ProductVO vo) {
 		
 		return pDao.getProductListByKind(vo);
@@ -64,4 +72,26 @@ public class ProductServiceImpl implements ProductService {
 		
 		return pDao.getListWithPaging(criteria, title);
 	}
+	
+    @Override
+	public void insertProduct(ProductVO vo) {
+		pDao.insertProduct(vo);		
+	}
+
+	@Override
+	public void updateProduct(ProductVO vo) {
+		pDao.updateProduct(vo);
+		
+	}
+
+	@Override
+	public void deleteProduct(ProductVO vo) {
+		pDao.deleteProduct(vo);
+	}
+
+	@Override
+	public List<SalesQuantity> getProductSales() {
+		return pDao.getProductSales();
+	}
+
 }

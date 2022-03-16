@@ -10,8 +10,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ProductVO {
-	
-	private int bseq;
+
+  private int bseq;
 	private String title;
 	private String category;
 	private int price;
@@ -23,4 +23,5 @@ public class ProductVO {
 	private Timestamp regdate;
 	private String author;
 	private int rseq;
+
 }
