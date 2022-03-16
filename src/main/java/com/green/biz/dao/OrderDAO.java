@@ -48,4 +48,6 @@ public class OrderDAO {
 		
 		mybatis.update("mappings.order-mapping.updateOrderResult", odseq);
 	}
+
+	
 }

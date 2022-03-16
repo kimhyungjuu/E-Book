@@ -15,17 +15,18 @@ public class MemberDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
-	// È¸¿ø »ó¼¼Á¤º¸ Á¶È¸
+
+	// ÃˆÂ¸Â¿Ã¸ Â»Ã³Â¼Â¼ÃÂ¤ÂºÂ¸ ÃÂ¶ÃˆÂ¸
 	public MemberVO getMember(String id) {
 		
 		return mybatis.selectOne("mappings.member-mapping.getMember", id);
 	}
 	
-	// È¸¿ø Á¸Àç¿©ºÎ È®ÀÎ
+	// ÃˆÂ¸Â¿Ã¸ ÃÂ¸Ã€Ã§Â¿Â©ÂºÃ ÃˆÂ®Ã€Ã
 	/*
-	 *  ¸®ÅÏ °ª : 
-	 *  		È¸¿øÀÌ Á¸ÀçÇÏ¸é : 1
-	 *  		Á¸ÀçÇÏÁö ¾ÊÀ¸¸é : -1
+	 *  Â¸Â®Ã…Ã Â°Âª : 
+	 *  		ÃˆÂ¸Â¿Ã¸Ã€ÃŒ ÃÂ¸Ã€Ã§Ã‡ÃÂ¸Ã© : 1
+	 *  		ÃÂ¸Ã€Ã§Ã‡ÃÃÃ¶ Â¾ÃŠÃ€Â¸Â¸Ã© : -1
 	 */
 	public int confirmID(String id) {
 		
@@ -38,20 +39,20 @@ public class MemberDAO {
 	}
 	
 	/*
-	 *  È¸¿ø ÀÎÁõ
+	 *  ÃˆÂ¸Â¿Ã¸ Ã€ÃÃÃµ
 	 *  
-	 *  id°¡ Á¸ÀçÇÏÁö ¾ÊÀ»°æ¿ì : -1 ¹İÈ¯
-	 *  pwd°¡ Æ²¸± °æ¿ì : 0 ¹İÈ¯
-	 *  id, pwd°¡ ÀÏÄ¡ÇÒ °æ¿ì : 1 ¹İÈ¯
+	 *  idÂ°Â¡ ÃÂ¸Ã€Ã§Ã‡ÃÃÃ¶ Â¾ÃŠÃ€Â»Â°Ã¦Â¿Ã¬ : -1 Â¹ÃÃˆÂ¯
+	 *  pwdÂ°Â¡ Ã†Â²Â¸Â± Â°Ã¦Â¿Ã¬ : 0 Â¹ÃÃˆÂ¯
+	 *  id, pwdÂ°Â¡ Ã€ÃÃ„Â¡Ã‡Ã’ Â°Ã¦Â¿Ã¬ : 1 Â¹ÃÃˆÂ¯
 	 */
 	public int loginID(MemberVO vo) { 
-		int result = -1;	// Á¶È¸ °á°ú
+		int result = -1;	// ÃÂ¶ÃˆÂ¸ Â°Ã¡Â°Ãº
 		
 		String pwd_in_db = mybatis.selectOne("mappings.member-mapping.confirmID", vo.getId());
 		
 		if (pwd_in_db == null) {
 			result = -1;
-		} else if(vo.getPwd().equals(pwd_in_db)) {	// ÀÔ·ÂÇÑ pwd¿Í Å×ÀÌºí »óÀÇ pwd°¡ ÀÏÄ¡ÇÔ
+		} else if(vo.getPwd().equals(pwd_in_db)) {	// Ã€Ã”Â·Ã‚Ã‡Ã‘ pwdÂ¿Ã Ã…Ã—Ã€ÃŒÂºÃ­ Â»Ã³Ã€Ã‡ pwdÂ°Â¡ Ã€ÃÃ„Â¡Ã‡Ã”
 			result = 1;
 		} else {
 			result = 0;
@@ -59,22 +60,20 @@ public class MemberDAO {
 		return result;
 	}
 	
-	// È¸¿ø µî·Ï
+	// ÃˆÂ¸Â¿Ã¸ ÂµÃ®Â·Ã
 	public void insertMember(MemberVO vo) {
 		
 		mybatis.insert("mappings.member-mapping.insertMember", vo);
 	}
 	
-	// µ¿ ÀÌ¸§À¸·Î ÁÖ¼Ò Ã£±â
+	// ÂµÂ¿ Ã€ÃŒÂ¸Â§Ã€Â¸Â·Ã ÃÃ–Â¼Ã’ ÃƒÂ£Â±Ã¢
 	public List<AddressVO> selectAddressByDong(String dong) {
 		
 		return mybatis.selectList("mappings.member-mapping.selectAddressByDong", dong);
 	}
-
-	// È¸¿ø ¸ñ·Ï Á¶È¸
+	// ÃˆÂ¸Â¿Ã¸ Â¸Ã±Â·Ã ÃÂ¶ÃˆÂ¸
 	public List<MemberVO> listMember(String name) {
 		
 		return mybatis.selectList("mappings.member-mapping.listMember", name);
 	}
 }
-

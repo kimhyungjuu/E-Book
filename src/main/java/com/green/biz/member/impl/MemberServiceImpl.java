@@ -13,7 +13,7 @@ import com.green.biz.member.MemberService;
 @Service("memberService")
 public class MemberServiceImpl implements MemberService {
 	
-	@Autowired
+  @Autowired
 	private MemberDAO mDao;
 	
 	@Override
@@ -50,6 +50,10 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public List<MemberVO> listMember(String name) {
 		
+		return mDao.listMember(name);
+	}
+
+	public List<MemberVO> listMember(String name) {
 		return mDao.listMember(name);
 	}
 

@@ -15,7 +15,11 @@
 	<mvc:resources location="/WEB-INF/resources/css/" mapping="/css/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/resources/img/" mapping="/img/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/resources/lib/" mapping="/lib/**"></mvc:resources>
+  <mvc:resources location="/WEB-INF/resources/ebook-image/" mapping="/ebook-image/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/resources/js/" mapping="/js/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/resources/lib/easing/" mapping="/easing/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/resources/lib/slick/" mapping="/slick/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/views/admin/" mapping="/admin/**"></mvc:resources>
 
 	
 	<!--  JSP 소스 viewResolver -->

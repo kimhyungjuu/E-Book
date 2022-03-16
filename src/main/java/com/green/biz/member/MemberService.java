@@ -2,31 +2,38 @@ package com.green.biz.member;
 
 import java.util.List;
 
+
 import com.green.biz.dto.AddressVO;
 import com.green.biz.dto.MemberVO;
 
 public interface MemberService {
 
-	// È¸¿ø »ó¼¼Á¤º¸ Á¶È¸
+	// ÃˆÂ¸Â¿Ã¸ Â»Ã³Â¼Â¼ÃÂ¤ÂºÂ¸ ÃÂ¶ÃˆÂ¸
 	MemberVO getMember(String id);
 
-	// È¸¿ø Á¸Àç¿©ºÎ È®ÀÎ
+	// ÃˆÂ¸Â¿Ã¸ ÃÂ¸Ã€Ã§Â¿Â©ÂºÃ ÃˆÂ®Ã€Ã
 	/*
-	 *  ¸®ÅÏ °ª : 
-	 *  		È¸¿øÀÌ Á¸ÀçÇÏ¸é : 1
-	 *  		Á¸ÀçÇÏÁö ¾ÊÀ¸¸é : -1
+	 *  Â¸Â®Ã…Ã Â°Âª : 
+	 *  		ÃˆÂ¸Â¿Ã¸Ã€ÃŒ ÃÂ¸Ã€Ã§Ã‡ÃÂ¸Ã© : 1
+	 *  		ÃÂ¸Ã€Ã§Ã‡ÃÃÃ¶ Â¾ÃŠÃ€Â¸Â¸Ã© : -1
 	 */
 	int confirmID(String id);
 	
-	// »ç¿ëÀÚ ÀÎÁõ
+	// Â»Ã§Â¿Ã«Ã€Ãš Ã€ÃÃÃµ
 	public int loginID(MemberVO vo);
 
-	// È¸¿ø µî·Ï
+	// ÃˆÂ¸Â¿Ã¸ ÂµÃ®Â·Ã
 	void insertMember(MemberVO vo);
 	
-	// µ¿ÀÌ¸§À¸·Î ÁÖ¼Ò Ã£±â
+	// ÂµÂ¿Ã€ÃŒÂ¸Â§Ã€Â¸Â·Ã ÃÃ–Â¼Ã’ ÃƒÂ£Â±Ã¢
 	public List<AddressVO> selectAddressByDong(String dong);
 	
 	public List<MemberVO> listMember(String name);
 
+
+
+
+	// ÃˆÂ¸Â¿Ã¸ Â¸Ã±Â·Ã ÃÂ¶ÃˆÂ¸
+	public List<MemberVO> listMember(String name);
 }
+

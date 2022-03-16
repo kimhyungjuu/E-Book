@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappings.admin-mapping">
+
+	<!-- 관리자 아이디 존재 여부 확인 -->
+	<select id="managerCheck" resultType="String">
+		SELECT pwd FROM manager
+		WHERE id=#{id}
+	</select>
+	
+	<!-- 관리자 정보 조회 -->
+	<select id="getManager" resultType="manager">
+		SELECT * FROM manager
+		WHERE id=#{id}
+	</select>
+</mapper>

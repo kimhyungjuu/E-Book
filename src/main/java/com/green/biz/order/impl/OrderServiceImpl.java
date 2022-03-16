@@ -26,30 +26,30 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	/*
-	 * ÁÖ¹® ÀúÀå ÈÄ ÁÖ¹®¹øÈ£¸¦ ¹ÝÈ¯ÇÑ´Ù.
+	 * ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½.
 	 */
 	@Override
 	public int insertOrder(OrderVO vo) {
-		// (1) ÁÖ¹®¹øÈ£¸¦ ÇÒ´ç ¹Þ´Â´Ù.
+		// (1) ï¿½Ö¹ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ò´ï¿½ ï¿½Þ´Â´ï¿½.
 		int oseq = selectMaxOseq();
 		
-		// (2) À§ÀÇ ÁÖ¹®¹øÈ£¸¦ °¡Áö°í ÁÖ¹®À» »ý¼º
+		// (2) ï¿½ï¿½ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¹ï¿½ï¿½ ï¿½ï¿½
 		vo.setOseq(oseq);
 		oDao.insertOrder(vo);
 		
-		// (3) Àå¹Ù±¸´Ï ¸ñ·ÏÀ» ÀÐ¾î¼­ ÁÖ¹® »ó¼¼ ³»¿ªÀ» ÀúÀå
-		// (3-1) Àå¹Ù±¸´Ï ¸ñ·ÏÀ» ÀÐ¾î¿Â´Ù.
+		// (3) ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾î¼­ ï¿½Ö¹ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// (3-1) ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½Â´ï¿½.
 		List<CartVO> cartList = cartService.listCart(vo.getId());
 		
-		// (3-2) Àå¹Ù±¸´Ï ³»¿ªÀ» ÁÖ¹® »ó¼¼ Å×ÀÌºí¿¡ ÀúÀå
+		// (3-2) ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¹ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½
 		for (CartVO cartVO : cartList) {
 			OrderVO order = new OrderVO();
 			order.setOseq(oseq);
-			order.setBseq(cartVO.getBseq());		// Àå¹Ù±¸´ÏÀÇ »óÇ°¹øÈ£
+			order.setBseq(cartVO.getBseq());		// ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½È£
 			
 			insertOrderDetail(order);
 			
-			// Àå¹Ù±¸´Ï Å×ÀÌºí ¾÷µ¥ÀÌÆ®(Ã³¸®°á°ú¸¦ 'Ã³¸®¿Ï·á'·Î)
+			// ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½Æ®(Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ 'Ã³ï¿½ï¿½ï¿½Ï·ï¿½'ï¿½ï¿½)
 			cartService.updateCart(cartVO.getCseq());
 		}
 		
@@ -78,7 +78,10 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public List<OrderVO> listOrder(String key) {
-		
+
+	@Override
+	public List<OrderVO> listOrder(String key) {
+
 		return oDao.listOrder(key);
 	}
 
@@ -86,7 +89,6 @@ public class OrderServiceImpl implements OrderService {
 	public void updateOrderResult(int odseq) {
 		
 		oDao.updateOrderResult(odseq);
-		
 	}
 
 }
