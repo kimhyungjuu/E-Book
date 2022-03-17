@@ -165,6 +165,7 @@
 								<div id="reviews" class="container tab-pane fade">
 									
 								<form name="myform" id="myform" method="post" >
+								<input type="hidden" name="bseq" value="${productVO.bseq}">
 									<div class="reviews-submit">
 										<h4>책에 대한 리뷰를 남겨주세요! </h4>
 											<fieldset>
@@ -181,10 +182,11 @@
 											</fieldset>
 											<div class="row form">
 												<div class="col-sm-12">
-													<textarea placeholder="리뷰를 남겨주세요" id="review"></textarea>
+													<textarea placeholder="리뷰를 남겨주세요" name="content"></textarea>
 												</div>
 												<div class="col-sm-12">
-													<input type="button" value="리뷰작성" class="submit" id="review" onclick="location.href='post_save'">												
+													<input type="button" value="리뷰작성" class="submit" 
+															id="review" onclick="post_review()">												
 												</div>
 											</div>
 										</div>
@@ -194,27 +196,31 @@
 								 
 									<div class="reviews-submitted">
 										<form name="formm" id="theform" method="post">
-											<c:forEach items="${reviewList}" var="reviewVO">
+											
 												<c:choose>
-													<c:when test="${reviewList.size() == 0 }">
-														<h4 style="text-align: center;">리뷰가 없습니다.</h4>
+													<c:when test="${reviewList.size() > 0 }">
+														<c:forEach items="${reviewList}" var="reviewVO">
+														
+															<div class="reviewer">
+																${reviewVO.id} &nbsp;&nbsp; 
+																<span>${reviewVO.indate}</span> &nbsp;&nbsp;&nbsp;&nbsp; 
+																<input type="checkbox" name="rseq" value="${reviewVO.rseq }">
+																<a href="#" onclick="go_review_delete()"
+																	style="font-size: 14px;">삭제</a>
+																<br>
+															</div>
+															
+															<div class="rating ${reviewVO.rating}"></div>
+															<p>${reviewVO.content}</p>
+														</c:forEach>
 													</c:when>
 													<c:otherwise>
-													
-														<div class="reviewer">
-															${reviewVO.id} &nbsp; <span>${reviewVO.indate}</span> 
-															<input type="checkbox" name="rseq" value="${reviewVO.rseq }">
-															<a href="#" onclick="go_review_delete()"
-																style="font-size: 14px;">삭제</a><br>
-														</div>
-														<div class="ratting ${reviewVO.rating}"></div>
-														<p>${reviewVO.content}</p>
+														<h4 style="text-align: center;">리뷰가 없습니다.</h4>
 													</c:otherwise>
 												</c:choose>
-											</c:forEach>
-										</form>
-									</div>
-									
+												
+											</form>
+										</div>
 									
 								</div>
 								
@@ -230,4 +236,5 @@
 	</div>
 </div>
 <!-- Product Detail End -->
+
 <%@ include file="../footer.jsp"%>

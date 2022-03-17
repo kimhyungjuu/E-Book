@@ -4,7 +4,7 @@
 	<!-- 리뷰 등록 -->
 	<insert id="insertReview">
 		INSERT INTO review(rseq, id, bseq, rating, content)
-		VALUES(review_seq.NEXTVAL, #{id}, #{bseq}, #{rating}, #{content})
+		VALUES(review_seq.nextval, #{id}, #{bseq}, #{rating}, #{content})
 	</insert>
 	
 	<!-- 리뷰 조회 -->

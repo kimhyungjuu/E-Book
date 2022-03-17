@@ -2,6 +2,7 @@ package com.green.view;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,12 +42,14 @@ public class ProductController {
 		 
 		model.addAttribute("reviewList", reviewList);
 		
+		
 		return "product/product-detail";
 	}
 	
 	/* 리뷰작성 */
-	@RequestMapping(value="/post_save", method={RequestMethod.GET, RequestMethod.POST})
-	public String insertReview(ReviewVO vo, Model model, HttpSession session) {
+	@RequestMapping(value="/post_review_save", method={RequestMethod.GET, RequestMethod.POST})
+	public String insertReview(@RequestParam("bseq") int bseq ,ProductVO vo, ReviewVO rv, Model model,
+								HttpSession session, HttpServletRequest request) {
 		
 		// (1) 세션에 저장된 사용자 정보를 읽어 온다.
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
@@ -59,24 +62,40 @@ public class ProductController {
 			return "member/login";
 			
 		}else {
-			vo.setId(loginUser.getId());
-			
-			reviewService.insertReview(vo);			
+			rv.setId(loginUser.getId());
+		}
+			reviewService.insertReview(rv);
 
 			// (3) 리뷰 목록 조회하여 화면 표시
-			return "redirect:product-detail";
-		}
+			return "redirect:"+request.getHeader("Referer");
  	}
 	
+	
+	// 리뷰 삭제
 	@PostMapping(value="/review_delete")
-	public String reviewDelete(@RequestParam(value="rseq") int[] rseq) {
+	public String reviewDelete(@RequestParam(value="rseq") int[] rseq, HttpServletRequest request, 
+								ReviewVO rv, Model model, HttpSession session) {
 		
+		// (1) 세션에 저장된 사용자 정보를 읽어 온다.
+		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
+		
+		// (2) 로그인이 안되어 있으면 로그인, 
+		//		로그인 되어 있으면, 리뷰목록에서 리뷰 삭제
+		if (loginUser == null) {
+			model.addAttribute("msg", "로그인이 필요한 서비스입니다.");
+			
+			return "member/login";
+			
+		}else {
+			rv.setId(loginUser.getId());
+			
+		}
 		for(int i=0; i<rseq.length; i++) {
 			System.out.println(("삭제할 review rseq = ") + rseq[i]);
 			reviewService.deleteReview(rseq[i]);
 		}
 		
-		return "product/product-detail";
+		return "redirect:"+request.getHeader("Referer");
 	}
 	
 }

@@ -56,11 +56,13 @@
        AND rn > (#{criteria.pageNum}-1) * #{criteria.rowsPerPage}
     ]]>
 	</select>
+	
 <!-- 상품페이지용 -->
 	
 	<!-- 책 목록 조회 -->
 	<select id="listbook" parameterType="String" resultType="product"> 
-		SELECT bseq, regdate, title, author, price_rent, price, useyn FROM ebook 
+		SELECT bseq, regdate, title, author, price_rent, price, useyn 
+		FROM ebook 
 		WHERE title LIKE '%'||#{title}||'%' 
 		ORDER BY bseq DESC
 	</select>
