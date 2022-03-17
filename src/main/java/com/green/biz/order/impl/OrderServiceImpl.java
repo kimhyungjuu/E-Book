@@ -26,30 +26,30 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	/*
-	 * �ֹ� ���� �� �ֹ���ȣ�� ��ȯ�Ѵ�.
+	 * 占쌍뱄옙 占쏙옙占쏙옙 占쏙옙 占쌍뱄옙占쏙옙호占쏙옙 占쏙옙환占싼댐옙.
 	 */
 	@Override
 	public int insertOrder(OrderVO vo) {
-		// (1) �ֹ���ȣ�� �Ҵ� �޴´�.
+		// (1) 占쌍뱄옙占쏙옙호占쏙옙 占쌀댐옙 占쌨는댐옙.
 		int oseq = selectMaxOseq();
 		
-		// (2) ��� �ֹ���ȣ�� ����� �ֹ�� ��
+		// (2) 占쏙옙占� 占쌍뱄옙占쏙옙호占쏙옙 占쏙옙占쏙옙占� 占쌍뱄옙占� 占쏙옙
 		vo.setOseq(oseq);
 		oDao.insertOrder(vo);
 		
-		// (3) ��ٱ��� ���� �о �ֹ� �� ����� ����
-		// (3-1) ��ٱ��� ���� �о�´�.
+		// (3) 占쏙옙袂占쏙옙占� 占쏙옙占쏙옙 占싻어서 占쌍뱄옙 占쏙옙 占쏙옙占쏙옙占� 占쏙옙占쏙옙
+		// (3-1) 占쏙옙袂占쏙옙占� 占쏙옙占쏙옙 占싻억옙쨈占�.
 		List<CartVO> cartList = cartService.listCart(vo.getId());
 		
-		// (3-2) ��ٱ��� ����� �ֹ� �� ���̺� ����
+		// (3-2) 占쏙옙袂占쏙옙占� 占쏙옙占쏙옙占� 占쌍뱄옙 占쏙옙 占쏙옙占싱븝옙 占쏙옙占쏙옙
 		for (CartVO cartVO : cartList) {
 			OrderVO order = new OrderVO();
 			order.setOseq(oseq);
-			order.setBseq(cartVO.getBseq());		// ��ٱ����� ��ǰ��ȣ
+			order.setBseq(cartVO.getBseq());		// 占쏙옙袂占쏙옙占쏙옙占� 占쏙옙품占쏙옙호
 			
 			insertOrderDetail(order);
 			
-			// ��ٱ��� ���̺� ����Ʈ(ó����� 'ó���Ϸ�'��)
+			// 占쏙옙袂占쏙옙占� 占쏙옙占싱븝옙 占쏙옙占쏙옙트(처占쏙옙占쏙옙占� '처占쏙옙占싹뤄옙'占쏙옙)
 			cartService.updateCart(cartVO.getCseq());
 		}
 		
@@ -76,8 +76,6 @@ public class OrderServiceImpl implements OrderService {
 		return oDao.selectSeqOrdering(vo);
 	}
 
-	@Override
-	public List<OrderVO> listOrder(String key) {
 
 	@Override
 	public List<OrderVO> listOrder(String key) {

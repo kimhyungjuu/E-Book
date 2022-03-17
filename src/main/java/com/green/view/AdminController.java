@@ -1,4 +1,4 @@
-package com.green.biz;
+package com.green.view;
 
 import java.io.File;
 import java.io.IOException;
