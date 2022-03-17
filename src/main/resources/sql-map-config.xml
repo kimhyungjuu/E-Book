@@ -2,6 +2,7 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.green.biz.dto.ProductVO" alias="product"/>
@@ -9,37 +10,28 @@
 		<typeAlias type="com.green.biz.dto.ManagerVO" alias="manager"/>
 		<typeAlias type="com.green.biz.dto.MemberVO" alias="member"/>
 		<typeAlias type="com.green.biz.dto.QnaVO" alias="qna"/>
+		<typeAlias type="com.green.biz.dto.NoticeVO" alias="notice" />
+  	<typeAlias type="com.green.biz.dto.AddressVO" alias="address"/>
 		<typeAlias type="com.green.biz.dto.OrderVO" alias="order"/>
-		<typeAlias type="com.green.biz.dto.NoticeVO" alias="notice"/>
-		<typeAlias type="com.green.biz.dto.AddressVO" alias="address"/>
-		<typeAlias type="com.green.biz.dto.CartVO" alias="cart"/>
+    <typeAlias type="com.green.biz.dto.CartVO" alias="cart"/>
+  </typeAliases> 
 
-		
-  		
-  	</typeAliases> 
+  	
+  	<!--  SQL 매핑파일 등록 -->
+  	<mappers>
+      <mapper resource="mappings/cart-mapping.xml" />
+      <mapper resource="mappings/order-mapping.xml"/>	
+      <mapper resource="mappings/product-mapping.xml" />
+      <mapper resource="mappings/admin-mapping.xml" />
+      <mapper resource="mappings/member-mapping.xml" />
+      <mapper resource="mappings/qna-mapping.xml" />
+      <mapper resource="mappings/notice-mapping.xml" />
+      <mapper resource="mapping/review-mapping.xml"/>
+    </mappers>
 
-
-	
-	<!--  SQL 매핑파일 등록 -->
-	<mappers>
-		<mapper resource="mapping/cart-mapping.xml"/>
-		<mapper resource="mapping/order-mapping.xml"/>
-		<mapper resource="mappings/product-mapping.xml"/>
-		<mapper resource="mapping/review-mapping.xml"/>
-		<mapper resource="mappings/admin-mapping.xml"/>
-		<mapper resource="mappings/member-mapping.xml"/>
-		<mapper resource="mappings/qna-mapping.xml"/>
-		<mapper resource="mappings/order-mapping.xml"/>
-		<mapper resource="mappings/notice-mapping.xml"/>
-	</mappers>
-</configuration>
-
-
-
-
-
-
-
-
-
-
+ </configuration>
+ 
+ 
+ 
+ 
+ 

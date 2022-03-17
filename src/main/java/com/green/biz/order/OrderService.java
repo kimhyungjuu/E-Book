@@ -19,6 +19,5 @@ public interface OrderService {
 	public List<OrderVO> listOrder(String key);
 	
 	public void updateOrderResult(int odseq);
-
 }
 
