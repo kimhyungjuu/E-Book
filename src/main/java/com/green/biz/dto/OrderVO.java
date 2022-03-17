@@ -20,10 +20,8 @@ public class OrderVO {
 	private String address;
 	private String phone;
 	private int bseq;
-	private String bname;
-	private String name;
-	private String phone;
 	private String title;
+	private String author;
 	private int quantity;
 	private int price_rent;
 	private int price;

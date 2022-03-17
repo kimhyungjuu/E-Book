@@ -20,8 +20,5 @@ public interface OrderService {
 	
 	public void updateOrderResult(int odseq);
 
-	public List<OrderVO> listOrder(String key);
-	
-	public void updateOrderResult(int odseq) ;
 }
 

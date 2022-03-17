@@ -53,8 +53,6 @@ public class MemberServiceImpl implements MemberService {
 		return mDao.listMember(name);
 	}
 
-	public List<MemberVO> listMember(String name) {
-		return mDao.listMember(name);
-	}
+
 
 }

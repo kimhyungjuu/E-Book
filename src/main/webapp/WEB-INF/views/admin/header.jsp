@@ -59,7 +59,7 @@
                     <div class="col-md-3">
                         <div class="logo">
                                 <img src="img/logo.png" alt="Logo">
-                            </a>
+                           
                         </div>
                     </div>                  
                 </div>
