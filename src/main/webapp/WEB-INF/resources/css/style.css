@@ -5,19 +5,28 @@ body {
     color: #353535;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-    background: #f3f6ff;
 }
 
 a {
-    color: #FF6F61;
+    color: #000;
 }
 
 a:hover,
 a:active,
 a:focus {
-    color: #353535;
+    color: #FF6F61;
     outline: none;
     text-decoration: none;
+}
+
+span:hover {
+	outline: none;
+    text-decoration: none;
+}
+
+.category_nav:hover {
+    cursor: pointer;
+    color: #FF6F61;
 }
 
 h1 {
@@ -30,11 +39,46 @@ h2 {
     font-weight: 700;
 }
 
+h4 {
+    border-bottom: 2px solid #d7d7d7;
+    padding: 10px;
+    font-weight: 800;
+}
+
+p {
+    margin: 10px;
+}
+
 @media(min-width: 992px) {
     .container-fluid {
         padding-right: 60px;
         padding-left: 60px;
     }
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    /* padding-left: 15px; */
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.product-wrap {
+	display: flex;
+    min-width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+.col-md-9 {
+    padding-right: 15%;
 }
 
 
@@ -261,7 +305,6 @@ h2 {
     color: #353535;
     background: #f8f9fa;
 }
-
 @media (min-width: 768px) {
     .nav,
     .nav .navbar {
@@ -303,6 +346,41 @@ h2 {
     }
 }
 
+/***************************************/
+/*********** Nav DropDown CSS **********/
+/***************************************/
+/* 이미지 체크박스 */
+.menu input[type=checkbox]{
+    display: none;
+}
+.menu input[type=checkbox]+label{
+    padding-left: 25px;
+    background-repeat: no-repeat;
+}
+.menu input[type=checkbox]+collapsible{
+    font-weight: bold;
+}
+/* 메뉴 목록*/
+.menu .menuitems{
+     display: none;
+}
+.menu .menuitems{
+    list-style: none;
+}
+.menu .menuitems li{
+    padding: 5px;
+    margin: 0 0px;
+}
+.menu .menuitems li a{
+    font-size: 12px;
+    line-height: 20px;
+    color: #444;
+}
+/* 메뉴 펼침 - 체크박스 체크되면 메뉴목록 표시 */
+.menu input[type=checkbox]:checked~.menuitems{
+    display: block;
+    float: left;
+}
 
 /**********************************/
 /********* Bottom Bar CSS *********/
@@ -310,7 +388,7 @@ h2 {
 .bottom-bar {
     padding: 15px 0;
     background: #ffffff;
-    margin-bottom: 30px;
+    /*margin-bottom: 30px;*/
 }
 
 .bottom-bar .logo {
@@ -573,6 +651,7 @@ h2 {
     position: relative;
     padding: 0 15px;
     margin-bottom: 30px;
+    flex-direction: row-reverse;
 }
 
 .category .col-md-3 {
@@ -679,14 +758,45 @@ h2 {
 /**********************************/
 /******** Product Item CSS ********/
 /**********************************/
+
+/* Product-Detail Price Table */
+table.price_table.normal_price_table {
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 1px solid #d7d7d7;
+    border-bottom: 1px solid #d7d7d7;
+}
+
+th.price_title {
+    width: 27.5%;
+    text-align: center;
+    border-right: 1px solid #d7d7d7;
+}
+
+td.price_type {
+    text-align: left;
+    width: 27%;
+}
+
+td.book_price {
+    text-align: right;
+    width: 25%;
+}
+
+
+
+#key {
+	float-left: auto;
+}
 .product-item {
     position: relative;
+    margin: 0px 20px;
+    width: 200px;
 }
 
 .product-item .product-title {
-    padding: 15px;
+    padding-left: 150px;
     text-align: center;
-    background: #000000;
     transition: all .3s;
 }
 
@@ -741,6 +851,8 @@ h2 {
 .product-item .product-image img {
     width: 100%; 
     transition: all .3s;
+	height: 300px;
+	border: 1px solid #adb5bd;
 }
 
 .product-item:hover .product-image img {
@@ -910,6 +1022,16 @@ h2 {
 /**********************************/
 /******** Product View CSS ********/
 /**********************************/
+
+/* Product 일렬 3개씩 목록 정렬 */
+div#prodcuct-wrap {
+    margin: 0 15px 0 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .product-view {
     position: relative;
     width: 100%;
@@ -920,11 +1042,13 @@ h2 {
     padding: 30px;
     margin-bottom: 30px;
     background: #ffffff;
+    border: 1px solid #000;
 }
 
 .product-view .product-search {
     position: relative;
     width: 100%;
+    margin-left: 15px;
 }
 
 .product-view .product-search input {
@@ -969,7 +1093,8 @@ h2 {
 .product-view .product-price-range {
     position: relative;
     width: 100%;
-    text-align: right;
+    text-align: center;
+   	margin-left: 30px;
 }
 
 .product-view .product-short .dropdown .dropdown-toggle,
@@ -1034,6 +1159,11 @@ h2 {
 /**********************************/
 /******* Product Detail CSS *******/
 /**********************************/
+
+.fade:not(.show) {
+    opacity: 1;
+}
+
 .product-detail {
     position: relative;
     width: 100%;
@@ -1051,7 +1181,10 @@ h2 {
 }
 
 .product-detail .product-slider-single img {
-    width: 100%;
+    width: 240px;
+    position: relative;
+    left: 0px;
+    top: 0px;
 }
 
 .product-detail .product-slider-single-nav {
@@ -1095,8 +1228,9 @@ h2 {
 }
 
 .product-detail .product-content .title h2 {
-    font-size: 25px;
-    margin-bottom: 5px;
+    font-size: 30px;
+    line-height: 1.3em;
+    color: #333;
 }
 
 .product-detail .product-content .ratting {
@@ -1134,11 +1268,6 @@ h2 {
     margin: 0;
 }
 
-.product-detail .product-content .price span {
-    color: #999999;
-    text-decoration: line-through;
-    margin-left: 12px;
-}
 
 .product-detail .product-content .quantity .qty {
     display: inline-block;
@@ -1178,13 +1307,9 @@ h2 {
     margin-right: 11px;
 }
 
-.product-detail .product-content .action a i {
-    margin-right: 5px;
-}
-
 .product-detail .nav.nav-pills .nav-link {
-    color: #FF6F61;
-    background: #000000;
+    background: #fff;
+    border: 1px solid #d7d7d7;
     border-radius: 0;
     transition: all .3s;
 }
@@ -1192,12 +1317,18 @@ h2 {
 .product-detail .nav.nav-pills .nav-link:hover,
 .product-detail .nav.nav-pills .nav-link.active {
     color: #000000;
-    background: #FF6F61;
+    font-weight: 800;
 }
 
 .product-detail .tab-content {
     background: #ffffff;
-    padding: 25px 15px 15px 15px;
+    padding: 25px 15px 15px 0px;
+}
+
+.tab-content>.tab-pane {
+    margin-bottom: 50px;
+    display: block;
+    padding-left: 0;
 }
 
 .product-detail .tab-content ul {
@@ -1210,12 +1341,14 @@ h2 {
     margin-bottom: 10px;
 }
 
+/* -> 기호
 .product-detail .tab-content ul li::before {
     content: '\f061';
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     padding-right: 5px;
 }
+*/
 
 .product-detail .tab-content .reviews-submitted {
     position: relative;
@@ -1264,7 +1397,7 @@ h2 {
 }
 
 .product-detail .tab-content .form button {
-    display: inline-block;
+    /* display: inline-block; */
     height: 35px;
     padding: 0 15px;
     color: #FF6F61;
@@ -1273,6 +1406,7 @@ h2 {
     border-radius: 4px;
     margin-bottom: 15px;
     transition: all .3s;
+	float: right;
 }
 
 .product-detail .tab-content .form button:hover {
@@ -1280,17 +1414,25 @@ h2 {
     background: #FF6F61;
 }
 
-
 /**********************************/
 /********** Sidebar CSS ***********/
 /**********************************/
-.sidebar-widget {
+.col-lg-4.sidebar {
+    flex: 0 0 23%;
+    max-width: 25%;
+	}
+
+.sidebar-wrap {
+	border: 1px solid #000;
+}
+
+.sidebar-widget {	
     padding: 30px;
     background: #ffffff;
 }
 
 .sidebar-widget:not(:first-child) {
-    padding-top: 0;
+    padding-top: 0px;
 }
 
 .sidebar-widget .title {
@@ -1815,7 +1957,7 @@ h2 {
 /**********************************/
 .my-account {
     position: relative;
-    padding: 30px 0;
+    padding: 20px 0;
 }
 
 .my-account .nav.nav-pills .nav-link {
@@ -2129,6 +2271,10 @@ h2 {
 /**********************************/
 /********** Contact CSS ***********/
 /**********************************/
+#notice_board {
+    margin-bottom: 30px;
+}
+
 .contact {
     position: relative;
     padding-top: 30px;
@@ -2394,3 +2540,4 @@ h2 {
         text-align: center; 
     } 
 }
+

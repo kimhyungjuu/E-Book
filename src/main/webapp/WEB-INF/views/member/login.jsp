@@ -16,7 +16,10 @@
         <div id="buttons">
             <input type="submit" value="로그인" class="submit">
             <input type="button" value="회원가입" class="cancel"
+
                  onclick="location='contract'"> 
+
+
         </div>
     </form>  
   </article>

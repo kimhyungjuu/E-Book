@@ -30,7 +30,5 @@ public interface MemberService {
 	
 	
 	public List<MemberVO> listMember(String name);
-
-
 }
 

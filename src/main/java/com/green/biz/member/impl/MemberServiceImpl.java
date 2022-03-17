@@ -52,7 +52,4 @@ public class MemberServiceImpl implements MemberService {
 		
 		return mDao.listMember(name);
 	}
-
-
-
 }
