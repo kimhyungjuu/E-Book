@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/windows,eclipse,java
-# Edit at https://www.toptal.com/developers/gitignore?templates=windows,eclipse,java
+# Created by https://www.toptal.com/developers/gitignore/api/windows,java,eclipse
+# Edit at https://www.toptal.com/developers/gitignore?templates=windows,java,eclipse
 
 ### Eclipse ###
 .metadata
@@ -37,7 +37,7 @@ local.properties
 .buildpath
 
 # sbteclipse plugin
-target/
+.target
 
 # Tern plugin
 .tern-project
@@ -66,7 +66,6 @@ target/
 
 ### Eclipse Patch ###
 # Spring Boot Tooling
-.project
 .sts4-cache/
 
 ### Java ###
@@ -121,5 +120,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-.classpath
-# End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java
+# End of https://www.toptal.com/developers/gitignore/api/windows,java,eclipse

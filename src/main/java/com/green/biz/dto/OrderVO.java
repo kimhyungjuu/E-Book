@@ -22,7 +22,6 @@ public class OrderVO {
 	private int bseq;
 	private String bname;
 	private String name;
-	private String phone;
 	private String title;
 	private int quantity;
 	private int price_rent;

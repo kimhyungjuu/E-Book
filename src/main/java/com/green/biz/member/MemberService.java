@@ -8,32 +8,27 @@ import com.green.biz.dto.MemberVO;
 
 public interface MemberService {
 
-	// È¸¿ø »ó¼¼Á¤º¸ Á¶È¸
+	// 횊쨍쩔첩 쨩처쩌쩌횁짚쨘쨍 횁쨋횊쨍
 	MemberVO getMember(String id);
 
-	// È¸¿ø Á¸Àç¿©ºÎ È®ÀÎ
+	// 횊쨍쩔첩 횁쨍�챌쩔짤쨘횓 횊짰�횓
 	/*
-	 *  ¸®ÅÏ °ª : 
-	 *  		È¸¿øÀÌ Á¸ÀçÇÏ¸é : 1
-	 *  		Á¸ÀçÇÏÁö ¾ÊÀ¸¸é : -1
+	 *  쨍짰횇횕 째짧 : 
+	 *  		횊쨍쩔첩�횑 횁쨍�챌횉횕쨍챕 : 1
+	 *  		횁쨍�챌횉횕횁철 쩐횎�쨍쨍챕 : -1
 	 */
 	int confirmID(String id);
 	
-	// »ç¿ëÀÚ ÀÎÁõ
+	// 쨩챌쩔챘�횣 �횓횁천
 	public int loginID(MemberVO vo);
 
-	// È¸¿ø µî·Ï
+	// 횊쨍쩔첩 쨉챤쨌횕
 	void insertMember(MemberVO vo);
 	
-	// µ¿ÀÌ¸§À¸·Î ÁÖ¼Ò Ã£±â
+	// 쨉쩔�횑쨍짠�쨍쨌횓 횁횜쩌횘 횄짙짹창
 	public List<AddressVO> selectAddressByDong(String dong);
 	
 	public List<MemberVO> listMember(String name);
 
-
-
-
-	// È¸¿ø ¸ñ·Ï Á¶È¸
-	public List<MemberVO> listMember(String name);
 }
 
