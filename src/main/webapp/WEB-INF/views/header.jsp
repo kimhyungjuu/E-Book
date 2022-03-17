@@ -18,8 +18,12 @@
         <!-- CSS Libraries -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
         <link href="lib/slick/slick.css" rel="stylesheet">
         <link href="lib/slick/slick-theme.css" rel="stylesheet">
+        
+        <script type="text/javascript" src="member/member.js"></script>
+        <script type="text/javascript" src="mypage/mypage.js"></script>
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
@@ -41,24 +45,28 @@
                             <a href="index" class="nav-item nav-link">홈</a>
                             <c:choose>
        						<c:when test="${empty sessionScope.loginUser}">
-       						
-                            <a href="login_form" class="nav-item nav-link active">LOGIN(CUSTOMER</a>
-                            <a href="admin_login_form" style="width:100px;">| ADMIN)</a>
-                            <a href="contract" class="nav-item nav-link">회원가입</a>
+       						<li>
+                            <a href="login_form" class="nav-item nav-link active">LOGIN(CUSTOMER</a> 
+                                <a href="admin_login_form" class="nav-item nav-link active">| ADMIN)</a>
+                            </li>
+                            <li></li>
+                            <li><a href="contract" class="nav-item nav-link">회원가입</a></li>
                             </c:when>
                             <c:otherwise>
-                            <span>${sessionScope.loginUser.name}(${sessionScope.loginUser.id})</span>
-                            <a href="logout">LOGOUT</a>
-                            <a href="cart" class="nav-item nav-link">장바구니</a>
-                           </c:otherwise>       
+                            <li>
+                            ${sessionScope.loginUser.name}(${sessionScope.loginUser.id})
+                            </li>
+                            <li><a href="logout">LOGOUT</a></li>
+                            </c:otherwise>       
        						</c:choose>
+                            <li><a href="cart" class="nav-item nav-link">장바구니</a></li>
                             <div class="nav-item dropdown">
                                 <a href="mypage.html" class="nav-link dropdown-toggle" data-toggle="dropdown">마이페이지</a>
                                 <div class="dropdown-menu">
-                                    <a href="mybook.html" class="dropdown-item">내 서재</a>
-                                    <a href="wishlist.html" class="dropdown-item">위시리스트</a>
-                                    <a href="orderlist.html" class="dropdown-item">주문 목록</a>
-                                    <a href="my-account.html" class="dropdown-item">회원정보 변경</a>
+                                    <a href="mybook" class="dropdown-item">내 서재</a>
+                                    <a href="wishlist" class="dropdown-item">위시리스트</a>
+                                    <a href="orderlist" class="dropdown-item">주문 목록</a>
+                                    <a href="my-account" class="dropdown-item">회원정보 변경</a>
                                 </div>
                                 
                             </div>

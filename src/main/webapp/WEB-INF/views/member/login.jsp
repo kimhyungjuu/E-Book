@@ -12,13 +12,14 @@
           <label>Password</label> 
           <input name="pwd" type="password"><br> 
         </fieldset>
-        <div class="clear"></div>
+        <div class="clear" style="text-align:center;"></div>
         <div id="buttons">
             <input type="submit" value="로그인" class="submit">
             <input type="button" value="회원가입" class="cancel"
-                 onclick="location='contract'">
-            <input type="button" value="아이디 /비밀번호 찾기" class="submit"
-                 onclick="find_id_form()">     
+
+                 onclick="location='contract'"> 
+
+
         </div>
     </form>  
   </article>

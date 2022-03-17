@@ -16,7 +16,7 @@ public class CartVO {
 	private int bseq;
 	private String result;
 	private String mname;
-	private String bname;
+	private String title;
 	private int price;
 	private int price_rent;
 	private Timestamp indate;

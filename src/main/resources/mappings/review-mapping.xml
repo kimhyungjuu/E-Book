@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappings.review-mapping">
+	<!-- 리뷰 등록 -->
+	<insert id="insertReview">
+		INSERT INTO review(rseq, id, bseq, rating, content)
+		VALUES(review_seq.nextval, #{id}, #{bseq}, #{rating}, #{content})
+	</insert>
+	
+	<!-- 리뷰 조회 -->
+	<select id="listReview" resultType="review">
+		SELECT * FROM review
+		WHERE bseq=#{bseq}
+	</select>
+	
+	<!-- 리뷰 삭제는 실제 review 테이블이 대상 -->
+	<delete id="deleteReview" parameterType="int">
+		DELETE FROM review
+		WHERE rseq=#{rseq}
+	</delete>
+	
+	<!-- 리뷰목록 업데이트 -->
+	<update id="updateReview">
+		UPDATE review
+		   SET rseq=#{rseq}
+		 WHERE bseq=#{bseq}   
+	</update>
+</mapper>

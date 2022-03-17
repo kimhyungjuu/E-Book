@@ -10,15 +10,18 @@ import lombok.ToString;
 @Setter
 @ToString
 public class ProductVO {
+	
 	private int bseq;
 	private String title;
 	private String category;
-	private int price_rent;
 	private int price;
+	private int price_rent;
 	private String content;
 	private String image;
-	private char useyn;
-	private char likeyn;
+	private String useyn;
+	private String likeyn;
 	private Timestamp regdate;
 	private String author;
+	//TODO: DB추가필요
+	private int rseq;
 }

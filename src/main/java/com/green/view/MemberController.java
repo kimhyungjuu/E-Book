@@ -60,7 +60,7 @@ public class MemberController {
 		
 		status.setComplete();		// 세션을 종료
 		
-		return "member/login";
+		return "index";
 	}
 	
 	@GetMapping(value="/contract")

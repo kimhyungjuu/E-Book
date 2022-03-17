@@ -28,6 +28,7 @@ public interface MemberService {
 	// 쨉쩔�횑쨍짠�쨍쨌횓 횁횜쩌횘 횄짙짹창
 	public List<AddressVO> selectAddressByDong(String dong);
 	
+
 	public List<MemberVO> listMember(String name);
 
 }

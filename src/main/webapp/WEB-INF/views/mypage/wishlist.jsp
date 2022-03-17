@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -21,6 +22,13 @@
         </div>
         <!-- Breadcrumb End -->
         
+        <c:choose>
+        <c:when test= "${wishlist.size() == 0}">
+      		<h3 style="color: red;text-align: center;"> 위시리스트가 비었습니다. </h3> 
+    	</c:when>
+    	<c:otherwise>
+    	</c:otherwise>
+    	</c:choose>
         <!-- Wishlist Start -->
         <div class="wishlist-page">
             <div class="container-fluid">
@@ -33,32 +41,31 @@
                                         <tr>
                                             <th>Product</th>
                                             <th>Price</th>
-                                            
                                             <th>Add to Cart</th>
                                             <th>Remove</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="align-middle">
+                                    <c:forEach items="${wishList}"  var="cartVO">
                                         <tr>
                                             <td>
                                                 <div class="img">
-                                                    <a href="#"><img src="img/product-6.jpg" alt="Image"></a>
-                                                    <p>Product Name</p>
+                                                    <a href="product_detail?bseq=${cartVO.bseq}">
+              										<span> ${cartVO.title} </span>              
+            										</a>    
                                                 </div>
                                             </td>
-                                            <td>$99</td>
-                                            <td>
-                                                <div class="qty">
-                                                    <button class="btn-minus"><i class="fa fa-minus"></i></button>
-                                                    <input type="text" value="1">
-                                                    <button class="btn-plus"><i class="fa fa-plus"></i></button>
-                                                </div>
-                                            </td>
-                                            <td><button class="btn-cart">Add to Cart</button></td>
-                                            <td><button><i class="fa fa-trash"></i></button></td>
+                                            <td>${cartVO.price} </td>
+
+                                            <td><button class="btn-cart" onclick="go_cart()">Add to Cart</button></td>
+                                            <td><input type="checkbox" name="cseq" value= "${cartVO.cseq}"></td>
                                         </tr>
-                                        
-                                    </tbody>
+                                        </c:forEach>
+                                   <tr>        
+          <th colspan="2"> 총 액 </th>
+          <th colspan="2"> 
+            <fmt:formatNumber value="${totalPrice}" type="currency"/><br>
+          </th> 
+          <th><a href="#" onclick="go_wishlist_delete()"><h3>삭제하기</h3></a></th> 
                                 </table>
                             </div>
                         </div>

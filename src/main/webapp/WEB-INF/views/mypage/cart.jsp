@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ include file="../header.jsp" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -17,9 +19,11 @@
         
         <c:choose>
         <c:when test= "${cart.size() == 0}">
-      <h3 style="color: red;text-align: center;"> 장바구니가 비었습니다. </h3> 
-    </c:when>
-    <c:otherwise>
+      		<h3 style="color: red;text-align: center;"> 장바구니가 비었습니다. </h3> 
+    	</c:when>
+    	<c:otherwise>
+    	</c:otherwise>
+    	</c:choose>
         
         <!-- Cart Start -->
         <div class="cart-page">
@@ -38,13 +42,13 @@
                                         </tr>
                                     </thead>
                                     
-                                    <c:forEach items="${cartList}"  var="cartVO" class="align-middle">
+                                    <c:forEach items="${cartList}"  var="cartVO">
                                         <tr>
                                             <td>
                                                 <div class="img">
                                                     
-                                                    <a href="product_detail?pseq=${cartVO.pseq}">
-              										<h3> ${cartVO.bname} </h3>              
+                                                    <a href="product_detail?bseq=${cartVO.bseq}">
+              										<span> ${cartVO.bname} </span>              
             										</a>    
                                                 </div>
                                             </td>
@@ -53,7 +57,7 @@
                                             
                                             <td>${cartVO.price} </td>
                                             <td> <fmt:formatDate value="${cartVO.indate}" type="date"/></td>
-                                            <td><input type="checkbox" name="cseq" value= "${cartVO.cseq}" class="fa fa-trash"></td>
+                                            <td><input type="checkbox" name="cseq" value= "${cartVO.cseq}"></td>
                                         </tr>
                                         
                                     </c:forEach>
@@ -71,16 +75,13 @@
                                     <div class="cart-summary">
                                         <div class="cart-content">
                                             <h1>총액</h1>
-                                           <th colspan="2"> 
-            							<fmt:formatNumber value="${totalPrice}" type="currency"/><br>
-          								</th> 
-          								 <th><a href="#" onclick="go_cart_delete()"><h1>삭제하기</h1></a></th>
+                                        <span> 
+            							<fmt:formatNumber value="${totalPrice}" type="currency"/>
+          								</span> 
+          								 <span><a href="#" onclick="go_cart_delete()"><h3>삭제하기</h3></a></span>
           								  
                                         </div>
-                                        
-                                        </c:otherwise>  
-    									</c:choose> 
-    
+
                                         <div class="cart-btn">
                                             <input type="button" value="쇼핑 계속하기" class="cancel" onclick="location.href='index'">    
       								<c:if test= "${cartList.size() != 0}">
