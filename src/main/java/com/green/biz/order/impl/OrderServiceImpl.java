@@ -76,8 +76,6 @@ public class OrderServiceImpl implements OrderService {
 		return oDao.selectSeqOrdering(vo);
 	}
 
-	@Override
-	public List<OrderVO> listOrder(String key) {
 
 		return oDao.listOrder(key);
 	}
