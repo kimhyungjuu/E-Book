@@ -24,4 +24,5 @@ public class ProductVO {
 	private String author;
 	//TODO: DB추가필요
 	private int rseq;
+	private int ratingAvg;
 }

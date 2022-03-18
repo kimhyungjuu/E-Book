@@ -2,6 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
 <link rel="stylesheet" href="css/review.css" />
+<script type="text/javascript" src="mypage/mypage.js"></script>
+<script type="text/javascript" src="product/product-detail.js"></script>
+<script src="/js/jquery.twbsPagination.js"></script> <!-- jQuery --> <script src="/js/jquery-3.6.0.min.js"></script> <!-- Bootstrap --> <script src="/js/bootstrap.min.js"></script> <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
 
 <!-- Breadcrumb Start -->
 <div class="breadcrumb-wrap">
@@ -72,11 +76,7 @@
 							</div>
 							
 								<div class="ratting">
-									<i class="fa fa-star"></i> 
-									<i class="fa fa-star"></i> 
-									<i class="fa fa-star"></i> 
-									<i class="fa fa-star"></i> 
-									<i class="fa fa-star"></i>
+									<div class="ratting ${productVO.ratingAvg}"></div>
 								</div>
 								
 								<hr>
@@ -124,8 +124,8 @@
 								<div class="action">
 									<a class="btn" href="#"><i class="fa fa-heart" onclick="go_wishlist()"></i></a>
 									<a class="btn" href="#"><i class="fa fa-shopping-cart" onclick="go_cart()"></i></a> 
-									<a class="btn" href="#">구매하기</a>
-									<a class="btn" href="#">대여하기</a>
+									<a class="btn" href="#"><i class="buy" onlick="go_buy">구매하기</i></a>
+									<a class="btn" href="#"><i class="buy" onlick="go_rent">대여하기</i></a>
 								</div>
 							</div>
 						</div>
@@ -168,7 +168,7 @@
 								<input type="hidden" name="bseq" value="${productVO.bseq}">
 									<div class="reviews-submit">
 										<h4>책에 대한 리뷰를 남겨주세요! </h4>
-											<fieldset>
+											<fieldset id="starchoice" class="rating">
 												<input type="radio" name="rating" value="5" id="rate5">
 												<label for="rate5">★</label>
 												<input type="radio" name="rating" value="4" id="rate4">
@@ -181,8 +181,8 @@
 												<label for="rate1">★</label>
 											</fieldset>
 											<div class="row form">
-												<div class="col-sm-12">
-													<textarea placeholder="리뷰를 남겨주세요" name="content"></textarea>
+												<div class="col-sm-12" id="content">
+													<textarea placeholder="리뷰를 남겨주세요" name="content" ></textarea>
 												</div>
 												<div class="col-sm-12">
 													<input type="button" value="리뷰작성" class="submit" 
@@ -210,15 +210,17 @@
 																<br>
 															</div>
 															
-															<div class="rating ${reviewVO.rating}"></div>
-															<p>${reviewVO.content}</p>
+															<div class="ratting ${reviewVO.rating}"></div>
+															<p>${reviewVO.content}</p><br>
+														
 														</c:forEach>
 													</c:when>
 													<c:otherwise>
-														<h4 style="text-align: center;">리뷰가 없습니다.</h4>
+														<h4 style="text-align: center;">리뷰가 없습니다.</h4><br>
 													</c:otherwise>
 												</c:choose>
-												
+												 <hr>
+
 											</form>
 										</div>
 									
