@@ -10,7 +10,7 @@
 		<!-- Side Bar Start -->
 			<div class="col-lg-4 sidebar">
 				<div class="sidebar-widget brands">
-					<h2 class="title">베스트 셀러</h2>
+					<h2 class="title">베스트 도서</h2>
 					<ul>
 						<li><a href="category?category=1">소설</a></li>
 						<li><a href="category?category=2">경영/경제 </a></li>
@@ -23,18 +23,16 @@
 
 				<div class="sidebar-widget tag">
 					<h2 class="title">Tags Cloud</h2>
-					<a href="#">Lorem ipsum</a> 
-					<a href="#">Vivamus</a> 
-					<a href="#">Phasellus</a>
-					<a href="#">pulvinar</a> 
-					<a href="#">Curabitur</a> 
-					<a href="#">Fusce</a>
-					<a href="#">Sem quis</a> 
-					<a href="#">Mollis metus</a> 
-					<a href="#">Sitamet</a> 
-					<a href="#">Vel posuere</a> 
-					<a href="#">orci luctus</a> 
-					<a href="#">Nam lorem</a>
+					<a href="#">감동적인</a> 
+					<a href="#">슬픈</a> 
+					<a href="#">화나는</a>
+					<a href="#">스릴있는</a> 
+					<a href="#">정적인</a> 
+					<a href="#">기분좋은</a>
+					<a href="#">돈</a> 
+					<a href="#">공부</a> 
+					<a href="#">명언</a> 
+					<a href="#">재미있는</a> 
 				</div>
 			</div>
 			<!-- Side Bar End -->
@@ -106,8 +104,8 @@
 									<img src="ebook-image/${productVO.image}" />
 								</a>
 								<div class="product-action">
-									<a href="#"><i class="fa fa-cart-plus"></i></a> 
-									<a href="#"><i class="fa fa-heart"></i></a> 
+									<a href="#"><i class="fa fa-cart-plus" onclick="go_cart()"></i></a> 
+									<a href="#"><i class="fa fa-heart" onclick="go_wishlist()"></i></a> 
 									<a href="product-detail?bseq=${productVO.bseq}"><i class="fa fa-search"></i></a>
 								</div>
 							</div>
@@ -144,14 +142,12 @@
 							</a>
 
 							<div class='reviewStat'>
-								<span class='title'>평점</span> <span class='starRateWrap'>
-									<span class='starRate' style='width: 98%'>9.8</span>
-								</span> <em class='rateNumber'>9.8</em>
+								<span class='title'>평점 </span> 
+								<span class='starRateWrap'>
+									<div class="ratting ${productVO.ratingAvg}"></div>
+								</span> 
 							</div>
-
-							<div class="saleIndex">
-								<span class="title">판매지수</span> <em class="indexNumber">209,564</em>
-							</div>
+							
 						</div>
 						</c:forEach>
 					</div>

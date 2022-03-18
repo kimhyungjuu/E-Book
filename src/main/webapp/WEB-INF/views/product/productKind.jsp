@@ -1,4 +1,4 @@
-  <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
         
@@ -63,7 +63,7 @@
 										<div class="dropdown">
 											<div class="dropdown-toggle" data-toggle="dropdown">도서분류</div>
 											<div class="dropdown-menu dropdown-menu-right">
-												<a href="#" class="dropdown-item">일별베스트</a> 
+												<a href="#" class="dropdown-item">일별 베스트</a> 
 												<a href="#" class="dropdown-item">주별 베스트</a> 
 												<a href="#" class="dropdown-item">월별 베스트</a>
 											</div>
@@ -88,7 +88,6 @@
 
 					<!-- Book List Start -->
 					
-				<form  method="post" name="formm" id="theform">  
 					<div id="prodcuct-wrap">
 					 <c:forEach items="${productKindList}"  var="productVO">
 						<div class="product-item">
@@ -107,8 +106,8 @@
 									<img src="ebook-image/${productVO.image}" />
 								</a>
 								<div class="product-action">
-									<a href="#"><i class="fa fa-cart-plus"></i></a> 
-									<a href="#"><i class="fa fa-heart"></i></a> 
+									<a href="#"><i class="fa fa-cart-plus" onclick="go_cart()"></i></a> 
+									<a href="#"><i class="fa fa-heart" onclick="go_wishlist()"></i></a> 
 									<a href="product-detail?bseq=${productVO.bseq}"><i class="fa fa-search"></i></a>
 								</div>
 							</div>
@@ -145,18 +144,15 @@
 							</a>
 
 							<div class='reviewStat'>
-								<span class='title'>평점</span> <span class='starRateWrap'>
-									<span class='starRate' style='width: 98%'>9.8</span>
-								</span> <em class='rateNumber'>9.8</em>
+								<span class='title'>평점 </span> 
+								<span class='starRateWrap'>
+									<div class="ratting ${productVO.ratingAvg}"></div>
+								</span> 
 							</div>
-
-							<div class="saleIndex">
-								<span class="title">판매지수</span> <em class="indexNumber">209,564</em>
-							</div>
+							
 						</div>
 						</c:forEach>
 					</div>
-				</form>
 					<!-- BookList ENd -->
 					
 				</div>

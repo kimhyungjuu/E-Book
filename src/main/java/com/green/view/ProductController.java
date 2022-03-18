@@ -20,6 +20,9 @@ import com.green.biz.dto.ReviewVO;
 import com.green.biz.product.ProductService;
 import com.green.biz.product.ReviewService;
 
+import utils.Criteria;
+import utils.PageMaker;
+
 
 @Controller
 public class ProductController {
@@ -31,25 +34,27 @@ public class ProductController {
 	
 	//@RequestMapping(value="/product_detail", method=RequestMethod.GET)
 	@GetMapping(value="/product-detail")
-	public String productDetailAction(ProductVO vo, Model model, ReviewVO rv) {
+	public String productDetailAction(ProductVO vo, ReviewVO rv, Model model, 
+			Criteria criteria, String title) {
 
 		// 제품 상세 조회
 		ProductVO product = productService.getProduct(vo);
 		
 		model.addAttribute("productVO", product);
 		
+		// 리뷰 목록 표시
 		List<ReviewVO> reviewList = reviewService.listReview(rv);
-		 
-		model.addAttribute("reviewList", reviewList);
 		
+		model.addAttribute("reviewList", reviewList);
+		 
 		
 		return "product/product-detail";
 	}
 	
 	/* 리뷰작성 */
 	@RequestMapping(value="/post_review_save", method={RequestMethod.GET, RequestMethod.POST})
-	public String insertReview(@RequestParam("bseq") int bseq ,ProductVO vo, ReviewVO rv, Model model,
-								HttpSession session, HttpServletRequest request) {
+	public String insertReview(@RequestParam("bseq") int bseq, 
+			ProductVO vo, ReviewVO rv, Model model, HttpSession session, HttpServletRequest request) {
 		
 		// (1) 세션에 저장된 사용자 정보를 읽어 온다.
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
@@ -65,7 +70,7 @@ public class ProductController {
 			rv.setId(loginUser.getId());
 		}
 			reviewService.insertReview(rv);
-
+			
 			// (3) 리뷰 목록 조회하여 화면 표시
 			return "redirect:"+request.getHeader("Referer");
  	}
@@ -74,7 +79,7 @@ public class ProductController {
 	// 리뷰 삭제
 	@PostMapping(value="/review_delete")
 	public String reviewDelete(@RequestParam(value="rseq") int[] rseq, HttpServletRequest request, 
-								ReviewVO rv, Model model, HttpSession session) {
+			ProductVO vo, ReviewVO rv, Model model, HttpSession session) {
 		
 		// (1) 세션에 저장된 사용자 정보를 읽어 온다.
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");

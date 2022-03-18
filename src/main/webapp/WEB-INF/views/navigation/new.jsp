@@ -10,31 +10,29 @@
 		<!-- Side Bar Start -->
 			<div class="col-lg-4 sidebar">
 				<div class="sidebar-widget brands">
-					<h2 class="title">베스트 셀러</h2>
+					<h2 class="title">이달의 신작</h2>
 					<ul>
-						<li><a href="category?kind=1">소설</a></li>
-						<li><a href="category?kind=2">경영/경제 </a></li>
-						<li><a href="category?kind=3">인문/사회/역사 </a></li>
-						<li><a href="category?kind=4">자기계발</a></li>
-						<li><a href="category?kind=5">웹소설 </a></li>
-						<li><a href="category?kind=6">웹만화</a></li>
+						<li><a href="category?category=1">소설</a></li>
+						<li><a href="category?category=2">경영/경제 </a></li>
+						<li><a href="category?category=3">인문/사회/역사 </a></li>
+						<li><a href="category?category=4">자기계발</a></li>
+						<li><a href="category?category=5">웹소설 </a></li>
+						<li><a href="category?category=6">웹만화</a></li>
 					</ul>
 				</div>
 
 				<div class="sidebar-widget tag">
 					<h2 class="title">Tags Cloud</h2>
-					<a href="#">Lorem ipsum</a> 
-					<a href="#">Vivamus</a> 
-					<a href="#">Phasellus</a>
-					<a href="#">pulvinar</a> 
-					<a href="#">Curabitur</a> 
-					<a href="#">Fusce</a>
-					<a href="#">Sem quis</a> 
-					<a href="#">Mollis metus</a> 
-					<a href="#">Sitamet</a> 
-					<a href="#">Vel posuere</a> 
-					<a href="#">orci luctus</a> 
-					<a href="#">Nam lorem</a>
+					<a href="#">감동적인</a> 
+					<a href="#">슬픈</a> 
+					<a href="#">화나는</a>
+					<a href="#">스릴있는</a> 
+					<a href="#">정적인</a> 
+					<a href="#">기분좋은</a>
+					<a href="#">돈</a> 
+					<a href="#">공부</a> 
+					<a href="#">명언</a> 
+					<a href="#">재미있는</a> 
 				</div>
 			</div>
 			<!-- Side Bar End -->
@@ -144,13 +142,10 @@
 							</a>
 
 							<div class='reviewStat'>
-								<span class='title'>평점</span> <span class='starRateWrap'>
-									<span class='starRate' style='width: 98%'>9.8</span>
-								</span> <em class='rateNumber'>9.8</em>
-							</div>
-
-							<div class="saleIndex">
-								<span class="title">판매지수</span> <em class="indexNumber">209,564</em>
+								<span class='title'>평점 </span> 
+								<span class='starRateWrap'>
+									<div class="ratting ${productVO.ratingAvg}"></div>
+								</span> 
 							</div>
 						</div>
 						</c:forEach>
