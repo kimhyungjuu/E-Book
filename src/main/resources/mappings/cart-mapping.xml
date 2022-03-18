@@ -20,7 +20,7 @@
 	
 	<!-- 장바구니 항목의 주문 처리결과 업데이트 -->
 	<update id="updateCart" parameterType="int">
-		UPDATE cart SET result = '2'
+		UPDATE cart SET result = 'n'
 		WHERE cseq=#{cseq}
 	</update>
 </mapper>

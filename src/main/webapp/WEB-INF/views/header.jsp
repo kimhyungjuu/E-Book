@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -19,8 +20,8 @@
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-        <link href="lib/slick/slick.css" rel="stylesheet">
-        <link href="lib/slick/slick-theme.css" rel="stylesheet">
+        <link href="slick/slick.css" rel="stylesheet">
+        <link href="slick/slick-theme.css" rel="stylesheet">
         
         <script type="text/javascript" src="member/member.js"></script>
         <script type="text/javascript" src="mypage/mypage.js"></script>
@@ -49,7 +50,7 @@
                             <a href="login_form" class="nav-item nav-link active">LOGIN(CUSTOMER</a> 
                                 <a href="admin_login_form" class="nav-item nav-link active">| ADMIN)</a>
                             </li>
-                            <li></li>
+                            <li>/</li>
                             <li><a href="contract" class="nav-item nav-link">회원가입</a></li>
                             </c:when>
                             <c:otherwise>
@@ -65,8 +66,9 @@
                                 <div class="dropdown-menu">
                                     <a href="mybook" class="dropdown-item">내 서재</a>
                                     <a href="wishlist" class="dropdown-item">위시리스트</a>
-                                    <a href="orderlist" class="dropdown-item">주문 목록</a>
-                                    <a href="my-account" class="dropdown-item">회원정보 변경</a>
+                                    <a href="mypage" class="dropdown-item">진행중인 주문 목록</a>
+                                    <a href="order_all" class="dropdown-item">총 주문 목록</a>
+                                   
                                 </div>
                                 
                             </div>

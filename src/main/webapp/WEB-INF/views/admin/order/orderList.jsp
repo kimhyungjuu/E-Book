@@ -115,7 +115,7 @@ th, td{
         </c:otherwise>
       </c:choose>
     </td>
-    <td>${orderVO.name}</td> <td>${orderVO.title}</td>
+    <td>${orderVO.mname}</td> <td>${orderVO.title}</td>
       <td>${orderVO.phone}</td>
     <td><fmt:formatDate value="${orderVO.indate}" /></td>
   </tr>

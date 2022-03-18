@@ -2,7 +2,7 @@
   pageEncoding="UTF-8"%>
   <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
 <%@ include file="../header.jsp" %>  
-<%@ include file="sub_menu.jsp" %>       
+<%@ include file="sub_menu(order).jsp" %>       
   <article>
     <h2> ${title} </h2>
     <form name="formm" method="post">
@@ -28,13 +28,13 @@
      </tr>
      <c:forEach items="${orderList}"  var="orderVO">
      <tr>
-       <td> ${orderVO.bname} </td>
+       <td> ${orderVO.title} </td>
        <td> ${orderVO.odseq} </td>          
        <td> <fmt:formatNumber type="currency"
 value="${orderVO.price}" /> </td>
        <td>
          <c:choose>
-         <c:when test='${orderVO.result=="1"}'> 진행중 </c:when>
+         <c:when test='${orderVO.result=="n"}'> 진행중 </c:when>
          <c:otherwise> <span style="color:red"> 처리완료 </span></c:otherwise>
          </c:choose>
        </td>

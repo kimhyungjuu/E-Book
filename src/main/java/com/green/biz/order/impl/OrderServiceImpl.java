@@ -70,13 +70,15 @@ public class OrderServiceImpl implements OrderService {
 		return oDao.listOrderById(vo);
 	}
 
+	
 	@Override
 	public List<Integer> selectSeqOrdering(OrderVO vo) {
 		
 		return oDao.selectSeqOrdering(vo);
 	}
 
-
+	@Override
+	public List<OrderVO> listOrder(String key) {
 		return oDao.listOrder(key);
 	}
 

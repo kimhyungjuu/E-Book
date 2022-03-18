@@ -5,7 +5,6 @@
 <html lang="ko">
 <head>
  <%@ include file="../header.jsp" %>
-<%@ include file="sub_menu.jsp" %>
 </head>
   
  <body>
@@ -45,19 +44,19 @@
                                             <th>Remove</th>
                                         </tr>
                                     </thead>
-                                    <c:forEach items="${wishList}"  var="cartVO">
+                                    <c:forEach items="${wishlist}"  var="wishlistVO">
                                         <tr>
                                             <td>
                                                 <div class="img">
-                                                    <a href="product_detail?bseq=${cartVO.bseq}">
-              										<span> ${cartVO.title} </span>              
+                                                    <a href="product_detail?bseq=${wishlistVO.bseq}">
+              										<span> ${wishlistVO.title} </span>              
             										</a>    
                                                 </div>
                                             </td>
-                                            <td>${cartVO.price} </td>
+                                            <td>${wishlistVO.price} </td>
 
-                                            <td><button class="btn-cart" onclick="go_cart()">Add to Cart</button></td>
-                                            <td><input type="checkbox" name="cseq" value= "${cartVO.cseq}"></td>
+                                           <td><button class="btn-cart" onclick="go_cart()">Add to Cart</button></td>
+                                            <td><input type="checkbox" name="cseq" value= "${wishlistVO.wseq}"></td>
                                         </tr>
                                         </c:forEach>
                                    <tr>        

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappings.wishlist-mapping">
+
+	<insert id="insertWishlist">
+		INSERT INTO wishList(wseq, id, bseq, title)
+		VALUES(wishlist_seq.NEXTVAL, #{id}, #{bseq}, #{title})
+	</insert>
+	
+	<select id="listWishlist" parameterType="String" resultType="wishlist">
+		SELECT * FROM wishlist_view
+		WHERE id=#{id}
+	</select>
+	
+	<!-- 위시리스트 삭제는 실제 cart 테이블이 대상 -->
+	<delete id="deleteWishlist" parameterType="int">
+		DELETE FROM wishList
+		WHERE wseq=#{wseq}
+	</delete>
+	
+	<!-- 위시리스트 항목의 주문 처리결과 업데이트 -->
+	<update id="updateWishlist" parameterType="int">
+		UPDATE wishList SET result = 'n'
+		WHERE wseq=#{wseq}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
