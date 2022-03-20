@@ -49,14 +49,14 @@ public class AdminController {
 	@Autowired
 	private NoticeService noticeService;
 	
-	// ·Î±×ÀÎ È­¸é
+	// ë¡œê·¸ì¸ í™”ë©´
 	@GetMapping(value="/admin_login_form")
 	public String adminLoginView() {
 		
 		return "admin/login";
 	}
 	
-	//·Î±×ÀÎ
+	//ë¡œê·¸ì¸
 	@PostMapping(value="/admin_login")
 	public String adminLogin(@RequestParam(value="managerId") String managerId,
 						     @RequestParam(value="managerPwd") String managerPwd,
@@ -68,7 +68,7 @@ public class AdminController {
 		
 		int result = adminService.managerCheck(vo);
 		
-		// Á¤»ó ·Î±×ÀÎÀÌ¸é »óÇ°¸ñ·ÏÈ­¸éÀ¸·Î ÀÌµ¿
+		// ì •ìƒ ë¡œê·¸ì¸ì´ë©´ ìƒí’ˆëª©ë¡í™”ë©´ìœ¼ë¡œ ì´ë™
 		if (result == 1) {
 			ManagerVO adminUser = adminService.getManager(managerId);
 			
@@ -76,36 +76,48 @@ public class AdminController {
 			
 			return "redirect:admin_product_list";
 		} else {
-			// ºñÁ¤»ó ·Î±×ÀÎÀÌ¸é ¸Ş½ÃÁö¸¦ ¼³Á¤ÇÏ°í ·Î±×ÀÎ ÆäÀÌÁö·Î ÀÌµ¿
+			// ë¹„ì •ìƒ ë¡œê·¸ì¸ì´ë©´ ë©”ì‹œì§€ë¥¼ ì„¤ì •í•˜ê³  ë¡œê·¸ì¸ í˜ì´ì§€ë¡œ ì´ë™
 			if (result == 0) {
-				model.addAttribute("message", "ºñ¹Ğ¹øÈ£¸¦ È®ÀÎÇÏ¼¼¿ä.");
+				model.addAttribute("message", "ë¹„ë°€ë²ˆí˜¸ë¥¼ í™•ì¸í•˜ì„¸ìš”.");
 			} else {
-				model.addAttribute("message", "¾ÆÀÌµğ¸¦ È®ÀÎÇÏ¼¼¿ä!");
+				model.addAttribute("message", "ì•„ì´ë””ë¥¼ í™•ì¸í•˜ì„¸ìš”!");
 			}
 			
 			return "admin/login";
 		}
 	}
 	
-	//°ü¸®ÀÚ °èÁ¤ ·Î±×¾Æ¿ô Ã³¸®	 
+	//ê´€ë¦¬ì ê³„ì • ë¡œê·¸ì•„ì›ƒ ì²˜ë¦¬	 
 	@GetMapping(value="/admin_logout")
-	public String adminLogout(SessionStatus status) {
+	public String adminLogout(SessionStatus status, Model model) {
 			
 		status.setComplete();
+		
+		// ë² ìŠ¤íŠ¸ ìƒí’ˆ ì¡°íšŒ ì„œë¹„ìŠ¤ í˜¸ì¶œ
+		List<ProductVO> bestProdList = productService.getBestProductList();	
+		model.addAttribute("BestProductList", bestProdList);
+						
+		// ì‹ ìƒí’ˆ ì¡°íšŒ ì„œë¹„ìŠ¤ í˜¸ì¶œ
+		List<ProductVO> newProdList =  productService.getNewProductList();				
+		model.addAttribute("NewProductList", newProdList);
+				
+		// ë¬´ë£Œ ë„ì„œ ì¡°íšŒ ì„œë¹„ìŠ¤ í˜¸ì¶œ
+		List<ProductVO> freeProdList = productService.getFreeProductList();			
+		model.addAttribute("FreeProductList", freeProdList);
 			
 		return "index";
 	}
 	
-	//»óÇ° ¸ñ·Ï Á¶È¸
+	//ìƒí’ˆ ëª©ë¡ ì¡°íšŒ
 	@RequestMapping(value="/admin_product_list")
 	public String adminProductList(HttpSession session, Model model) {
-		// °ü¸®ÀÚ ·Î±×ÀÎ È®ÀÎ
+		// ê´€ë¦¬ì ë¡œê·¸ì¸ í™•ì¸
 		ManagerVO adminUser = (ManagerVO)session.getAttribute("adminUser");
 				
 		if (adminUser == null) {
 			return "admin/login";
 		} else {
-			// »óÇ°¸ñ·Ï Á¶È¸
+			// ìƒí’ˆëª©ë¡ ì¡°íšŒ
 			List<ProductVO> prodList = productService.listProduct("");
 					
 			model.addAttribute("productList", prodList);
@@ -115,11 +127,11 @@ public class AdminController {
 	}
 	
 	/*
-	 * »óÇ° µî·ÏÆäÀÌÁö Ç¥½Ã
+	 * ìƒí’ˆ ë“±ë¡í˜ì´ì§€ í‘œì‹œ
 	 */
 	@PostMapping(value="/admin_product_write_form")
 	public String adminProductWriteView(Model model) {
-		String categoryList[] = {"¼Ò¼³", "°æ¿µ/°æÁ¦", "ÀÎ¹®/»çÈ¸/¿ª»ç", "ÀÚ±â°è¹ß", "À¥¼Ò¼³", "À¥¸¸È­"};
+		String categoryList[] = {"ì†Œì„¤", "ê²½ì˜/ê²½ì œ", "ì¸ë¬¸/ì‚¬íšŒ/ì—­ì‚¬", "ìê¸°ê³„ë°œ", "ì›¹ì†Œì„¤", "ì›¹ë§Œí™”"};
 		
 		model.addAttribute("categoryList", categoryList);
 		
@@ -127,30 +139,30 @@ public class AdminController {
 	}
 	
 	/*
-	 * »óÇ° µî·Ï Ã³¸®
+	 * ìƒí’ˆ ë“±ë¡ ì²˜ë¦¬
 	 */
 	@PostMapping(value="/admin_product_write")
 	public String adminProductWrite(@RequestParam(value="product_image") MultipartFile uploadFile,
 								    ProductVO vo, HttpSession session) {
-		// °ü¸®ÀÚ ·Î±×ÀÎ È®ÀÎ
+		// ê´€ë¦¬ì ë¡œê·¸ì¸ í™•ì¸
 		ManagerVO adminUser = (ManagerVO)session.getAttribute("adminUser");
 		
 		if (adminUser == null) {
 			return "admin/login";
 		} else {
 			String fileName = "";
-			if (!uploadFile.isEmpty()) {  // ÀÌ¹ÌÁö ÆÄÀÏÀ» ÀĞ¾î¿È
+			if (!uploadFile.isEmpty()) {  // ì´ë¯¸ì§€ íŒŒì¼ì„ ì½ì–´ì˜´
 				fileName = uploadFile.getOriginalFilename();
-				// vo °´Ã¼¿¡ ÀÌ¹ÌÁöÆÄÀÏ ÀúÀå
+				// vo ê°ì²´ì— ì´ë¯¸ì§€íŒŒì¼ ì €ì¥
 				vo.setImage(fileName);
 				
-				// ÀÌ¹ÌÁö ÆÄÀÏÀÇ ½ÇÁ¦ ÀúÀå°æ·Î ±¸ÇÏ±â
+				// ì´ë¯¸ì§€ íŒŒì¼ì˜ ì‹¤ì œ ì €ì¥ê²½ë¡œ êµ¬í•˜ê¸°
 				String image_path = 
 					session.getServletContext().getRealPath("resources/product_images/");
-				System.out.println("ÀÌ¹ÌÁö °æ·Î: " + image_path);
+				System.out.println("ì´ë¯¸ì§€ ê²½ë¡œ: " + image_path);
 						
 				try {
-					// ÀÌ¹ÌÁö ÆÄÀÏÀ» À§ÀÇ °æ·Î·Î ÀÌµ¿½ÃÅ´
+					// ì´ë¯¸ì§€ íŒŒì¼ì„ ìœ„ì˜ ê²½ë¡œë¡œ ì´ë™ì‹œí‚´
 					File dest = new File(image_path + fileName);
 					uploadFile.transferTo(dest);
 				} catch (IllegalStateException | IOException e) {
@@ -164,17 +176,17 @@ public class AdminController {
 	}
 	
 	/*
-	 * »óÇ° »ó¼¼ Á¤º¸ Ãâ·Â
+	 * ìƒí’ˆ ìƒì„¸ ì •ë³´ ì¶œë ¥
 	 */
 	@RequestMapping(value="/admin_product_detail")
 	public String adminProductDetail(ProductVO vo, Model model) {
-		String[] categoryList = {"", "¼Ò¼³", "°æ¿µ/°æÁ¦", "ÀÎ¹®/»çÈ¸/¿ª»ç", "ÀÚ±â°è¹ß", "À¥¼Ò¼³", "À¥¸¸È­"};
+		String[] categoryList = {"", "ì†Œì„¤", "ê²½ì˜/ê²½ì œ", "ì¸ë¬¸/ì‚¬íšŒ/ì—­ì‚¬", "ìê¸°ê³„ë°œ", "ì›¹ì†Œì„¤", "ì›¹ë§Œí™”"};
 		
 		ProductVO product = productService.getProduct(vo);
 		
 		model.addAttribute("productVO", product);
 		
-		// »óÇ°Á¾·ù ¼³Á¤
+		// ìƒí’ˆì¢…ë¥˜ ì„¤ì •
 		int index = Integer.parseInt(product.getCategory());
 		model.addAttribute("category", categoryList[index]);
 		
@@ -182,28 +194,28 @@ public class AdminController {
 	}
 	
 	/*
-	 * »óÇ° ¼öÁ¤È­¸é Ãâ·Â
+	 * ìƒí’ˆ ìˆ˜ì •í™”ë©´ ì¶œë ¥
 	 */
 	@RequestMapping(value="/admin_product_update_form")
 	public String adminProductUpdateView(ProductVO vo, Model model) {
-		String[] categoryList = {"¼Ò¼³", "°æ¿µ/°æÁ¦", "ÀÎ¹®/»çÈ¸/¿ª»ç", "ÀÚ±â°è¹ß", "À¥¼Ò¼³", "À¥¸¸È­"};
+		String[] categoryList = {"ì†Œì„¤", "ê²½ì˜/ê²½ì œ", "ì¸ë¬¸/ì‚¬íšŒ/ì—­ì‚¬", "ìê¸°ê³„ë°œ", "ì›¹ì†Œì„¤", "ì›¹ë§Œí™”"};
 		
 		ProductVO product = productService.getProduct(vo);
 		
-		model.addAttribute("productVO", product);	// È­¸é¿¡ Àü´ŞÇÒ »óÇ°»ó¼¼Á¤º¸	
+		model.addAttribute("productVO", product);	// í™”ë©´ì— ì „ë‹¬í•  ìƒí’ˆìƒì„¸ì •ë³´	
 		model.addAttribute("categoryList", categoryList);
 		
 		return "admin/product/productUpdate";
 	}
 	
 	/*
-	 * »óÇ°Á¤º¸ ¼öÁ¤
+	 * ìƒí’ˆì •ë³´ ìˆ˜ì •
 	 */
 	@RequestMapping(value="/admin_product_update")
 	public String adminProductUpdate(@RequestParam(value="product_image") MultipartFile uploadFile,
 					@RequestParam(value="nonmakeImg") String origImage,
 					ProductVO vo, HttpSession session) {
-		// °ü¸®ÀÚ ·Î±×ÀÎ È®ÀÎ
+		// ê´€ë¦¬ì ë¡œê·¸ì¸ í™•ì¸
 		ManagerVO adminUser = (ManagerVO)session.getAttribute("adminUser");
 		
 		if (adminUser == null) {
@@ -211,35 +223,35 @@ public class AdminController {
 		} else {
 			String fileName = "";
 			
-			// ÀÌ¹ÌÁö ÆÄÀÏÀ» ¼öÁ¤ ½Ã ¼³Á¤
-			if (!uploadFile.isEmpty()) {  // ÀÌ¹ÌÁö ÆÄÀÏÀ» ÀĞ¾î¿È
+			// ì´ë¯¸ì§€ íŒŒì¼ì„ ìˆ˜ì • ì‹œ ì„¤ì •
+			if (!uploadFile.isEmpty()) {  // ì´ë¯¸ì§€ íŒŒì¼ì„ ì½ì–´ì˜´
 				fileName = uploadFile.getOriginalFilename();
-				// vo °´Ã¼¿¡ ÀÌ¹ÌÁöÆÄÀÏ ÀúÀå
+				// vo ê°ì²´ì— ì´ë¯¸ì§€íŒŒì¼ ì €ì¥
 				vo.setImage(fileName);
 				
-				// ÀÌ¹ÌÁö ÆÄÀÏÀÇ ½ÇÁ¦ ÀúÀå°æ·Î ±¸ÇÏ±â
+				// ì´ë¯¸ì§€ íŒŒì¼ì˜ ì‹¤ì œ ì €ì¥ê²½ë¡œ êµ¬í•˜ê¸°
 				String image_path = 
 					session.getServletContext().getRealPath("resources/product_images/");
-				System.out.println("ÀÌ¹ÌÁö °æ·Î: " + image_path);
+				System.out.println("ì´ë¯¸ì§€ ê²½ë¡œ: " + image_path);
 						
 				try {
-					// ÀÌ¹ÌÁö ÆÄÀÏÀ» À§ÀÇ °æ·Î·Î ÀÌµ¿½ÃÅ´
+					// ì´ë¯¸ì§€ íŒŒì¼ì„ ìœ„ì˜ ê²½ë¡œë¡œ ì´ë™ì‹œí‚´
 					File dest = new File(image_path + fileName);
 					uploadFile.transferTo(dest);
 				} catch (IllegalStateException | IOException e) {
 					e.printStackTrace();
 				}
 			} else {
-				// ±âÁ¸ ÀÌ¹ÌÁö·Î image ÇÊµå ¼³Á¤
+				// ê¸°ì¡´ ì´ë¯¸ì§€ë¡œ image í•„ë“œ ì„¤ì •
 				vo.setImage(origImage);
 			}
-			// º£½ºÆ® »óÇ°, ½Å»óÇ°À» Ã¼Å©ÇÏÁö ¾ÊÀ¸¸é °ªÀÌ null·Î µé¾î¿È
+			// ë² ìŠ¤íŠ¸ ìƒí’ˆ, ì‹ ìƒí’ˆì„ ì²´í¬í•˜ì§€ ì•Šìœ¼ë©´ ê°’ì´ nullë¡œ ë“¤ì–´ì˜´
 			if (vo.getUseyn() == null) {
-	            vo.setUseyn("n");
-	         }
-	         if (vo.getLikeyn() == null) {
-	            vo.setLikeyn("n");
-	         }
+				vo.setUseyn("n");
+			}
+			if (vo.getLikeyn() == null) {
+				vo.setLikeyn("n");
+			}
 			
 			productService.updateProduct(vo);
 			
@@ -249,7 +261,7 @@ public class AdminController {
 	
 	@PostMapping(value="/admin_product_delete")
 	public String adminProductDelete( ProductVO vo, HttpSession session) {
-		// °ü¸®ÀÚ ·Î±×ÀÎ È®ÀÎ
+		// ê´€ë¦¬ì ë¡œê·¸ì¸ í™•ì¸
 		ManagerVO adminUser = (ManagerVO)session.getAttribute("adminUser");
 		
 		if (adminUser == null) {
@@ -262,7 +274,7 @@ public class AdminController {
 	}
 	
 	/*
-	 * È¸¿ø¸ñ·Ï Á¶È¸ Ã³¸®
+	 * íšŒì›ëª©ë¡ ì¡°íšŒ ì²˜ë¦¬
 	 */
 	@RequestMapping(value="/admin_member_list")
 	public String adminMemberList(
@@ -277,51 +289,51 @@ public class AdminController {
 	}
 	
 	/*
-	 * Q&A ¸ñ·Ï Á¶È¸ Ã³¸®
+	 * Q&A ëª©ë¡ ì¡°íšŒ ì²˜ë¦¬
 	 */
 	@RequestMapping(value="/admin_qna_list")
 	public String adminQnaList(Model model) {
 		
-		// Q&A ¸ñ·ÏÀ» Å×ÀÌºí¿¡¼­ Á¶È¸
+		// Q&A ëª©ë¡ì„ í…Œì´ë¸”ì—ì„œ ì¡°íšŒ
 		List<QnaVO> qnaList = qnaService.listAllQna();
 		
-		// Á¶È¸ °á°ú¸¦ model °´Ã¼¿¡ ÀúÀå
+		// ì¡°íšŒ ê²°ê³¼ë¥¼ model ê°ì²´ì— ì €ì¥
 		model.addAttribute("qnaList", qnaList);
 		
-		// QnA È­¸é È£Ãâ
+		// QnA í™”ë©´ í˜¸ì¶œ
 		return "admin/qna/qnaList";
 	}
 	
 	/*
-	 * Å¬¸¯ÇÑ Qna°Ô½Ã±Û »ó¼¼ Á¶È¸
+	 * í´ë¦­í•œ Qnaê²Œì‹œê¸€ ìƒì„¸ ì¡°íšŒ
 	 */
 	@RequestMapping(value="/admin_qna_detail")
 	public String adminQnaDetail(QnaVO vo, Model model) {
-		// °Ô½Ã±Û ÀÏ·Ã¹øÈ£¸¦ Á¶°ÇÀ¸·Î °Ô½Ã±Û »ó¼¼ Á¶È¸
+		// ê²Œì‹œê¸€ ì¼ë ¨ë²ˆí˜¸ë¥¼ ì¡°ê±´ìœ¼ë¡œ ê²Œì‹œê¸€ ìƒì„¸ ì¡°íšŒ
 		QnaVO qna = qnaService.getQna(vo.getQseq());
 		
-		// Á¶È¸ °á°ú¸¦ model °´Ã¼¿¡ ÀúÀå
+		// ì¡°íšŒ ê²°ê³¼ë¥¼ model ê°ì²´ì— ì €ì¥
 		model.addAttribute("qnaVO", qna);
 		
-		// °Ô½Ã±Û »ó¼¼È­¸é È£Ãâ
+		// ê²Œì‹œê¸€ ìƒì„¸í™”ë©´ í˜¸ì¶œ
 		return "admin/qna/qnaDetail";
 	}
 	
 	/*
-	 * Q&A °ü¸®ÀÚ ´äº¯ ¿äÃ» Ã³¸®
+	 * Q&A ê´€ë¦¬ì ë‹µë³€ ìš”ì²­ ì²˜ë¦¬
 	 */
 	@PostMapping(value="/admin_qna_repsave")
 	public String adminQnaRepSave(QnaVO vo) {
 		
-		// Qna¼­ºñ½ºÀÇ Update È£Ãâ
+		// Qnaì„œë¹„ìŠ¤ì˜ Update í˜¸ì¶œ
 		qnaService.updateQna(vo);
 		
-		// Qna °Ô½Ã±Û ¸ñ·Ï È£Ãâ
+		// Qna ê²Œì‹œê¸€ ëª©ë¡ í˜¸ì¶œ
 		return "redirect:admin_qna_list";
 	}
 	
 	/*
-	 * ÁÖ¹®¸ñ·Ï Á¶È¸ ¿äÃ»Ã³¸®
+	 * ì£¼ë¬¸ëª©ë¡ ì¡°íšŒ ìš”ì²­ì²˜ë¦¬
 	 */
 	@RequestMapping(value="/admin_order_list")
 	public String adminOrderList(@RequestParam(value="key", defaultValue="") String key,
@@ -335,9 +347,9 @@ public class AdminController {
 	}
 	
 	/*
-	 * ÁÖ¹®¿Ï·á Ã³¸®(ÀÔ±İ È®ÀÎ)
-	 * ÀÔ·Â ÆÄ¶ó¹ÌÅÍ:
-	 * 	   ÀÔ±İÈ®ÀÎÇÑ result ÇÊµåÀÇ »ó¼¼ÁÖ¹®¹øÈ£(odseq) ¹è¿­ÀÌ Àü´ŞµÊ
+	 * ì£¼ë¬¸ì™„ë£Œ ì²˜ë¦¬(ì…ê¸ˆ í™•ì¸)
+	 * ì…ë ¥ íŒŒë¼ë¯¸í„°:
+	 * 	   ì…ê¸ˆí™•ì¸í•œ result í•„ë“œì˜ ìƒì„¸ì£¼ë¬¸ë²ˆí˜¸(odseq) ë°°ì—´ì´ ì „ë‹¬ë¨
 	 */
 	@RequestMapping(value="/admin_order_save")
 	public String adminOrderSave(@RequestParam(value="result") int[] odseq) {
@@ -350,23 +362,23 @@ public class AdminController {
 	}
 	
 	/*
-	 * notice ¸ñ·Ï Á¶È¸ Ã³¸®
+	 * notice ëª©ë¡ ì¡°íšŒ ì²˜ë¦¬
 	 */
 	@RequestMapping(value="/admin_notice_list")
 	public String adminNoticeList(Model model) {
 		
-		// notice ¸ñ·ÏÀ» Å×ÀÌºí¿¡¼­ Á¶È¸
+		// notice ëª©ë¡ì„ í…Œì´ë¸”ì—ì„œ ì¡°íšŒ
 		List<NoticeVO> noticeList = noticeService.listAllNotice();
 		
-		// Á¶È¸ °á°ú¸¦ model °´Ã¼¿¡ ÀúÀå
+		// ì¡°íšŒ ê²°ê³¼ë¥¼ model ê°ì²´ì— ì €ì¥
 		model.addAttribute("noticeList", noticeList);
 		
-		// notice È­¸é È£Ãâ
+		// notice í™”ë©´ í˜¸ì¶œ
 		return "admin/notice/noticeList";
 	}
 	
 	/*
-	 * °øÁö»çÇ× µî·ÏÆäÀÌÁö Ç¥½Ã
+	 * ê³µì§€ì‚¬í•­ ë“±ë¡í˜ì´ì§€ í‘œì‹œ
 	 */
 	@PostMapping(value="/admin_notice_write_form")
 	public String adminNoticeWriteView() {
@@ -383,17 +395,17 @@ public class AdminController {
 	}
 	
 	/*
-	 * Å¬¸¯ÇÑ notice°Ô½Ã±Û »ó¼¼ Á¶È¸
+	 * í´ë¦­í•œ noticeê²Œì‹œê¸€ ìƒì„¸ ì¡°íšŒ
 	 */
 	@RequestMapping(value="/admin_notice_detail")
 	public String adminNoticeDetail(NoticeVO vo, Model model) {
-		// °Ô½Ã±Û ÀÏ·Ã¹øÈ£¸¦ Á¶°ÇÀ¸·Î °Ô½Ã±Û »ó¼¼ Á¶È¸
+		// ê²Œì‹œê¸€ ì¼ë ¨ë²ˆí˜¸ë¥¼ ì¡°ê±´ìœ¼ë¡œ ê²Œì‹œê¸€ ìƒì„¸ ì¡°íšŒ
 		NoticeVO notice = noticeService.getNotice(vo.getNseq());
 		
-		// Á¶È¸ °á°ú¸¦ model °´Ã¼¿¡ ÀúÀå
+		// ì¡°íšŒ ê²°ê³¼ë¥¼ model ê°ì²´ì— ì €ì¥
 		model.addAttribute("noticeVO", notice);
 		
-		// °Ô½Ã±Û »ó¼¼È­¸é È£Ãâ
+		// ê²Œì‹œê¸€ ìƒì„¸í™”ë©´ í˜¸ì¶œ
 		return "admin/notice/noticeDetail";
 	}
 	
@@ -402,7 +414,7 @@ public class AdminController {
 		
 		NoticeVO notice = noticeService.getNotice(vo.getNseq());
 		
-		model.addAttribute("noticeVO", notice);	// È­¸é¿¡ Àü´ŞÇÒ »óÇ°»ó¼¼Á¤º¸	
+		model.addAttribute("noticeVO", notice);	// í™”ë©´ì— ì „ë‹¬í•  ìƒí’ˆìƒì„¸ì •ë³´	
 		
 		return "admin/notice/noticeUpdate";
 	}
@@ -424,7 +436,7 @@ public class AdminController {
 	}
 	
 	/*
-	 * »óÇ°º° ÆÇ¸Å ½ÇÀû È­¸é Ãâ·Â
+	 * ìƒí’ˆë³„ íŒë§¤ ì‹¤ì  í™”ë©´ ì¶œë ¥
 	 */
 	@RequestMapping(value="/admin_sales_record_form")
 	public String adminProductSalesChart() {
@@ -433,7 +445,7 @@ public class AdminController {
 	}
 	
 	/*
-	 * Â÷Æ®¸¦ À§ÇÑ »óÇ°º° ÆÇ¸Å ½ÇÀû Á¶È¸(JSON µ¥ÀÌÅÍ Æ÷¸Ë Àü¼Û)
+	 * ì°¨íŠ¸ë¥¼ ìœ„í•œ ìƒí’ˆë³„ íŒë§¤ ì‹¤ì  ì¡°íšŒ(JSON ë°ì´í„° í¬ë§· ì „ì†¡)
 	 */
 	@RequestMapping(value="/sales_record_chart",
 			produces="application/json; charset=UTF-8")

@@ -101,7 +101,7 @@ function go_list(){
      <th>상품이미지</th>
      <td colspan="5" align="center">
   <!--[7] 상품 이미지를 출력하기 -->     
-     <img src="product_images/${productVO.image}" width="200pt">    
+     <img src="ebook-image/${productVO.image}" width="200pt">    
      </td>
     </tr>
 

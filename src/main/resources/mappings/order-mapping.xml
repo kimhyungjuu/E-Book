@@ -18,14 +18,6 @@
 		VALUES (order_detail_seq.NEXTVAL, #{oseq}, #{bseq})
 	</insert>
 	
-	<!-- 주문내역 조회 -->
-	<select id="listOrderById" resultType="order">
-		SELECT * FROM order_view
-		  WHERE id=#{id} 
-		  AND result LIKE '%'||#{result}||'%'
-
-	</select>
-	
 	<!-- 사용자별 주문번호 목록 조회 -->
 	<select id="selectSeqOrdering" resultType="int">
 		SELECT distinct oseq FROM order_view
@@ -48,21 +40,6 @@
 		WHERE odseq=#{odseq}
 	</update>
 	
-	<!-- 주문 Seq 생성 -->
-	<select id="selectMaxOseq" resultType="int">
-		SELECT NVL2(MAX(oseq), MAX(oseq)+1, 1) FROM orders
-	</select>
-	
-	<!--  새로운 주문 생성 -->
-	<insert id="insertOrder">
-		INSERT INTO orders(oseq, id) VALUES(#{oseq}, #{id})
-	</insert>
-	
-	<!--  주문 상세 테이블에 상품 상세정보 생성 -->
-	<insert id="insertOrderDetail">
-		INSERT INTO order_detail(odseq, oseq, pseq)
-		VALUES (order_detail_seq.NEXTVAL, #{oseq}, #{pseq})
-	</insert>
 	
 	<!-- 주문내역 조회 -->
 	<select id="listOrderById" resultType="order">
@@ -72,12 +49,5 @@
 		  AND oseq=#{oseq}
 	</select>
 	
-	<!-- 사용자별 주문번호 목록 조회 -->
-	<select id="selectSeqOrdering" resultType="int">
-		SELECT distinct oseq FROM order_view
-		  WHERE id=#{id}
-		  AND result LIKE '%'||#{result}||'%'
-		  ORDER BY oseq DESC
-	</select>
 	
 </mapper>
