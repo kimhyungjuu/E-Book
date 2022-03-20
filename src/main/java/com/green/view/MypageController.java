@@ -1,7 +1,9 @@
 package com.green.view;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -15,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.green.biz.dto.CartVO;
 import com.green.biz.dto.MemberVO;
 import com.green.biz.dto.OrderVO;
+import com.green.biz.dto.ProductVO;
 import com.green.biz.dto.WishlistVO;
 import com.green.biz.order.CartService;
 import com.green.biz.order.OrderService;
+import com.green.biz.product.ProductService;
 import com.green.biz.wishlist.WishlistService;
 
 @Controller
@@ -29,6 +33,8 @@ public class MypageController {
 	private OrderService orderService;
 	@Autowired
 	private WishlistService wishlistService;
+	@Autowired
+	private ProductService productService;
 	/*
 	 * 장바구니 담기 요청 처리
 	 */
@@ -104,7 +110,7 @@ public class MypageController {
 			vo.setId(loginUser.getId());
 
 			int oseq = orderService.insertOrder(vo);
-
+			
 			// 주문번호 전달
 			model.addAttribute("oseq", oseq);
 
@@ -138,7 +144,7 @@ public class MypageController {
 			model.addAttribute("totalPrice", totalAmount);
 
 			// (5) 화면 호출
-			return "mypage/orderlist";
+			return "mypage/mybook";
 		}
 	}
 
@@ -293,17 +299,22 @@ public class MypageController {
 	}
 
 	@PostMapping(value = "/wishlist_insert")
-	public String insertWishlist(WishlistVO vo, Model model, HttpSession session) {
+	public String insertWishlist(WishlistVO vo, ProductVO vo2, Model model, HttpSession session) {
 				System.out.println(vo.getBseq());
 		// (1) 세션에 저장된 사용자 정보를 읽어 온다.
 		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
-
+		
 		// (2) 로그인이 안되어 있으면 로그인,
-		// 로그인이 되어 있으면, 장바구니에 항목 저장
+		// 로그인이 되어 있으면, 위시리스트 저장 
 		if (loginUser == null) {
 			return "member/login";
 		} else {
+			vo2.setBseq(vo.getBseq());
+			ProductVO ebook = productService.getProduct(vo2);
+			System.out.println(ebook);
 			vo.setId(loginUser.getId());
+			
+			
 			wishlistService.insertWishlist(vo);
 
 			// (3) 장바구니 목록 조회하여 화면 표시
@@ -313,29 +324,46 @@ public class MypageController {
 
 	@GetMapping(value = "/wishlist")
 	public String listWishlist(HttpSession session, Model model) {
-
+		
 		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
 
 		if (loginUser == null) {
 			return "member/login";
 		} else {
+			
+			
 			List<WishlistVO> wishList = wishlistService.listWishlist(loginUser.getId());
 			System.out.println(wishList);
 			WishlistVO wishlistDetail = new WishlistVO();
-
+			if (wishList.size() > 0) {
+				
+			
 			wishlistDetail.setTitle(wishList.get(0).getTitle());
 			wishlistDetail.setPrice(wishList.get(0).getPrice());
 			
+			}
 			// 총액 계산
 			int totalAmount = 0;
 			for (WishlistVO vo : wishList) {
 				totalAmount += vo.getPrice();
 			}
+			
 			// 장바구니 목록을 내장 객체에 저장
 			model.addAttribute("wishlist", wishList);
 			model.addAttribute("totalPrice", totalAmount);
 
 			return "mypage/wishlist";
 		}
+	}
+	
+	@PostMapping(value = "/wishlist_delete")
+	public String wishlistDelete(@RequestParam(value = "wseq") int[] wseq) {
+
+		for (int i = 0; i < wseq.length; i++) {
+			System.out.println(("삭제할 wishlist seq = " + wseq[i]));
+			wishlistService.deleteWishlist(wseq[i]);
+		}
+
+		return "redirect:wishlist";
 	}
 }

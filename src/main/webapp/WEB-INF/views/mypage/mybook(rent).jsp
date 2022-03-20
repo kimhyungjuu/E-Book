@@ -20,6 +20,7 @@
             </div>
         </div>
         <!-- Breadcrumb End -->
+        <form name="orderlist" method="post">
  		<table id="rentbook">
        <h1>대여 목록</h1>
         <tr>
@@ -37,5 +38,6 @@
         </tr>
         </c:forEach>
 </table>
+</form>
 </body>
 </html>

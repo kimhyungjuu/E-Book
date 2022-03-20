@@ -51,6 +51,7 @@ public class OrderServiceImpl implements OrderService {
 			
 			// 占쏙옙袂占쏙옙占� 占쏙옙占싱븝옙 占쏙옙占쏙옙트(처占쏙옙占쏙옙占� '처占쏙옙占싹뤄옙'占쏙옙)
 			cartService.updateCart(cartVO.getCseq());
+			
 		}
 		
 		return oseq;

@@ -22,7 +22,7 @@
 <%@ include file="sub_menu(order).jsp" %>
         
       <article>
-      <h2> Order List </h2>
+      <h2> 총 주문 내역 </h2>
       <form name="orderlist" method="post">
         <table id="cartList">
        <tr>

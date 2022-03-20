@@ -6,6 +6,7 @@
 <html lang="ko">
     <head>
         <title>E Store - eCommerce HTML Template</title>
+        
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="eCommerce HTML Template Free Download" name="keywords">
         <meta content="eCommerce HTML Template Free Download" name="description">
@@ -64,10 +65,10 @@
                             <div class="nav-item dropdown">
                                 <a href="mypage.html" class="nav-link dropdown-toggle" data-toggle="dropdown">마이페이지</a>
                                 <div class="dropdown-menu">
-                                    <a href="mybook" class="dropdown-item">내 서재</a>
+                                    <a href="orderlist" class="dropdown-item">내 서재</a>
                                     <a href="wishlist" class="dropdown-item">위시리스트</a>
                                     <a href="mypage" class="dropdown-item">진행중인 주문 목록</a>
-                                    <a href="order_all" class="dropdown-item">총 주문 목록</a>
+                                    
                                    
                                 </div>
                                 
@@ -100,11 +101,11 @@
                     </div>
                     <div class="col-md-3">
                         <div class="user">
-                            <a href="wishlist.html" class="btn wishlist">
+                            <a href="wishlist" class="btn wishlist">
                                 <i class="fa fa-heart"></i>
                                 <span>(0)</span>
                             </a>
-                            <a href="cart.html" class="btn cart">
+                            <a href="cart" class="btn cart">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span>(0)</span>
                             </a>

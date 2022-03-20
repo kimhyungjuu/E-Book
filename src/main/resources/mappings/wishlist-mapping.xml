@@ -3,13 +3,16 @@
 <mapper namespace="mappings.wishlist-mapping">
 
 	<insert id="insertWishlist">
-		INSERT INTO wishList(wseq, id, bseq, title)
-		VALUES(wishlist_seq.NEXTVAL, #{id}, #{bseq}, #{title})
+		INSERT INTO wishList(wseq, id, bseq)
+		VALUES(wishlist_seq.NEXTVAL, #{id}, #{bseq})
 	</insert>
 	
 	<select id="listWishlist" parameterType="String" resultType="wishlist">
-		SELECT * FROM wishlist_view
-		WHERE id=#{id}
+		select * from ebook A
+		join wishlist B on
+		a.bseq = b.bseq where b.id = #{id}
+		
+		
 	</select>
 	
 	<!-- 위시리스트 삭제는 실제 cart 테이블이 대상 -->

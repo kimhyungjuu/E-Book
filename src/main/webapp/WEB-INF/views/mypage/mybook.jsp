@@ -24,7 +24,7 @@
         <!-- Breadcrumb End -->
         
         <article>
-        <form>
+        <form name="orderlist" method="post">
         <table id="buybook">
         <h1>구매 목록</h1>
         <tr>
@@ -33,7 +33,7 @@
         <c:forEach items="${orderList}"  var="orderVO">
        <tr>      
         <td>
-            <a href="product_detail?pseq=${cartVO.bseq}">
+            <a href="product_detail?pseq=${orderVO.bseq}">
               <h3> ${orderVO.title} </h3>              
           </a>    
         </td>
