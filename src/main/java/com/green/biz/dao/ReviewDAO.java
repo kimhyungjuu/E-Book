@@ -52,10 +52,10 @@ public class ReviewDAO {
 		return mybatis.selectList("mappings.product-mapping.reviewPaging", map);
 	}
 	
-	/*
-	 * // 별점 평균 업데이트 public void updateReviewAvg(ProductVO vo) {
-	 * 
-	 * mybatis.update("mappings.product-mapping.updateReviewAvg", vo); }
-	 */
 	
+	  // 별점 평균 업데이트 
+	public int ReviewAvg(ReviewVO rv) {
+		
+	  return mybatis.selectOne("mappings.product-mapping.ReviewAvg", rv); 
+	}
 }

@@ -69,9 +69,10 @@ public class ProductController {
 		}else {
 			rv.setId(loginUser.getId());
 		}
+			// (3) 리뷰 목록 조회하여 화면 표시
 			reviewService.insertReview(rv);
 			
-			// (3) 리뷰 목록 조회하여 화면 표시
+			
 			return "redirect:"+request.getHeader("Referer");
  	}
 	

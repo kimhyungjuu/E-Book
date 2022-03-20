@@ -10,7 +10,7 @@
 		<!-- Side Bar Start -->
 			<div class="col-lg-4 sidebar">
 				<div class="sidebar-widget brands">
-					<h2 class="title">베스트 셀러</h2>
+					<h2 class="title">카테고리</h2>
 					<ul>
 						<li><a href="category?category=1">소설</a></li>
 						<li><a href="category?category=2">경영/경제 </a></li>
@@ -19,22 +19,6 @@
 						<li><a href="category?category=5">웹소설 </a></li>
 						<li><a href="category?category=6">웹만화</a></li>
 					</ul>
-				</div>
-
-				<div class="sidebar-widget tag">
-					<h2 class="title">Tags Cloud</h2>
-					<a href="#">Lorem ipsum</a> 
-					<a href="#">Vivamus</a> 
-					<a href="#">Phasellus</a>
-					<a href="#">pulvinar</a> 
-					<a href="#">Curabitur</a> 
-					<a href="#">Fusce</a>
-					<a href="#">Sem quis</a> 
-					<a href="#">Mollis metus</a> 
-					<a href="#">Sitamet</a> 
-					<a href="#">Vel posuere</a> 
-					<a href="#">orci luctus</a> 
-					<a href="#">Nam lorem</a>
 				</div>
 			</div>
 			<!-- Side Bar End -->

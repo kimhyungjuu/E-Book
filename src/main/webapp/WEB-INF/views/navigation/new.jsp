@@ -20,20 +20,6 @@
 						<li><a href="category?category=6">웹만화</a></li>
 					</ul>
 				</div>
-
-				<div class="sidebar-widget tag">
-					<h2 class="title">Tags Cloud</h2>
-					<a href="#">감동적인</a> 
-					<a href="#">슬픈</a> 
-					<a href="#">화나는</a>
-					<a href="#">스릴있는</a> 
-					<a href="#">정적인</a> 
-					<a href="#">기분좋은</a>
-					<a href="#">돈</a> 
-					<a href="#">공부</a> 
-					<a href="#">명언</a> 
-					<a href="#">재미있는</a> 
-				</div>
 			</div>
 			<!-- Side Bar End -->
 

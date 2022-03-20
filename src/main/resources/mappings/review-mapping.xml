@@ -19,15 +19,12 @@
 		WHERE rseq=#{rseq}
 	</delete>
 	
-	<!-- TODO: 별점 평균 업데이트  
-	<update id="updateReviewAvg">
-		UPDATE ebook
-		SET ratingAvg = 
-		(SELECT r.avg 
+	<!-- TODO: 별점 평균 업데이트 -->  
+	<select id="ReviewAvg">
+		SELECT r.avg 
 		FROM (SELECT bseq, rseq, avg(rating) AS avg FROM review GROUP BY bseq) r WEHRE r.bseq=#{bseq})
 		where bseq=#{bseq}
-	</update>
-	-->
+	</select>
 	
 	<!-- TODO: 조회한 상품의 리뷰 총 갯수 -->
 	<select id="countReviewList" parameterType="String" resultType="int">

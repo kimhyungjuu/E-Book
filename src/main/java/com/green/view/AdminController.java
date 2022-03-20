@@ -234,12 +234,12 @@ public class AdminController {
 				vo.setImage(origImage);
 			}
 			// 베스트 상품, 신상품을 체크하지 않으면 값이 null로 들어옴
-			if (vo.getUseyn() == 0) {
-				vo.setUseyn('n');
-			}
-			if (vo.getLikeyn() == 0) {
-				vo.setLikeyn('n');
-			}
+			if (vo.getUseyn() == null) {
+	            vo.setUseyn("n");
+	         }
+	         if (vo.getLikeyn() == null) {
+	            vo.setLikeyn("n");
+	         }
 			
 			productService.updateProduct(vo);
 			
