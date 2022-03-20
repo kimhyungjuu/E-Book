@@ -70,6 +70,7 @@
 								</div>
 
 								<!-- bookCartButton :: start -->
+								<form id="theform" method="get">
 								<div class="col-md-4">
 									<div class="product-short">
 										<div class="bookCartButton">
@@ -77,6 +78,7 @@
 										</div>
 									</div>
 								</div>
+								</form>
 								<!-- bookCartButton :: end -->
 
 							</div>

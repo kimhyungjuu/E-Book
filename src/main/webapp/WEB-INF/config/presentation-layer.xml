@@ -13,7 +13,7 @@
 	
 	<!-- 리소스 위치 설정  -->
 	<mvc:resources location="/WEB-INF/resources/css/" mapping="/css/**"></mvc:resources>
-  <mvc:resources location="/WEB-INF/resources/img/" mapping="/img/**"></mvc:resources>
+  	<mvc:resources location="/WEB-INF/resources/img/" mapping="/img/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/resources/ebook-image/" mapping="/ebook-image/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/resources/js/" mapping="/js/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/resources/lib/easing/" mapping="/easing/**"/>
@@ -23,7 +23,7 @@
 	<mvc:resources location="/WEB-INF/views/mypage/" mapping="/mypage/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/views/product/" mapping="/product/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/views/navigation/" mapping="/navigation/**"></mvc:resources>
-  <mvc:resources location="/WEB-INF/views/admin/" mapping="/admin/**"></mvc:resources>
+  	<mvc:resources location="/WEB-INF/views/admin/" mapping="/**"></mvc:resources>
 	
 	
 	<!-- jsp 소스 ViewResolver -->

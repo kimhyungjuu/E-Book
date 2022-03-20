@@ -51,6 +51,7 @@ public class OrderServiceImpl implements OrderService {
 			
 			// 占쏙옙袂占쏙옙占� 占쏙옙占싱븝옙 占쏙옙占쏙옙트(처占쏙옙占쏙옙占� '처占쏙옙占싹뤄옙'占쏙옙)
 			cartService.updateCart(cartVO.getCseq());
+			
 		}
 		
 		return oseq;
@@ -70,6 +71,7 @@ public class OrderServiceImpl implements OrderService {
 		return oDao.listOrderById(vo);
 	}
 
+	
 	@Override
 	public List<Integer> selectSeqOrdering(OrderVO vo) {
 		
@@ -78,9 +80,10 @@ public class OrderServiceImpl implements OrderService {
 
 
 
+
 	@Override
 	public List<OrderVO> listOrder(String key) {
-    
+
 		return oDao.listOrder(key);
 	}
 

@@ -17,18 +17,12 @@
         </div>
         <!-- Breadcrumb End -->
         
-        <c:choose>
-        <c:when test= "${cart.size() == 0}">
-      		<h3 style="color: red;text-align: center;"> 장바구니가 비었습니다. </h3> 
-    	</c:when>
-    	<c:otherwise>
-    	</c:otherwise>
-    	</c:choose>
-        
         <!-- Cart Start -->
         <div class="cart-page">
+        
             <div class="container-fluid">
                 <div class="row">
+                <form action="cart" id="cartform" name="cartform" method="post">
                     <div class="col-lg-8">
                         <div class="cart-page-inner">
                             <div class="table-responsive">
@@ -47,8 +41,9 @@
                                             <td>
                                                 <div class="img">
                                                     
-                                                    <a href="product_detail?bseq=${cartVO.bseq}">
-              										<span> ${cartVO.bname} </span>              
+                                                    <a href="product-detail?bseq=${cartVO.bseq}">
+                                                   
+              										<span> ${cartVO.title} </span>              
             										</a>    
                                                 </div>
                                             </td>
@@ -65,6 +60,7 @@
                             </div>
                         </div>
                     </div>
+                    </form>
                     
                     
                     <div class="col-lg-4">

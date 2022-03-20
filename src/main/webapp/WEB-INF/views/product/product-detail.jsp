@@ -50,7 +50,10 @@
 			</div>
 
 			<div class="col-lg-8">
+			
 				<div class="product-detail-top">
+				<form action="product-detail" id="detailform" method="post">
+				<input type="hidden" name="bseq" value="${productVO.bseq}">
 					<div class="row align-items-center">
 						<div class="col-md-5">
 							<div class="product-slider-single normal-slider slick-initialized slick-slider">
@@ -68,10 +71,12 @@
 							<div class="title_wrap">
 								<div class="title">
 									<h2>${productVO.title}</h2>
+									<input type="hidden" name="title" value="${productVO.title}">
 								</div>
 								
 								<div class="author">
-									<a>${productVO.author} 저 </a>
+									<a>${productVO.author} 저 자</a>
+									<input type="hidden" name="author" value="${productVO.author}">
 								</div>	
 							</div>
 							
@@ -97,6 +102,7 @@
 												</c:when>
 												<c:otherwise>
 													<fmt:formatNumber type="number" maxFractionDigits="3" value="${productVO.price}" /> 원
+													<input type="hidden" name="price" value="${productVO.price}">
 												</c:otherwise>
 											</c:choose>		
 											</span>
@@ -112,6 +118,7 @@
 												</c:when>
 												<c:otherwise>
 													<fmt:formatNumber type="number" maxFractionDigits="3" value="${productVO.price_rent}" /> 원
+												<input type="hidden" name="price_rent" value="${productVO.price_rent}">
 												</c:otherwise>
 											</c:choose>
 											</span>
@@ -122,7 +129,7 @@
 								</div>
 
 								<div class="action">
-									<a class="btn" href="#"><i class="fa fa-heart" onclick="go_wishlist()"></i></a>
+									<a class="btn" href="#"><i class="fa fa-heart" onclick="go_wishlist(${productVO.bseq})"></i></a>
 									<a class="btn" href="#"><i class="fa fa-shopping-cart" onclick="go_cart()"></i></a> 
 									<a class="btn" href="#"><i class="buy" onlick="go_buy">구매하기</i></a>
 									<a class="btn" href="#"><i class="buy" onlick="go_rent">대여하기</i></a>
@@ -130,7 +137,7 @@
 							</div>
 						</div>
 					</div>
-
+					</form>
 					<div class="row product-detail-bottom">
 						<div class="col-lg-12">
 							<ul class="nav nav-pills nav-justified">
