@@ -4,15 +4,18 @@
 <link rel="stylesheet" href="css/review.css" />
 <script type="text/javascript" src="mypage/mypage.js"></script>
 <script type="text/javascript" src="product/product-detail.js"></script>
-<script src="/js/jquery.twbsPagination.js"></script> <!-- jQuery --> <script src="/js/jquery-3.6.0.min.js"></script> <!-- Bootstrap --> <script src="/js/bootstrap.min.js"></script> <link rel="stylesheet" href="/css/bootstrap.min.css" />
+<script src="/js/jquery.twbsPagination.js"></script> <!-- jQuery --> 
+<script src="/js/jquery-3.6.0.min.js"></script> <!-- Bootstrap --> 
+<script src="/js/bootstrap.min.js"></script> 
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
 
 
 <!-- Breadcrumb Start -->
 <div class="breadcrumb-wrap">
 	<div class="container-fluid">
 		<ul class="breadcrumb">
-			<li class="breadcrumb-item"><a href="#">Home</a></li>
-			<li class="breadcrumb-item"><a href="#">Products</a></li>
+			<li class="breadcrumb-item"><a href="index">Home</a></li>
+			<li class="breadcrumb-item"><a href="javascript:history.back();">Products</a></li>
 			<li class="breadcrumb-item active">Product Detail</li>
 		</ul>
 	</div>
@@ -39,20 +42,12 @@
 					</ul>
 				</div>
 
-				<div class="sidebar-widget tag">
-					<h2 class="title">Tags Cloud</h2>
-					<a href="#">Lorem ipsum</a> <a href="#">Vivamus</a> <a href="#">Phasellus</a>
-					<a href="#">pulvinar</a> <a href="#">Curabitur</a> <a href="#">Fusce</a>
-					<a href="#">Sem quis</a> <a href="#">Mollis metus</a> <a href="#">Sit
-						amet</a> <a href="#">Vel posuere</a> <a href="#">orci luctus</a> <a
-						href="#">Nam lorem</a>
-				</div>
 			</div>
 
 			<div class="col-lg-8">
 			
-				<div class="product-detail-top">
-				<form action="product-detail" id="detailform" method="post">
+			<div class="product-detail-top">
+			<form action="product-detail" id="detailform" method="post">
 				<input type="hidden" name="bseq" value="${productVO.bseq}">
 					<div class="row align-items-center">
 						<div class="col-md-5">
@@ -80,9 +75,8 @@
 								</div>	
 							</div>
 							
-								<div class="ratting">
-									<div class="ratting ${productVO.ratingAvg}"></div>
-								</div>
+								 
+								<div class="ratting ${reviewAvg}"></div>
 								
 								<hr>
 								
@@ -131,8 +125,8 @@
 								<div class="action">
 									<a class="btn" href="#"><i class="fa fa-heart" onclick="go_wishlist(${productVO.bseq})"></i></a>
 									<a class="btn" href="#"><i class="fa fa-shopping-cart" onclick="go_cart()"></i></a> 
-									<a class="btn" href="#"><i class="buy" onlick="go_buy">구매하기</i></a>
-									<a class="btn" href="#"><i class="buy" onlick="go_rent">대여하기</i></a>
+									<a class="btn" href="#"><i class="buy" onclick="buy_book()">구매하기</i></a>
+									<a class="btn" href="#"><i class="buy" onclick="rent_book()">대여하기</i></a>																		
 								</div>
 							</div>
 						</div>
@@ -171,7 +165,7 @@
 								
 								<div id="reviews" class="container tab-pane fade">
 									
-								<form name="myform" id="myform" method="post" >
+							<form name="myform" id="myform" method="post" >
 								<input type="hidden" name="bseq" value="${productVO.bseq}">
 									<div class="reviews-submit">
 										<h4>책에 대한 리뷰를 남겨주세요! </h4>
@@ -188,8 +182,8 @@
 												<label for="rate1">★</label>
 											</fieldset>
 											<div class="row form">
-												<div class="col-sm-12" id="content">
-													<textarea placeholder="리뷰를 남겨주세요" name="content" ></textarea>
+												<div class="col-sm-12" id="content_insert">
+													<textarea placeholder="리뷰를 남겨주세요" name="content" id="content"></textarea>
 												</div>
 												<div class="col-sm-12">
 													<input type="button" value="리뷰작성" class="submit" 
