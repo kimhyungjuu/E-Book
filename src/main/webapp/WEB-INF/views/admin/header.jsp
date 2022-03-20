@@ -58,8 +58,9 @@
                 <div class="row align-items-center">
                     <div class="col-md-3">
                         <div class="logo">
-                                <img src="img/logo.png" alt="Logo">
-                           
+                        	<a href="admin_product_list">
+                                <img src="img/logo.jpg" alt="Logo">
+                           </a>
                         </div>
                     </div>                  
                 </div>

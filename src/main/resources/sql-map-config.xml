@@ -11,9 +11,9 @@
 		<typeAlias type="com.green.biz.dto.MemberVO" alias="member"/>
 		<typeAlias type="com.green.biz.dto.QnaVO" alias="qna"/>
 		<typeAlias type="com.green.biz.dto.NoticeVO" alias="notice" />
-  	<typeAlias type="com.green.biz.dto.AddressVO" alias="address"/>
+  		<typeAlias type="com.green.biz.dto.AddressVO" alias="address"/>
 		<typeAlias type="com.green.biz.dto.OrderVO" alias="order"/>
-    <typeAlias type="com.green.biz.dto.CartVO" alias="cart"/>
+    	<typeAlias type="com.green.biz.dto.CartVO" alias="cart"/>
   </typeAliases> 
 
   	
@@ -26,7 +26,7 @@
       <mapper resource="mappings/member-mapping.xml" />
       <mapper resource="mappings/qna-mapping.xml" />
       <mapper resource="mappings/notice-mapping.xml" />
-      <mapper resource="mapping/review-mapping.xml"/>
+      <mapper resource="mappings/review-mapping.xml"/>
     </mappers>
 
  </configuration>

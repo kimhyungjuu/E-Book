@@ -89,9 +89,21 @@ public class AdminController {
 	
 	//관리자 계정 로그아웃 처리	 
 	@GetMapping(value="/admin_logout")
-	public String adminLogout(SessionStatus status) {
+	public String adminLogout(SessionStatus status, Model model) {
 			
 		status.setComplete();
+		
+		// 베스트 상품 조회 서비스 호출
+		List<ProductVO> bestProdList = productService.getBestProductList();	
+		model.addAttribute("BestProductList", bestProdList);
+						
+		// 신상품 조회 서비스 호출
+		List<ProductVO> newProdList =  productService.getNewProductList();				
+		model.addAttribute("NewProductList", newProdList);
+				
+		// 무료 도서 조회 서비스 호출
+		List<ProductVO> freeProdList = productService.getFreeProductList();			
+		model.addAttribute("FreeProductList", freeProdList);
 			
 		return "index";
 	}
@@ -234,11 +246,11 @@ public class AdminController {
 				vo.setImage(origImage);
 			}
 			// 베스트 상품, 신상품을 체크하지 않으면 값이 null로 들어옴
-			if (vo.getUseyn() == 0) {
-				vo.setUseyn('n');
+			if (vo.getUseyn() == null) {
+				vo.setUseyn("n");
 			}
-			if (vo.getLikeyn() == 0) {
-				vo.setLikeyn('n');
+			if (vo.getLikeyn() == null) {
+				vo.setLikeyn("n");
 			}
 			
 			productService.updateProduct(vo);
