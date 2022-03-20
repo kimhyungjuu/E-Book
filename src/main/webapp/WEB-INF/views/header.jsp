@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -63,7 +65,7 @@
        						</c:choose>
                             <li><a href="cart" class="nav-item nav-link">장바구니</a></li>
                             <div class="nav-item dropdown">
-                                <a href="mypage.html" class="nav-link dropdown-toggle" data-toggle="dropdown">마이페이지</a>
+                                <a href="mypage" class="nav-link dropdown-toggle" data-toggle="dropdown">마이페이지</a>
                                 <div class="dropdown-menu">
                                     <a href="orderlist" class="dropdown-item">내 서재</a>
                                     <a href="wishlist" class="dropdown-item">위시리스트</a>
@@ -88,7 +90,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-3">
                         <div class="logo">
-                            <a href="index.html">
+                            <a href="index">
                                 <img src="img/logo.jpg" alt="Logo">
                             </a>
                         </div>
@@ -162,16 +164,16 @@
         			<a class="nav-link" href="#"><label for="collapsible"><span>카테고리</span></label></a>
 		        </li>
 	        	<li class="nav-item">
-                    <a class="nav-link" href="best.html">베스트셀러</a>
+                    <a class="nav-link" href="best">베스트 도서</a>
 				</li>
                 <li class="nav-item">
-					<a class="nav-link" href="new.html">이달의 신작</a>
+					<a class="nav-link" href="new">이달의 신작</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="free.html">무료 도서</a>
+					<a class="nav-link" href="free">무료 도서</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="cs_center.html">고객센터</a>
+					<a class="nav-link" href="cs_center">고객센터</a>
 				</li>
 			</ul>
 			<div class="menu">

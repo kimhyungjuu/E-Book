@@ -1,12 +1,16 @@
 package com.green.biz.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.green.biz.dto.ProductVO;
 import com.green.biz.dto.ReviewVO;
+
+import utils.Criteria;
 
 @Repository
 public class ReviewDAO {
@@ -31,10 +35,27 @@ public class ReviewDAO {
 		
 		mybatis.delete("mappings.review-mapping.deleteReview", rseq);
 	}
+
 	
-	// 리뷰목록에서 항목 업데이트
-	public void updateReview(ReviewVO rv) {
+	// 조회한 상품의 리뷰 총 갯수
+	public int countReviewList(String title) {
 		
-		mybatis.delete("mappings.review-mapping.updateReview", rv);
+		return mybatis.selectOne("mappings.review-mapping.countReviewList", title);
 	}
+	
+	// 페이지별 리뷰목록 조회
+	public List<ReviewVO> getreviewPaging(Criteria criteria, String title) {
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("criteria", criteria);
+		map.put("title", title);
+		
+		return mybatis.selectList("mappings.product-mapping.reviewPaging", map);
+	}
+	
+	/*
+	 * // 별점 평균 업데이트 public void updateReviewAvg(ProductVO vo) {
+	 * 
+	 * mybatis.update("mappings.product-mapping.updateReviewAvg", vo); }
+	 */
+	
 }

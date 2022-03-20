@@ -2,6 +2,7 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.green.biz.dto.ProductVO" alias="product"/>
@@ -9,6 +10,8 @@
 		<typeAlias type="com.green.biz.dto.ManagerVO" alias="manager"/>
 		<typeAlias type="com.green.biz.dto.MemberVO" alias="member"/>
 		<typeAlias type="com.green.biz.dto.QnaVO" alias="qna"/>
+		<typeAlias type="com.green.biz.dto.NoticeVO" alias="notice" />
+  	<typeAlias type="com.green.biz.dto.AddressVO" alias="address"/>
 		<typeAlias type="com.green.biz.dto.OrderVO" alias="order"/>
 		<typeAlias type="com.green.biz.dto.NoticeVO" alias="notice"/>
 		<typeAlias type="com.green.biz.dto.AddressVO" alias="address"/>
@@ -41,6 +44,9 @@
 
 
 
-
-
+ 
+ 
+ 
+ 
+ 
 
