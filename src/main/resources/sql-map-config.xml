@@ -14,24 +14,35 @@
   		<typeAlias type="com.green.biz.dto.AddressVO" alias="address"/>
 		<typeAlias type="com.green.biz.dto.OrderVO" alias="order"/>
     	<typeAlias type="com.green.biz.dto.CartVO" alias="cart"/>
-  </typeAliases> 
+		<typeAlias type="com.green.biz.dto.WishlistVO" alias="wishlist"/>
 
-  	
-  	<!--  SQL 매핑파일 등록 -->
-  	<mappers>
-      <mapper resource="mappings/cart-mapping.xml" />
-      <mapper resource="mappings/order-mapping.xml"/>	
-      <mapper resource="mappings/product-mapping.xml" />
-      <mapper resource="mappings/admin-mapping.xml" />
-      <mapper resource="mappings/member-mapping.xml" />
-      <mapper resource="mappings/qna-mapping.xml" />
-      <mapper resource="mappings/notice-mapping.xml" />
-      <mapper resource="mappings/review-mapping.xml"/>
-    </mappers>
+		
+  		
+  	</typeAliases> 
 
- </configuration>
+
+	
+	<!--  SQL 매핑파일 등록 -->
+	<mappers>
+		<mapper resource="mappings/cart-mapping.xml"/>
+		<mapper resource="mappings/wishlist-mapping.xml"/>
+		<mapper resource="mappings/product-mapping.xml"/>
+		<mapper resource="mappings/review-mapping.xml"/>
+		<mapper resource="mappings/admin-mapping.xml"/>
+		<mapper resource="mappings/member-mapping.xml"/>
+		<mapper resource="mappings/qna-mapping.xml"/>
+		<mapper resource="mappings/order-mapping.xml"/>
+		<mapper resource="mappings/notice-mapping.xml"/>
+	</mappers>
+</configuration>
+
+
+
+
+
+
  
  
  
  
- 
+

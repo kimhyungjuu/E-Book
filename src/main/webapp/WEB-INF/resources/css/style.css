@@ -1589,7 +1589,8 @@ div#prodcuct-wrap {
 }
 
 .cart-page .table {
-    width: 100%;
+    width: 200%;
+    padding: 30px;
     text-align: center;
     margin-bottom: 0;
 }
@@ -2539,5 +2540,29 @@ div#prodcuct-wrap {
     .footer-bottom .template-by {
         text-align: center; 
     } 
+    
+    #sub_menu {
+	width: 250x;
+	float: left;
+	margin: 20px 0;
+}
+
+#sub_menu ul {
+	margin: 20px 0 0 16px;
+	list-style: none;
+}
+
+#sub_menu a {
+	text-decoration: none;
+	color: white; font-family: Arial, Helvetica, sans-serif;
+	font-weight:bold; font-size:16px;
+	display: block;
+	height: 15px;
+	width: 160px;
+	padding: 7px;
+	border-bottom: 1px dotted #999;
+	background-repeat: no-repeat;
+	background-position: right center;
+}
 }
 

@@ -8,12 +8,12 @@ function go_cart() {
 	 * 값이 있으면 : url => "cart_insert" submit
 	 */
 
-		$("#theform").attr("action", "cart_insert").submit();
+		$("#detailform").attr("action", "cart_insert").submit();
 	}
 
-function go_wishlist() {
+function go_wishlist(bseq) {
 	
-	$("#theform").attr("action", "wishlist_insert").submit();
+	$("#theform").attr("action", "wishlist_insert?bseq="+bseq).submit();
 }
 
 function go_wishlist_delete() {
@@ -38,14 +38,14 @@ function go_wishlist_delete() {
 function go_cart_delete() {
 	var count = 0;
 	// 삭제할 항목이 하나인 경우 확인
-	if(document.cart-page.cseq.length == undefined) {
-		if (document.formm.cseq.checked == true) {
+	if(document.cartform.cseq.length == undefined) {
+		if (document.cartform.cseq.checked == true) {
 			count++;
 		}
 	}
 	// 삭제할 항목이 2개 이상인 경우 확인
-	for(var i = 0; i<document.formm.cseq.length; i ++) {
-		if (document.cart-page.cseq[i].checked == true) {
+	for(var i = 0; i<document.cartform.cseq.length; i ++) {
+		if (document.cartform.cseq[i].checked == true) {
 			count++;
 		}
 	}
@@ -54,8 +54,8 @@ function go_cart_delete() {
 		alert("삭제할 항목을 선택해 주세요!");
 	} else {
 		// $("#theform").attr("action", "cart_delete").submit();   와 동일
-		document.formm.action = "cart_delete";
-		document.formm.submit();
+		document.cartform.action = "cart_delete";
+		document.cartform.submit();
 	}
 }  
 
@@ -64,7 +64,7 @@ function go_cart_delete() {
  */
 function go_order_insert() {
 	
-	$("#theform").attr("action", "order_insert").submit();
+	$("#cartform").attr("action", "order_insert").submit();
 }
 /*
  * 

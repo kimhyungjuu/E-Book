@@ -92,6 +92,8 @@ public class ProductDAO {
 			
 		return mybatis.selectList("mappings.product-mapping.getProductSales");
 	}
+	
+	
 
 	
 }
