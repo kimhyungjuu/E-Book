@@ -1,14 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>  
 <%@ include file="../header.jsp" %>	  
+     <head>
+ <style>
+     article {
+	text-align:center;
+</style>
+      </head>
+
   <article>
     <h2>Join Us</h2>
     <form id="join" action="join_form" method="post" name="formm">
         언제나 새로운 즐거움이 가득한 E-Book의 회원가입 페이지 입니다. <br>
        E-Book의 회원가입은 무료이며, 회원님의 개인신상에 관한 정보는 
-       ‘정보통신망이용촉진 및 정보보호등에관한법률’에 의해 회원님의 동의없이
-         제 3자에게 제공되지 않으며, 철저히 보호되고 있사오니 안심하고 이용하시기 바랍
-니다.<br><br>
+       ‘정보통신망이용촉진 및 정보보호등에관한법률’에 의해 회원님의 동의없이 <br>
+         제 3자에게 제공되지 않으며, 철저히 보호되고 있사오니 안심하고 이용하시기 바랍니다.<br><br>
        <textarea rows="15" cols="100">
        제 1 장 총 칙
 

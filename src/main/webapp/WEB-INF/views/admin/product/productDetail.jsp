@@ -40,7 +40,7 @@ article {
 	margin: 0 7px 7px 0px;
 }
 #list{
-	margin-left: 620px;
+	margin-left: 40%;
 }
 #list td{ 
 	padding: 8px 5px;
@@ -59,12 +59,18 @@ function go_list(){
 	theForm.action="admin_product_list";
 	theForm.submit();
 }
+function go_del(){
+	var theForm = document.frm;
+	theForm.action="admin_product_delete";
+	theForm.submit();
+}
 </script>
 
 <article>
-<h1>상품 상세 보기</h1> 
+<h1>책 상세 보기</h1> 
 <br>
 <form name="frm" id="detail_form" method="post">
+<input type="hidden" name="bseq" value="${productVO.bseq}">
 <table id="list">
   <tr>
     <th>상품분류</th>
@@ -78,18 +84,18 @@ function go_list(){
     </tr>
     
     <tr>
-        <th align="center" >저자</th>
+        <th align="center" >작가</th>
         <td colspan="5">${productVO.author}</td>
     </tr>
     
     <tr>
         <th>대여료</th>
-        <td width="60">${productVO.price_rent}</td>
+        <td width="60">${productVO.price_rent} 원</td>
     </tr>
     
     <tr>
         <th>판매가</th>
-        <td width="60">${productVO.price}</td>
+        <td width="60">${productVO.price} 원</td>
     </tr>
      
     <tr>
@@ -101,7 +107,7 @@ function go_list(){
      <th>상품이미지</th>
      <td colspan="5" align="center">
   <!--[7] 상품 이미지를 출력하기 -->     
-     <img src="product_images/${productVO.image}" width="200pt">    
+     <img src="ebook-image/${productVO.image}" width="200pt">    
      </td>
     </tr>
 
@@ -109,7 +115,8 @@ function go_list(){
 <br><br>
 <!--[8] 수정 버튼이 눌리면 상품 수정 페이지로 이동하되 현재 페이지와 상품 일련번호 값을 전달해 준다. --> 
 <div style="margin-left:620px">
-<input class="btn"  type="button" value="수정" onClick="location.href='admin_product_update_form?bseq=${productVO.bseq}'">
+<input class="btn"  type="button" value="수정" onClick="location.href='admin_product_update_form?bseq=${productVO.bseq}'">     
+<input class="btn" type="button" value="삭제" onClick="go_del()">    
 <!--[9] 목록 버튼이 눌리면 상품 리스트 페이지로 이동하되 현재 페이지를 전달해 준다. --> 
 <input class="btn"  type="button" value="목록" onClick="go_list()">    
 </div>      

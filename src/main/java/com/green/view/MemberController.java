@@ -14,7 +14,9 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import com.green.biz.dto.AddressVO;
 import com.green.biz.dto.MemberVO;
+import com.green.biz.dto.ProductVO;
 import com.green.biz.member.MemberService;
+import com.green.biz.product.ProductService;
 
 @Controller
 @SessionAttributes("loginUser")
@@ -22,6 +24,8 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private ProductService productService;
 	
 	/*
 	 * 로그인 화면 표시
@@ -56,9 +60,21 @@ public class MemberController {
 	}
 	
 	@GetMapping(value="/logout")
-	public String logout(SessionStatus status) {
+	public String logout(SessionStatus status, Model model) {
 		
 		status.setComplete();		// 세션을 종료
+
+		// 베스트 상품 조회 서비스 호출
+		List<ProductVO> bestProdList = productService.getBestProductList();	
+		model.addAttribute("BestProductList", bestProdList);
+				
+		// 신상품 조회 서비스 호출
+		List<ProductVO> newProdList =  productService.getNewProductList();				
+		model.addAttribute("NewProductList", newProdList);
+		
+		// 무료 도서 조회 서비스 호출
+		List<ProductVO> freeProdList = productService.getFreeProductList();			
+		model.addAttribute("FreeProductList", freeProdList);
 		
 		return "index";
 	}

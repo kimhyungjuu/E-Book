@@ -7,8 +7,19 @@
 <%@ include file="../header.jsp" %>
 <%@ include file="sub_menu(book).jsp" %> 
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<style>
+ table, th, td {
+        border: 1px solid #bcbcbc;
+      }
+      table {
+    width: 600px;
+     margin-left:auto; 
+    margin-right:auto;
+  }
+   article {
+  text-align: center;
+  }
+</style>
 </head>
 <body>
   		<!-- Breadcrumb Start -->

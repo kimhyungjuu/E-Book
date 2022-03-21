@@ -99,7 +99,7 @@ th, td{
   <table id="orderList">
   <tr>
     <th>주문번호(처리여부)</th><th>주문자</th><th>책제목</th>
-    <th>전화</th><th>주문일</th>
+    <th>주문일</th>
   </tr>
   <c:forEach items="${orderList}" var="orderVO">
   <tr>
@@ -116,7 +116,6 @@ th, td{
       </c:choose>
     </td>
     <td>${orderVO.mname}</td> <td>${orderVO.title}</td>
-      <td>${orderVO.phone}</td>
     <td><fmt:formatDate value="${orderVO.indate}" /></td>
   </tr>
   </c:forEach>

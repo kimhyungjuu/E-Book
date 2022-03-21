@@ -75,7 +75,7 @@ th, td{
 <article>
 <h1>공지사항 게시글 리스트</h1>  
 <form name="frm" method="post" id="prod_form" >
-<table style="margin-left:400px">
+<table style="margin-left:70%">
   <tr>
   <td width="642">
      <input class="btn" type="button" name="btn_write" value="공지등록" onClick="go_wrt()">

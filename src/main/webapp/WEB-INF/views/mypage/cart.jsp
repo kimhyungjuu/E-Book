@@ -5,6 +5,14 @@
 <%@ include file="../header.jsp" %>
 <!DOCTYPE html>
 <html lang="ko">
+<head>
+ <style>
+.cart-btn {
+text-align: center;
+}
+</style>
+</head> 
+
  
         <!-- Breadcrumb Start -->
         <div class="breadcrumb-wrap">
@@ -70,13 +78,12 @@
                                 <div class="col-md-12">
                                     <div class="cart-summary">
                                         <div class="cart-content">
-                                            <h1>총액</h1>
+                                        <span><a>총 액</a></span>
                                         <span> 
-            							<fmt:formatNumber value="${totalPrice}" type="currency"/>
-          								</span> 
-          								 <span><a href="#" onclick="go_cart_delete()"><h3>삭제하기</h3></a></span>
-          								  
-                                        </div>
+            							<h2><fmt:formatNumber value="${totalPrice}" type="currency"/></h2>
+          								</span><br><br>
+          								<span><a href="#" onclick="go_cart_delete()" style="text-align:center"><h3>삭제하기<h3></a></span>
+          		                        </div>
 
                                         <div class="cart-btn">
                                             <input type="button" value="쇼핑 계속하기" class="cancel" onclick="location.href='index'">    
