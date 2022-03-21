@@ -59,7 +59,6 @@ th, td{
 	padding-right: 40px;
 }
 </style>
-
 <script type="text/javascript">
 function go_mov(){
 	var theForm = document.frm;
@@ -75,7 +74,6 @@ function go_save(){
 }
 
 </script>
-
 <article>
 <h1>도서 등록</h1>  
 <!-- [1] 파일을 업로드 하기 위해서는 폼태그를 post 방식으로 전송하고,
@@ -97,22 +95,22 @@ function go_save(){
   </td>
 </tr>
 <tr>
-  <th>저자</th>
+  <th>작가</th>
   <td width="200" colspan="5">
-       <input type="text" name="author" id="author" size="47" maxlength="30">
+       <input type="text" name="author" id="author" size="30" maxlength="30">
   </td>
 </tr>
 <tr>
   <th>대여료</th>
   <td width="70">
-    <input type="text" name="price_rent" id="price_rent" size="11" onKeyUp='NumFormat(this)'>
+    <input type="text" name="price_rent" id="price_rent" size="11" onKeyUp='NumFormat(this)'> 원
   </td>
   
   </tr>
   <tr>
   	<th>판매가</th>
   	<td width="70">
-     	<input type="text" name="price" id="price" size="11" onKeyUp='NumFormat(this)'>
+     	<input type="text" name="price" id="price" size="11" onKeyUp='NumFormat(this)'> 원
   	</td>
   </tr>
     
