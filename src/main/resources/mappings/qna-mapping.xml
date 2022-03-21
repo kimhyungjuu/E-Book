@@ -28,4 +28,10 @@
 		SELECT * FROM qna
 		 WHERE id=#{id} ORDER BY qseq DESC 
 	</select>
+	
+	<delete id="deleteQna" parameterType="int">
+		DELETE FROM qna
+		WHERE qseq=#{qseq}  
+	</delete>
+	
 </mapper>

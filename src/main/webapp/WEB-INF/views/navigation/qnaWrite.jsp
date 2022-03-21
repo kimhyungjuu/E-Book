@@ -50,6 +50,7 @@ th, td{
 }
 h2, h3 {
 	text-align:center;
+	padding-bottom: 10px;
 }
 
 div#buttons {
@@ -78,7 +79,6 @@ form label {
 	    <h3> 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다.</h3>    
 		<form name="formm" method="post" action="qna_write">
 			<fieldset>	
-				<legend>1:1 문의 게시글</legend>	
 				<br>	
 			    <label>Title</label>
 			    <input type="text" name="subject"  size="63" >

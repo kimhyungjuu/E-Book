@@ -51,6 +51,7 @@ th, td{
 }
 h2, h3 {
 	text-align:center;
+	padding-bottom: 10px;
 }
 
 div#buttons {
@@ -71,7 +72,7 @@ div#buttons {
       </tr>
       <c:forEach items="${ListQnA}"  var="qnaVO">
       <tr>  
-        <td> ${qnaVO.qseq} </td>    
+        <td> <a href="qna_view?qseq=${qnaVO.qseq}"> ${qnaVO.qseq} </td>    
         <td> <a href="qna_view?qseq=${qnaVO.qseq}"> ${qnaVO.subject} </td>      
         <td> <fmt:formatDate value="${qnaVO.indate}" type="date"/></td>
         <td> 
