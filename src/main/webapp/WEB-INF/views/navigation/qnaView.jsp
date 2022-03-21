@@ -78,7 +78,7 @@ div#buttons {
       </tr>
       <tr>
         <th>답변 내용</th>
-        <td>${qnaVO.reply}  
+        <td style="white-space:pre;">${qnaVO.reply}  
       </tr>
     </table>
     <div class="clear"></div>
