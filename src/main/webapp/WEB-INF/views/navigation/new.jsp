@@ -85,16 +85,6 @@ div#prodcuct-wrap {
 			<div class="col-lg-8">
 				<div class="row">
 
-					<!-- bookCartButton :: start -->
-					<div class="col-md-4">
-						<div class="product-short">
-							<div class="bookCartButton">
-								<input type="button" value="위시리스트에 담기" class="submit"
-									onclick="go_wishlist()">
-							</div>
-						</div>
-					</div>
-					<!-- bookCartButton :: end -->
 
 
 					<!-- Book List Start -->
@@ -104,10 +94,8 @@ div#prodcuct-wrap {
 							<c:forEach items="${NewProductList}" var="productVO">
 								<div class="product-item">
 									<div class="product-title">
-										<span class="checkBox"> <input type="checkbox"
-											name="bseq" value="${productVO.bseq}">
-										</span> <label> <a
-											href="product-detail?bseq=${productVO.bseq}" target="_blank"></a>
+										<label> 
+										<a href="product-detail?bseq=${productVO.bseq}" target="_blank"></a>
 										</label>
 									</div>
 

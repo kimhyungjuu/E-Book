@@ -20,7 +20,4 @@ public class MemberVO {
 	private String phone;
 	private String useyn;
 	private Timestamp regdate;
-	
-	// account
-	private int account;
 }

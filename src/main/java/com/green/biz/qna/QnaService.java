@@ -10,4 +10,8 @@ public interface QnaService {
 	public List<QnaVO> listAllQna();
 	
 	public void updateQna(QnaVO vo);
+	
+	void insertQna(QnaVO vo);
+	
+	List<QnaVO> listQna(String id);
 }
