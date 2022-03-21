@@ -8,7 +8,12 @@
 <script src="/js/jquery-3.6.0.min.js"></script> <!-- Bootstrap --> 
 <script src="/js/bootstrap.min.js"></script> 
 <link rel="stylesheet" href="/css/bootstrap.min.css" />
-
+<style>
+.product-detail .product-content .ratting {
+    color: #FF6F61;
+    margin-bottom: 10px;
+}
+</style>
 
 <!-- Breadcrumb Start -->
 <div class="breadcrumb-wrap">
@@ -124,9 +129,9 @@
 
 								<div class="action">
 									<a class="btn" href="#"><i class="fa fa-heart" onclick="go_wishlist(${productVO.bseq})"></i></a>
-									<a class="btn" href="#"><i class="fa fa-shopping-cart" onclick="go_cart()"></i></a> 
-									<a class="btn" href="#"><i class="buy" onclick="buy_book()">구매하기</i></a>
-									<a class="btn" href="#"><i class="buy" onclick="rent_book()">대여하기</i></a>																		
+									<a class="btn" href="#"><i class="fa fa-shopping-cart" onclick="go_cart(${productVO.bseq})"></i></a> 
+									<a class="btn" href="#"><i class="buy" onclick="go_cart(${productVO.bseq})">구매하기</i></a>
+									<a class="btn" href="#"><i class="buy" onclick="go_cart(${productVO.bseq})">대여하기</i></a>																		
 								</div>
 							</div>
 						</div>

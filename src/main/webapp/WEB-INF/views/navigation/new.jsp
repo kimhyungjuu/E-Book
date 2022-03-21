@@ -1,6 +1,63 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
+<style>
+.col-lg-4.sidebar {
+    padding: 50px;
+    flex: 0 0 23%;
+    max-width: 25%;
+}
+
+.sidebar-widget {
+    padding: 40px;
+    background: #ffffff;
+}
+
+.bookCartButton {
+    padding-right: 100px;
+    padding-bottom: 30px;
+}
+
+span.checkBox {
+    float: left;
+    /* padding: 10px; */
+}
+
+.product-view .product-item {
+    margin-bottom: 30px;
+}
+
+.product-item .product-image {
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+    height: 300px;
+    margin: 0 auto;
+    position: relative;
+}
+
+div#prodcuct-wrap {
+    /* margin: 0 15px 0 15px; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.product-item {
+    position: relative;
+    margin: 0px 10px;
+    width: 200px;
+}
+
+.product-view .product-short, .product-view .product-price-range {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+}
+
+</style>
         
 <!-- Product List Start -->
 <div class="product-view">
@@ -20,126 +77,92 @@
 						<li><a href="category?category=6">웹만화</a></li>
 					</ul>
 				</div>
+
 			</div>
 			<!-- Side Bar End -->
 
 			<!-- ProductList Start -->
 			<div class="col-lg-8">
 				<div class="row">
-					
 
-					<!-- TopBar Start -->
-					<div class="col-md-12">
-						<div class="product-view-top">
-							<div class="row">
-
-								<div class="col-md-4">
-									<div class="product-search">
-										<input type="email" value="Search">
-										<button>
-											<i class="fa fa-search"></i>
-										</button>
-									</div>
-								</div>
-
-								<div class="col-md-4">
-									<div class="product-short">
-										<div class="dropdown">
-											<div class="dropdown-toggle" data-toggle="dropdown">도서분류</div>
-											<div class="dropdown-menu dropdown-menu-right">
-												<a href="#" class="dropdown-item">일별베스트</a> 
-												<a href="#" class="dropdown-item">주별 베스트</a> 
-												<a href="#" class="dropdown-item">월별 베스트</a>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- bookCartButton :: start -->
-								<form id="theform" method="get">
-								<div class="col-md-4">
-									<div class="product-short">
-										<div class="bookCartButton">
-											<input type="button" value="위시리스트에 담기" class="submit" onclick="go_wishlist()">
-										</div>
-									</div>
-								</div>
-								</form>
-								<!-- bookCartButton :: end -->
-
+					<!-- bookCartButton :: start -->
+					<div class="col-md-4">
+						<div class="product-short">
+							<div class="bookCartButton">
+								<input type="button" value="위시리스트에 담기" class="submit"
+									onclick="go_wishlist()">
 							</div>
 						</div>
 					</div>
-					<!-- TopBar End -->
+					<!-- bookCartButton :: end -->
+
 
 					<!-- Book List Start -->
-					
-					<div id="prodcuct-wrap">
-					 <c:forEach items="${NewProductList}"  var="productVO">
-						<div class="product-item">
-							<div class="product-title">
-								<span class="checkBox"> 
-									<input type="checkbox" name="_KEY" value="348921505">
-								</span> 
-								<label> 
-									<a href="product-detail?bseq=${productVO.bseq}" target="_blank"></a>
-								</label>
-							</div>
-							
-							<!-- 이미지 안에 장바구니, 위시리스트, 상세보기 버튼 시작 -->
-							<div class="product-image">
-								<a href="product-detail?bseq=${productVO.bseq}"> 
-									<img src="ebook-image/${productVO.image}" />
-								</a>
-								<div class="product-action">
-									<a href="#"><i class="fa fa-cart-plus"></i></a> 
-									<a href="#"><i class="fa fa-heart"></i></a> 
-									<a href="product-detail?bseq=${productVO.bseq}"><i class="fa fa-search"></i></a>
-								</div>
-							</div>
-							<!-- 이미지 안에 장바구니, 위시리스트, 상세보기 버튼 끝  -->
+					<form action="product-detail" id="detailform" method="post">
+						<input type="hidden" name="bseq" value="${productVO.bseq}">
+						<div id="prodcuct-wrap">
+							<c:forEach items="${NewProductList}" var="productVO">
+								<div class="product-item">
+									<div class="product-title">
+										<span class="checkBox"> <input type="checkbox"
+											name="bseq" value="${productVO.bseq}">
+										</span> <label> <a
+											href="product-detail?bseq=${productVO.bseq}" target="_blank"></a>
+										</label>
+									</div>
 
-							<a href="product-detail?bseq=${productVO.bseq}" target="_blank">
-								<div class="itemName">
-									<strong>${productVO.title} </strong>
-								</div>
-								<div class="itemMeta">
-									<span class="author">${productVO.author}</span>
-								</div>
+									<!-- 이미지 안에 장바구니, 위시리스트, 상세보기 버튼 시작 -->
+									<div class="product-image">
+										<a href="product-detail?bseq=${productVO.bseq}"> <img
+											src="ebook-image/${productVO.image}" />
+										</a>
+										<div class="product-action">
+											<a href="#"><i class="fa fa-heart"
+												onclick="go_wishlist(${productVO.bseq})"></i></a> <a href="#"><i
+												class="fa fa-cart-plus" onclick="go_cart(${productVO.bseq})"></i></a>
+											<a href="product-detail?bseq=${productVO.bseq}"><i
+												class="fa fa-search"></i></a>
+										</div>
+									</div>
+									<!-- 이미지 안에 장바구니, 위시리스트, 상세보기 버튼 끝  -->
 
-								<div class="priceWrap">
-									<span class="price"> 
-									<c:choose>
-										<c:when test="${productVO.price eq 0}">
-											<span>구매: 무료</span><br>
-											<span>대여: 무료</span>
-										</c:when>
-										
-										<c:otherwise>
-											<span>구매: 
-												<fmt:formatNumber type="number" maxFractionDigits="3" value="${productVO.price}"/> 원
+									<a href="product-detail?bseq=${productVO.bseq}" target="_blank">
+										<div class="itemName">
+											<strong>${productVO.title} </strong>
+										</div>
+										<div class="itemMeta">
+											<span class="author">${productVO.author}</span>
+										</div>
+
+										<div class="priceWrap">
+											<span class="price"> <c:choose>
+													<c:when test="${productVO.price eq 0}">
+														<span>구매: 무료</span>
+														<br>
+														<span>대여: 무료</span>
+													</c:when>
+
+													<c:otherwise>
+														<span>구매: <fmt:formatNumber type="number"
+																maxFractionDigits="3" value="${productVO.price}" /> 원
+														</span>
+														<br>
+														<span>대여: <fmt:formatNumber type="number"
+																maxFractionDigits="3" value="${productVO.price_rent}" />
+															원
+														</span>
+													</c:otherwise>
+												</c:choose>
 											</span>
-											<br>
-											<span>대여: 
-												<fmt:formatNumber type="number" maxFractionDigits="3" value="${productVO.price_rent}"/> 원 
-											</span>
-										</c:otherwise>
-									</c:choose>
-									</span>
-								</div>
-							</a>
+										</div>
+									</a>
 
-							<div class='reviewStat'>
-								<span class='title'>평점 </span> 
-								<span class='starRateWrap'>
-									<div class="ratting ${productVO.ratingAvg}"></div>
-								</span> 
-							</div>
+								</div>
+							</c:forEach>
 						</div>
-						</c:forEach>
-					</div>
-					<!-- BookList ENd -->
-					
+						<!-- BookList ENd -->
+					</form>
+
 				</div>
 			</div>
 		</div>
