@@ -21,13 +21,7 @@
         </div>
         <!-- Breadcrumb End -->
         
-        <c:choose>
-        <c:when test= "${wishlist.size() == 0}">
-      		<h3 style="color: red;text-align: center;"> 위시리스트가 비었습니다. </h3> 
-    	</c:when>
-    	<c:otherwise>
-    	</c:otherwise>
-    	</c:choose>
+
         <!-- Wishlist Start -->
         <div class="wishlist-page">
             <div class="container-fluid">
@@ -45,7 +39,7 @@
                                             <th>Remove</th>
                                         </tr>
                                     </thead>
-                                    
+  
                                     <c:forEach items="${wishlist}"  var="wishlistVO">
                                     
                                     <input type="hidden" name="bseq" value="${wishlistVO.bseq}">
@@ -58,13 +52,12 @@
                                                 </div>
                                             </td>
                                             <td>${wishlistVO.price} </td>
-
 								
                                            <td><button class="btn-cart" onclick="go_cart()">Add to Cart</button></td>
                                             <td><input type="checkbox" id ="wseq" name="wseq" value= "${wishlistVO.wseq}"></td>
                                         </tr>
                                         </c:forEach>
-                                        
+
                                    <tr>        
           <th colspan="2"> 총 액 </th>
           <th colspan="2"> 

@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>  
-<%@ include file="../header.jsp" %>    
+<%@ include file="../header.jsp" %>  
+     <head>
+ <style>
+     article {
+	text-align:center;
+	}
+	.label {
+	text-align:center;
+	}
+</style>
+      </head>  
   <article>
     <h2>Join Us</h2>
     <form id="join" action="join" method="post" name="formm">
@@ -27,10 +37,10 @@
         <input type="text"       name="zip_num"   size="10" >      
         <input type="button"     value="주소 찾기" class="dup" onclick="post_zip()"><br>
         <label>Address</label> 
-        <input type="text"        name="addr1"   size="50"> <br>
-        <input type="text"        name="addr2"   size="25" style="margin-left: 140px"> <br>
+        <input type="text"        name="addr1"   size="30"> <br>
+        <input type="text"        name="addr2"   size="25" style="margin-left: 120px"> <br>
         <label>Phone Number</label> 
-        <input  type="text"       name="phone"><br>
+        <input  type="text"       name="phone"><br><br>
       </fieldset>
       <div class="clear"></div>
       <div id="buttons">
