@@ -32,6 +32,9 @@ import com.green.biz.order.OrderService;
 import com.green.biz.product.ProductService;
 import com.green.biz.qna.QnaService;
 
+import utils.Criteria;
+import utils.PageMaker;
+
 @Controller
 @SessionAttributes("adminUser")
 public class AdminController {
@@ -107,7 +110,7 @@ public class AdminController {
 				
 			return "index";
 		}
-		
+		/*
 		//상품 목록 조회
 		@RequestMapping(value="/admin_product_list")
 		public String adminProductList(HttpSession session, Model model) {
@@ -122,6 +125,39 @@ public class AdminController {
 						
 				model.addAttribute("productList", prodList);
 						
+				return "admin/product/productList";
+			}
+		}
+		*/
+		
+		/*
+		 * 페이지별 상품 목록 조회요청 처리
+		 */
+		@RequestMapping(value="/admin_product_list")
+		public String adminProductList(
+				@RequestParam(value="key", defaultValue="") String name,
+				Criteria criteria,
+				HttpSession session, Model model) {
+			// 관리자 로그인 확인
+			ManagerVO adminUser = (ManagerVO)session.getAttribute("adminUser");
+			
+			if (adminUser == null) {
+				return "admin/login";
+			} else {
+				// 상품목록 조회
+				List<ProductVO> prodList = productService.getListWithPaging2(criteria, name);
+				
+				// 화면에 표시할 페이지버튼 정보 설정
+				PageMaker pageMaker = new PageMaker();
+				pageMaker.setCriteria(criteria);  // 현재 페이지와 페이지당 항목 수 정보 설정
+				int totalCount = productService.countProductList(name);
+				pageMaker.setTotalCount(totalCount); // 정체 상품목록 갯수 설정 및 페이지 정보 초기화
+				System.out.println("[adminProductList] pageMaker="+pageMaker);
+				
+				model.addAttribute("productList", prodList);
+				model.addAttribute("productListSize", prodList.size());
+				model.addAttribute("pageMaker", pageMaker);
+				
 				return "admin/product/productList";
 			}
 		}

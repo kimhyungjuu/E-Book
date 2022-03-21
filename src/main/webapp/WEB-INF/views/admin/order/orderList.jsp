@@ -44,7 +44,7 @@ table#orderList {
 	border-top: 2px solid #333;
 	border-bottom: 1px solid #333;
 	width: 80%; 
-	margin-left: 140px;
+	margin-left: 10%;
 	margin-bottom: 20px;
 }
 th, td{ 
@@ -74,8 +74,13 @@ th, td{
     if (count == 0) {
       alert("주문처리할 항목을 선택해 주세요.");
     } else {
-      document.frm.action = "admin_order_save";
-      document.frm.submit();
+    	if(confirm("주문처리 하시겠습니까?")==true){
+      		document.frm.action = "admin_order_save";
+      		document.frm.submit();
+     	   alert("주문이 처리되었습니다.");
+    	}else{
+    		return;
+    	}
     }
   }
   

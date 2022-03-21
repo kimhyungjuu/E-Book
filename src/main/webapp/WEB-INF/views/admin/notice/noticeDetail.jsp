@@ -40,7 +40,7 @@ article {
 	margin: 0 7px 7px 0px;
 }
 #list{
-	margin-left: 550px;
+	margin-left: 30%;
 }
 #list td{ 
 	padding: 8px 5px;
@@ -63,9 +63,14 @@ function go_list()
 
 function go_del()
 {
-	   var theForm = document.frm;
-	   theForm.action="admin_notice_delete";
-	   theForm.submit();
+	var theForm = document.frm;
+	if(confirm("정말 삭제하시겠습니까?")==true){
+	   	theForm.action="admin_notice_delete";
+	   	theForm.submit();
+	   	alert("삭제되었습니다.");
+	}else{
+			return;
+	}
 } 
 
 function go_mod(nseq)
@@ -73,6 +78,7 @@ function go_mod(nseq)
 	   var theForm = document.frm;
 	   theForm.action="admin_notice_update_form";
 	   theForm.submit();
+	   
 } 
 </script>
 
@@ -88,7 +94,7 @@ function go_mod(nseq)
     </tr>    
     <tr>
         <th align="center" >내용</th>
-        <td colspan="5">
+        <td style="white-space:pre;">
         	${noticeVO.content}
         </td>
     </tr>

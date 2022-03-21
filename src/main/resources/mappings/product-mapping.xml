@@ -49,7 +49,19 @@
 	<select id="listWithPaging" parameterType="hashMap" resultType="product">
 	<![CDATA[
 	SELECT bseq, regdate, title, author, price, price_rent, useyn, likeyn
-      FROM  (SELECT row_number() over(ORDER BY title) rn, bseq, regdate, title, price, price_rent, useyn, likeyn
+      FROM  (SELECT row_number() over(ORDER BY title) rn, bseq, regdate, title,author, price, price_rent, useyn, likeyn
+		       FROM ebook
+		      WHERE title LIKE '%'||#{title}||'%') 
+     WHERE rn <= #{criteria.pageNum} * #{criteria.rowsPerPage} 
+       AND rn > (#{criteria.pageNum}-1) * #{criteria.rowsPerPage}
+    ]]>
+	</select>
+	
+	<!--관리자 페이지별 상품목록 조회 -->
+	<select id="listWithPaging2" parameterType="hashMap" resultType="product">
+	<![CDATA[
+	SELECT bseq, title, price, price_rent, useyn
+      FROM  (SELECT row_number() over(ORDER BY title) rn, bseq, title, price, price_rent, useyn
 		       FROM ebook
 		      WHERE title LIKE '%'||#{title}||'%') 
      WHERE rn <= #{criteria.pageNum} * #{criteria.rowsPerPage} 
