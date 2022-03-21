@@ -131,7 +131,7 @@ th, td{
 	</script>
 
 	<div align="center">
-	<h1>제품별 판매 실적</h1>
+	<h1>도서별 판매 실적</h1>
 	<table id="List">
 		<tr>
 			<td><div id="piechart_div" style="boarder:1px solid #cc"></div></td>

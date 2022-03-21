@@ -78,7 +78,7 @@ th, td{
 </table>
 <table id="productList">
     <tr>
-        <th>번호</th><th>책제목</th><th>저자</th><th>대여료</th><th>판매가</th><th>등록일</th><th>사용유무</th>
+        <th>번호</th><th>책제목</th><th>작가</th><th>대여료</th><th>판매가</th><th>등록일</th><th>사용유무</th>
     </tr>
     <c:choose>
     <c:when test="${productListSize<=0}">
