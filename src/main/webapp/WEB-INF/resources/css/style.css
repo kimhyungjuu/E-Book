@@ -1586,10 +1586,11 @@ div#prodcuct-wrap {
     padding: 30px;
     margin-bottom: 30px;
     background: #ffffff;
+    text-align: center;
 }
 
 .cart-page .table {
-    width: 200%;
+    width: 500px;
     padding: 30px;
     text-align: center;
     margin-bottom: 0;

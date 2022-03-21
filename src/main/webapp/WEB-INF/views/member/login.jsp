@@ -1,7 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>  
 <%@ include file="../header.jsp" %>  
-      
+      <head>
+ <style>
+     article {
+	text-align:center;
+	}
+	fieldset {
+	text-align:center;
+	}
+</style>
+      </head>
   <article>
     <h1>Login</h1>
     <form method="post" action="login">

@@ -1,16 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
   <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
-<%@ include file="../header.jsp" %>  
-<%@ include file="sub_menu(order).jsp" %>       
+<%@ include file="../header.jsp" %>   
+ <head>
+ <style>
+ table, th, td {
+        border: 1px solid #bcbcbc;
+      }
+      table {
+    width: 600px;
+     margin-left:auto; 
+    margin-right:auto;
+  } 
+  form {
+  text-align:center;
+  } 
+  </style>
+  </head>   
   <article>
-    <h2> ${title} </h2>
+    
     <form name="formm" method="post">
       <h3> 주문자 정보 </h3>     
       <table id="cartList">      
       <tr>
-        <th>주문일자</th> <th>주문번호</th> <th>주문자</th>
- <th> 주문 총액</th>     
+        <th>주문일자</th> <th>주문번호</th> <th>주문자</th><th> 주문 총액</th>     
      </tr>     
      <tr>  
        <td> <fmt:formatDate value="${orderDetail.indate}" type="date"/></td>
@@ -19,7 +32,7 @@
        <td> <fmt:formatNumber type="currency" 
 		value="${totalPrice}" /> </td>
      </tr>    
-     </table>         
+     </table> <br>        
      <h3> 주문 상품 정보 </h3> 
      <table id="cartList">
      <tr>
