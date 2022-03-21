@@ -105,7 +105,7 @@ th, td{
 		// 파이차트 그리기
 		// 차트 그리기 옵션 지정
 		var piechart_options = {
-			title: '제품별 판매 실적',
+			title: '도서별 판매 실적',
 			width: 300,
 			height: 300
 		};
@@ -118,7 +118,7 @@ th, td{
 		
 		//바차트 그리기
 		var barchart_options = {
-			title: '제품별 판매 실적',
+			title: '도서별 판매 실적',
 			width: 300,
 			height: 300
 		}
