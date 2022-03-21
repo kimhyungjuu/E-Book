@@ -43,7 +43,7 @@
 								</a>
 									<div id="collapse${noticeVO.nseq}" class="panel-collapse collapse" role="tabpanel">
 		                                <div class="article-body">
-											<p>${noticeVO.content }</p>
+											<pre>${noticeVO.content }</pre>
 										</div> 
 									</div>
 								</div>

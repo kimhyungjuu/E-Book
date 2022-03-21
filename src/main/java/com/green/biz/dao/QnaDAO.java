@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.green.biz.dto.NoticeVO;
 import com.green.biz.dto.QnaVO;
 
 @Repository
@@ -39,6 +40,10 @@ public class QnaDAO {
 		return mybatis.selectList("mappings.qna-mapping.listQna", id);
 	}
 	
+	public void deleteQna(int qseq) {
+		
+		mybatis.delete("mappings.qna-mapping.deleteQna", qseq);
+	}
 }
 
 
