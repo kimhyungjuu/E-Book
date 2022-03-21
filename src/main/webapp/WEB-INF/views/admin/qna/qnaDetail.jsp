@@ -70,7 +70,7 @@ table#orderList {
    }   
 </script>
 <article>
-<h1>Q&amp;A 게시판</h1>   
+<h1>Q&amp;A 답변등록</h1>   
 <form name="frm" method="post">
 <input type="hidden" name="qseq" value="${qnaVO.qseq}">
 <table id="orderList">

@@ -40,7 +40,7 @@ article {
 	margin: 0 7px 7px 0px;
 }
 #list{
-	margin-left: 620px;
+	margin-left: 40%;
 }
 #list td{ 
 	padding: 8px 5px;
@@ -67,7 +67,7 @@ function go_del(){
 </script>
 
 <article>
-<h1>상품 상세 보기</h1> 
+<h1>책 상세 보기</h1> 
 <br>
 <form name="frm" id="detail_form" method="post">
 <input type="hidden" name="bseq" value="${productVO.bseq}">
@@ -84,7 +84,7 @@ function go_del(){
     </tr>
     
     <tr>
-        <th align="center" >저자</th>
+        <th align="center" >작가</th>
         <td colspan="5">${productVO.author}</td>
     </tr>
     

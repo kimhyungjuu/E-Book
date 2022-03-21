@@ -76,7 +76,7 @@ function go_mod_save(){
 </script>
 
 <article>
-<h1>상품수정</h1>  
+<h1>책 정보 수정</h1>  
 <form name="frm" id="update_form" method="post" enctype="multipart/form-data">
 <input type="hidden" name="bseq" value="${productVO.bseq}">
 <input type="hidden" name="code" >
@@ -106,7 +106,7 @@ function go_mod_save(){
     </td>
   </tr>
   <tr>
-    <th>저자</th>
+    <th>작가</th>
     <td width="343" colspan="5">
       <input type="text" name="author" id="author" size="47" maxlength="100" value="${productVO.author}">
     </td>
@@ -136,19 +136,6 @@ function go_mod_save(){
       </c:choose>
     </td>     
     </tr>
-  <tr>   
-    <th>사용유무</th>
-    <td>
-      <c:choose>
-        <c:when test="${fn:contains(productVO.useyn, 'y')}">
-          <input type="checkbox" name="useyn" id="useyn" value="y" checked="checked">
-        </c:when>
-      <c:otherwise>
-        <input type="checkbox" name="useyn" id="useyn" value="n">
-      </c:otherwise>
-    </c:choose>
-    </td>
-  </tr>
   <tr>
     <th>상세설명</th>
     <td colspan="5">
