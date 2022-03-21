@@ -75,7 +75,14 @@ function go_del(){
   <tr>
     <th>상품분류</th>
     <td  colspan="5">
-  ${productVO.category}
+  		<c:choose>
+         	<c:when test="${productVO.category==1}">소설</c:when>
+			<c:when test="${productVO.category==2}">경영/경제</c:when>
+			<c:when test="${productVO.category==3}">인문/사회/역사</c:when>
+			<c:when test="${productVO.category==4}">자기계발</c:when>
+			<c:when test="${productVO.category==5}">웹소설</c:when>
+          	<c:otherwise>웹만화</c:otherwise>
+		</c:choose>
      </td>    
     </tr>    
     <tr>
