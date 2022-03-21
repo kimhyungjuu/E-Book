@@ -73,11 +73,6 @@ function go_mod_save(){
 	theForm.submit();
 }
 
-function go_del(){
-	var theForm = document.frm;
-	theForm.action="admin_product_delete";
-	theForm.submit();
-}
 </script>
 
 <article>
@@ -119,24 +114,24 @@ function go_del(){
   <tr>
     <th>대여료</th>
     <td width="70">        
-      <input type="text" name="price_rent" id="price_rent" size="11" onKeyUp='NumFormat(this)' value="${productVO.price_rent}">
+      <input type="text" name="price_rent" id="price_rent" size="11" onKeyUp='NumFormat(this)' value="${productVO.price_rent}"> 원
     </td>
     </tr>
   <tr>
     <th>판매가</th>
     <td width="70">
-      <input type="text" name="price" id="price" size="11" onKeyUp='NumFormat(this)' value="${productVO.price}">
+      <input type="text" name="price" id="price" size="11" onKeyUp='NumFormat(this)' value="${productVO.price}"> 원
     </td>
   </tr>
   <tr>
-    <th>찜여부</th>
+    <th>베스트여부</th>
     <td>
       <c:choose>
-        <c:when test="${fn:contains(productVO.likeyn, 'y')}">
-          <input type="checkbox" name="likeyn" value="y" id="likeyn" checked="checked">
+        <c:when test="${fn:contains(productVO.bestyn, 'y')}">
+          <input type="checkbox" name="bestyn" value="y" id="bestyn" checked="checked">
         </c:when>
         <c:otherwise>
-          <input type="checkbox" name="likeyn" value="n" id="likeyn" >
+          <input type="checkbox" name="bestyn" value="n" id="bestyn" >
         </c:otherwise>
       </c:choose>
     </td>     
@@ -163,7 +158,7 @@ function go_del(){
   <tr>
     <th>책이미지</th>
     <td colspan="5">
-      <img src="product_images/${productVO.image}" width="200pt">     
+      <img src="ebook-image/${productVO.image}" width="200pt">     
       <br>
       <input type="file" name="product_image" id="product_image">
       <input type="hidden" name="image" value="${productVO.image}">
@@ -171,8 +166,7 @@ function go_del(){
   </tr>    
 </table>
 <div style="margin-left:620px">
-<input class="btn" type="button" value="수정" onClick="go_mod_save('${productVO.bseq}')">         
-<input class="btn" type="button" value="삭제" onClick="go_del()">        
+<input class="btn" type="button" value="수정" onClick="go_mod_save('${productVO.bseq}')">  
 <input class="btn" type="button" value="취소" onClick="go_mov()">
 </div>
 </form> 

@@ -21,9 +21,10 @@ public class ProductVO {
 	private String image;
 	private String useyn;
 	private String likeyn;
+	private String bestyn;
 	private Timestamp regdate;
 	private String author;
-	//TODO: DBÃß°¡ÇÊ¿ä
+	//TODO: DBï¿½ß°ï¿½ï¿½Ê¿ï¿½
 	private int rseq;
 	private int ratingAvg;
 }

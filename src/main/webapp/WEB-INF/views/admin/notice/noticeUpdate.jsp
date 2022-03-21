@@ -88,8 +88,8 @@ function go_mod_save(){
   </tr>
   <tr>
     <th>내용</th>
-    <td width="343" colspan="5">
-      <input type="text" name="content" id="content" size="47" maxlength="100" value="${noticeVO.content}">
+    <td colspan="5">
+      <textarea name="content" id="content" rows="8" cols="70" >${noticeVO.content}</textarea>
     </td>
   </tr>
   
