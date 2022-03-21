@@ -91,6 +91,7 @@ th, td{
         <div class="clear"></div>
     	<article>
       	<div id="loginform">
+      	<h1>관리자 로그인</h1><br><br>
       	<form name="frm" method="post" action="admin_login">
       	<table>
         	<tr>

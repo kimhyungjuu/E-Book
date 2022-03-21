@@ -92,4 +92,9 @@ public class ProductServiceImpl implements ProductService {
 		return pDao.getProductSales();
 	}
 
+	@Override
+	public List<ProductVO> getListWithPaging2(Criteria criteria, String title) {
+		return pDao.getListWithPaging(criteria, title);
+	}
+
 }

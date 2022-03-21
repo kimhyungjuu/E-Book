@@ -28,6 +28,9 @@ public interface ProductService {
 	// 페이지별 상품목록 조회
 	List<ProductVO> getListWithPaging(Criteria criteria, String title);
 	
+	//관리자 페이지별 상품목록 조회
+	List<ProductVO> getListWithPaging2(Criteria criteria, String title);
+	
 	//TODO: xml 변경필요
 	/* public List<ProductVO> listProduct(String name); */
 	

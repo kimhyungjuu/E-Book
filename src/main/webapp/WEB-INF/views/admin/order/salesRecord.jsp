@@ -45,7 +45,7 @@ table#List {
 	border-top: 2px solid #333;
 	border-bottom: 1px solid #333;
 	width: 80%; 
-	margin-left: 80px;
+	margin-left: 2%;
 	margin-bottom: 20px;
 	
 }
@@ -131,7 +131,7 @@ th, td{
 	</script>
 
 	<div align="center">
-	<h1>도서별 판매 실적</h1>
+	<h1>도서별 판매 실적</h1><br><br><br>
 	<table id="List">
 		<tr>
 			<td><div id="piechart_div" style="boarder:1px solid #cc"></div></td>

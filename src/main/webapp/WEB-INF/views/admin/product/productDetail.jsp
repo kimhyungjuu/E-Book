@@ -40,13 +40,15 @@ article {
 	margin: 0 7px 7px 0px;
 }
 #list{
-	margin-left: 40%;
+	margin-left: 35%;
+	width: 40%; 
 }
 #list td{ 
 	padding: 8px 5px;
 	text-align: left;
 }
 th, td{ 
+	width: 40px;
 	padding: 8px 5px;
 	text-align: center;
 	
@@ -61,8 +63,13 @@ function go_list(){
 }
 function go_del(){
 	var theForm = document.frm;
-	theForm.action="admin_product_delete";
-	theForm.submit();
+	if(confirm("정말 삭제하시겠습니까?")==true){
+		theForm.action="admin_product_delete";
+		theForm.submit();
+		alert("삭제되었습니다.");
+	}else{
+		return;
+	}
 }
 </script>
 

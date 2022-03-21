@@ -44,7 +44,7 @@ table#orderList {
 	border-top: 2px solid #333;
 	border-bottom: 1px solid #333;
 	width: 80%; 
-	margin-left: 140px;
+	margin-left: 10%;
 	margin-bottom: 20px;
 }
 th, td{ 

@@ -45,7 +45,7 @@ table#list {
 	border-top: 2px solid #333;
 	border-bottom: 1px solid #333;
 	width: 80%; 
-	margin-left: 140px;
+	margin-left: 9%;
 	margin-bottom: 20px;
 	
 }
@@ -69,6 +69,41 @@ function go_mov(){
 
 function go_mod_save(){
 	var theForm = document.frm;
+	if (!theForm.title.value) {
+        alert("제목을 입력해 주세요");
+        theForm.title.focus();
+        return;
+    }
+ 
+    if (!theForm.author.value) {
+        alert("작가를 입력해 주세요");
+        theForm.author.focus();
+        return;
+    }
+    
+    if (!theForm.price_rent.value) {
+        alert("대여료를 입력해 주세요");
+        theForm.price_rent.focus();
+        return;
+    }
+    
+    if (!theForm.price.value) {
+        alert("판매가를 입력해 주세요");
+        theForm.price.focus();
+        return;
+    }
+    
+    if (!theForm.content.value) {
+        alert("책 설명을 입력해 주세요");
+        theForm.content.focus();
+        return;
+    }
+    
+    if (!theForm.product_image.value) {
+        alert("책 이미지를 입력해 주세요");
+        theForm.product_image.focus();
+        return;
+    }
 	theForm.action="admin_product_update";
 	theForm.submit();
 }
