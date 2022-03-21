@@ -106,7 +106,7 @@ function qna_delete_do() {
       </tr>
       <tr>
         <th>답변 내용</th>
-        <td style="white-space:pre;">${qnaVO.reply}
+        <td style="white-space:pre;">${qnaVO.reply}  
       </tr>
     </table>
      <div id="buttons" style="float:right">

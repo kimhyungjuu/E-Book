@@ -44,7 +44,7 @@ table#list {
 	border-top: 2px solid #333;
 	border-bottom: 1px solid #333;
 	width: 80%; 
-	margin-left: 140px;
+	margin-left: 10%;
 	margin-bottom: 20px;
 	
 }
@@ -68,6 +68,19 @@ function go_list(){
 
 function go_save(){
 	var theForm = document.frm;
+	
+	if (!theForm.subject.value) {
+        alert("제목을 입력해 주세요");
+        theForm.subject.focus();
+        return;
+    }
+ 
+    if (!theForm.content.value) {
+        alert("내용을 입력해 주세요");
+        theForm.content.focus();
+        return;
+    }
+	
 	theForm.action="admin_notice_write";
 	theForm.submit();
 	

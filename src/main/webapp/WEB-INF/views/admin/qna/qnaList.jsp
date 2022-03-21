@@ -47,7 +47,7 @@ table#qnaList {
 	border-top: 2px solid #333;
 	border-bottom: 1px solid #333;
 	width: 80%; 
-	margin-left: 140px;
+	margin-left: 10%;
 	margin-bottom: 20px;
 	
 }
@@ -64,7 +64,7 @@ th, td{
 
 <body>
 <article>
-<h1>Q&#38;A 리스트</h1>	
+<h1>Q&#38;A 리스트</h1>	<br><br><br>
 <form name="frm" method="post">
 <input type="hidden" name="qseq">  
 <table id="qnaList">

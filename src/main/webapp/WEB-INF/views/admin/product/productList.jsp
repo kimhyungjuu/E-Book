@@ -48,7 +48,7 @@ table#productList {
 	border-top: 2px solid #333;
 	border-bottom: 1px solid #333;
 	width: 80%; 
-	margin-left: 140px;
+	margin-left: 9%;
 	margin-bottom: 20px;
 	
 }
@@ -93,8 +93,8 @@ th, td{
     <tr>
       <td height="23" align="center" >${productVO.bseq}</td>
       <td style="text-align: left; padding-left: 50px; padding-right: 0px;">   
-         <%--<a href="admin_product_detail${pageMaker.makeQuery(pageMaker.criteria.pageNum)}&bseq=${productVO.bseq}"> --%>
-          <a href="admin_product_detail?bseq=${productVO.bseq}"> 
+         <a href="admin_product_detail${pageMaker.makeQuery(pageMaker.criteria.pageNum)}&bseq=${productVO.bseq}"> 
+          <%--<a href="admin_product_detail?bseq=${productVO.bseq}"> --%>
  		<%--<a href="admin_product_detail" onclick="go_detail('${productVO.bseq}')">--%>
     	 ${productVO.title}     
    		</a>
@@ -116,5 +116,6 @@ th, td{
 </c:choose>  
 </table>
 </form> 
+<%@ include file="../page_area.jsp" %>
 </article>
 </body>

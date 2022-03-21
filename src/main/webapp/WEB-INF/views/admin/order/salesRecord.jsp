@@ -45,7 +45,7 @@ table#List {
 	border-top: 2px solid #333;
 	border-bottom: 1px solid #333;
 	width: 80%; 
-	margin-left: 80px;
+	margin-left: 2%;
 	margin-bottom: 20px;
 	
 }
@@ -105,7 +105,7 @@ th, td{
 		// 파이차트 그리기
 		// 차트 그리기 옵션 지정
 		var piechart_options = {
-			title: '제품별 판매 실적',
+			title: '도서별 판매 실적',
 			width: 300,
 			height: 300
 		};
@@ -118,7 +118,7 @@ th, td{
 		
 		//바차트 그리기
 		var barchart_options = {
-			title: '제품별 판매 실적',
+			title: '도서별 판매 실적',
 			width: 300,
 			height: 300
 		}
@@ -131,7 +131,7 @@ th, td{
 	</script>
 
 	<div align="center">
-	<h1>도서별 판매 실적</h1>
+	<h1>도서별 판매 실적</h1><br><br><br>
 	<table id="List">
 		<tr>
 			<td><div id="piechart_div" style="boarder:1px solid #cc"></div></td>

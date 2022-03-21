@@ -49,7 +49,7 @@ table#orderList {
 	border-top: 2px solid #333;
 	border-bottom: 1px solid #333;
 	width: 85%; 
-	margin-left: 100px;
+	margin-left: 7%;
 	margin-bottom: 20px;
 }
 </style>
@@ -64,9 +64,14 @@ table#orderList {
    function go_rep(qseq)
    {
 	   var theForm = document.frm;
+	   if(confirm("답변등록 하시겠습니까?")==true){
 	   //theForm.qseq.value=qseq;
 	   theForm.action="admin_qna_repsave";
 	   theForm.submit();
+	   alert("답변이 등록되었습니다.");
+	   }else{
+		   return;
+	   }
    }   
 </script>
 <article>
@@ -84,7 +89,7 @@ table#orderList {
     </tr>
     <tr>
         <th>내용</th>
-        <td> ${qnaVO.content}</td>  
+        <td > ${qnaVO.content}</td>  
     </tr>
 </table>
 <c:choose>          
@@ -104,7 +109,7 @@ table#orderList {
   <table id="orderList">
     <tr>
      <th>댓글</th>
-     <td> ${qnaVO.reply}</td>
+     <td style="white-space:pre;"> ${qnaVO.reply}</td>
     </tr>
   </table>
   </c:otherwise>

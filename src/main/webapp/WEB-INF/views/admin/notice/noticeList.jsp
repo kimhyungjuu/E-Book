@@ -44,7 +44,7 @@ table#noticeList {
 	border-top: 2px solid #333;
 	border-bottom: 1px solid #333;
 	width: 80%; 
-	margin-left: 140px;
+	margin-left: 10%;
 	margin-bottom: 20px;
 	
 }
@@ -85,7 +85,7 @@ th, td{
 <input type="hidden" name="nseq">  
 <table id="noticeList">
   <tr>
-    <th>번호</th> <th>제목</th> <th>내용</th> <th>작성일</th>    
+    <th>번호</th> <th>제목</th> <th>작성일</th>    
   </tr>
   <c:forEach items="${noticeList}" var="noticeVO">  
       <tr>
@@ -97,7 +97,6 @@ th, td{
         ${noticeVO.subject} 
       </a>
       </td>
-      <td> ${noticeVO.content} </td>
       <td> <fmt:formatDate value="${noticeVO.indate}"/></td>
       </tr>
     </c:forEach>
