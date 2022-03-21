@@ -46,8 +46,11 @@ public class ProductController {
 		List<ReviewVO> reviewList = reviewService.listReview(rv);
 		
 		model.addAttribute("reviewList", reviewList);
-		 
 		
+		if(reviewList.size() > 0)
+			model.addAttribute("reviewAvg", reviewService.ReviewAvg(rv));
+		else
+			model.addAttribute("reviewAvg", 0);
 		return "product/product-detail";
 	}
 	
@@ -69,9 +72,10 @@ public class ProductController {
 		}else {
 			rv.setId(loginUser.getId());
 		}
+			// (3) 리뷰 목록 조회하여 화면 표시
 			reviewService.insertReview(rv);
 			
-			// (3) 리뷰 목록 조회하여 화면 표시
+			
 			return "redirect:"+request.getHeader("Referer");
  	}
 	

@@ -49,10 +49,10 @@ public class ReviewServiceImpl implements ReviewService {
 		return reviewDao.getreviewPaging(criteria, title);
 	}
 
-	/*
-	 * @Override public void updateReviewAvg(ProductVO vo) {
-	 * 
-	 * reviewDao.updateReviewAvg(vo); }
-	 */
+	@Override
+	public int ReviewAvg(ReviewVO rv) {
+		
+		return reviewDao.ReviewAvg(rv);
+	}
 
 }

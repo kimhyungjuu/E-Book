@@ -20,4 +20,5 @@ public class CartVO {
 	private int price;
 	private int price_rent;
 	private Timestamp indate;
+	private String bname;
 }

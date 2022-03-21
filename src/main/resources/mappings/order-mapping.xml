@@ -40,7 +40,6 @@
 		WHERE odseq=#{odseq}
 	</update>
 	
-	
 	<!-- 주문내역 조회 -->
 	<select id="listOrderById" resultType="order">
 		SELECT * FROM order_view
@@ -48,6 +47,5 @@
 		  AND result LIKE '%'||#{result}||'%'
 		  AND oseq=#{oseq}
 	</select>
-	
 	
 </mapper>

@@ -49,13 +49,13 @@ public class ReviewDAO {
 		map.put("criteria", criteria);
 		map.put("title", title);
 		
-		return mybatis.selectList("mappings.product-mapping.reviewPaging", map);
+		return mybatis.selectList("mappings.review-mapping.reviewPaging", map);
 	}
 	
-	/*
-	 * // 별점 평균 업데이트 public void updateReviewAvg(ProductVO vo) {
-	 * 
-	 * mybatis.update("mappings.product-mapping.updateReviewAvg", vo); }
-	 */
 	
+	  // 별점 평균 업데이트 
+	public int ReviewAvg(ReviewVO rv) {
+		System.out.println(rv.getBseq());
+	  return mybatis.selectOne("mappings.review-mapping.ReviewAvg", rv.getBseq()); 
+	}
 }
