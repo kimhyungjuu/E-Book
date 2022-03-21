@@ -69,10 +69,10 @@ article {
 }
 
 table {
-	border-collapse: collapse; /* border �궗�씠�쓽 媛꾧꺽 �뾾�빊 */
+	border-collapse: collapse; 
 	border-top: 1px solid #333;
 	border-bottom: 1px solid #333;
-	width: 50%; /* �쟾泥� �뀒�씠釉� 湲몄씠 �꽕�젙 */
+	width: 50%; 
 	margin-left: 400px;
 	margin-bottom: 5px;
 }

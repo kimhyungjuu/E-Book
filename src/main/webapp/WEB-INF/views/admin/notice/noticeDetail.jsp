@@ -89,7 +89,7 @@ function go_mod(nseq)
     <tr>
         <th align="center" >내용</th>
         <td colspan="5">
-        	<textarea name="content" id="content" rows="8" cols="70" >${noticeVO.content}</textarea>
+        	${noticeVO.content}
         </td>
     </tr>
 

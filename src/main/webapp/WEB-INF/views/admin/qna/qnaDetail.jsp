@@ -45,10 +45,10 @@ th, td{
 	
 }
 table#orderList {
-	border-collapse: collapse; /* border �궗�씠�쓽 媛꾧꺽 �뾾�빊 */
+	border-collapse: collapse; 
 	border-top: 2px solid #333;
 	border-bottom: 1px solid #333;
-	width: 85%; /* �쟾泥� �뀒�씠釉� 湲몄씠 �꽕�젙 */
+	width: 85%; 
 	margin-left: 100px;
 	margin-bottom: 20px;
 }
