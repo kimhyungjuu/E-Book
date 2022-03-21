@@ -29,6 +29,17 @@ public class QnaServiceImpl implements QnaService {
 		qnaDao.updateQna(vo);
 	}
 	
+	@Override
+	public void insertQna(QnaVO vo) {
+		
+		qnaDao.insertQna(vo);
+	}
 	
+	@Override
+	public List<QnaVO> listQna(String id) {
+		
+		return qnaDao.listQna(id);
+	}
 
+	
 }

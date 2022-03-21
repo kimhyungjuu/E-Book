@@ -18,4 +18,14 @@
 		   SET reply=#{reply}, rep='y'
 		 WHERE qseq=#{qseq}  
 	</update>
+	
+	<insert id="insertQna">
+		INSERT INTO qna(qseq, subject, content, id)
+		VALUES(qna_seq.NEXTVAL, #{subject}, #{content}, #{id})
+	</insert>
+	
+	<select id="listQna" resultType="qna">
+		SELECT * FROM qna
+		 WHERE id=#{id} ORDER BY qseq DESC 
+	</select>
 </mapper>

@@ -161,7 +161,8 @@
 				background-color: white!important;">
 			<ul class="navbar-nav" style="width: 100%; flex-direction: row; justify-content: space-between;">
 	        	<li class="nav-item">
-        			<a class="nav-link" href="#"><label for="collapsible"><span>카테고리</span></label></a>
+        			<a class="nav-link" href="#"><label for="collapsible" style="cursor: pointer;">
+        			<span>카테고리</span></label></a>
 		        </li>
 	        	<li class="nav-item">
                     <a class="nav-link" href="best">베스트 도서</a>
@@ -180,12 +181,12 @@
 	       		<input type="checkbox" class="" id="collapsible">
 		        <ul id="menuitems" class="menuitems" style="padding: 0 0 ;">
 		        <h5>문학</h5>
-		            <li><a href="#">소설</a></li>
-		            <li><a href="#">경영/경제</a></li>
-		            <li><a href="#">인문/사회/역사</a></li>
-		            <li><a href="#">자기계발</a></li>
-		            <li><a href="#">에세이</a></li>
-		            <li><a href="#">여행</a></li>
+		            <li><a href="category?category=1">소설</a></li>
+					<li><a href="category?category=2">경영/경제 </a></li>
+					<li><a href="category?category=3">인문/사회/역사 </a></li>
+					<li><a href="category?category=4">자기계발</a></li>
+					<li><a href="category?category=5">웹소설 </a></li>
+					<li><a href="category?category=6">웹만화</a></li>
 		        </ul> 
 		        <ul id="menuitems" class="menuitems" >
 		        <h5>소설</h5>

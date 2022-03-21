@@ -18,11 +18,13 @@ import com.green.biz.dto.CartVO;
 import com.green.biz.dto.MemberVO;
 import com.green.biz.dto.NoticeVO;
 import com.green.biz.dto.ProductVO;
+import com.green.biz.dto.QnaVO;
 import com.green.biz.dto.ReviewVO;
 import com.green.biz.notice.NoticeService;
 import com.green.biz.order.CartService;
 import com.green.biz.product.ProductService;
 import com.green.biz.product.ReviewService;
+import com.green.biz.qna.QnaService;
 
 
 @Controller
@@ -34,6 +36,8 @@ public class NavigationController {
 	private CartService cartService;
 	@Autowired
 	private NoticeService noticeService;
+	@Autowired
+	QnaService qnaService;
 	
 	@GetMapping(value = "/best")
 	   public String bestView(Model model) {
@@ -91,43 +95,66 @@ public class NavigationController {
 		return "product/productKind";
 		}
 	
-	@PostMapping(value="/buy_account_form")
-	public String buyBookAction(CartVO vo, Model model, HttpSession session) {
+	/*
+	 * 회원ID를 조건으로 모든 Qna 조회
+	 */
+	@GetMapping(value="qna_list")
+	public String qnaList(HttpSession session, Model model) {
 		
-		// (1) 세션에 저장된 사용자 정보를 읽어 온다.
+		// 회원 로그인 확인
 		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
 		
-		// (2) 로그인이 안되어 있으면 로그인, 
-		//     로그인 되어 있으면, 장바구니에 항목 저장
-		if (loginUser == null) {  
+		if (loginUser == null) {
 			return "member/login";
 		} else {
-			vo.setId(loginUser.getId());
+			List<QnaVO> qnaList = qnaService.listQna(loginUser.getId());
 			
-			cartService.insertCart(vo);
+			model.addAttribute("ListQnA", qnaList);
 			
-		
-		return "payment/buyBook";
-		}	
+			return "navigation/qnaList";
+		}
 	}
 	
-	@PostMapping(value="/rent_account_form")
-	public String rentBookAction(CartVO vo, Model model, HttpSession session) {
+	@GetMapping(value="/qna_write_form")
+	public String qnaWriteView(HttpSession session) {
+		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
 		
-		// (1) 세션에 저장된 사용자 정보를 읽어 온다.
-		MemberVO loginUser = (MemberVO)session.getAttribute("loginUser");
+		if (loginUser == null) {
+			return "member/login";
+		} else {
+			return "navigation/qnaWrite";
+		}
+	}
+	
+	@PostMapping(value="/qna_write")
+	public String qnaWriteAction(QnaVO vo, HttpSession session) {
+		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
 		
-		// (2) 로그인이 안되어 있으면 로그인, 
-		//     로그인 되어 있으면, 장바구니에 항목 저장
-		if (loginUser == null) {  
+		if (loginUser == null) {
+			return "member/login";
+		} else {
+			vo.setId(loginUser.getId());
+			qnaService.insertQna(vo);
+			
+			return "redirect:qna_list";
+		}
+	}
+	
+	@GetMapping(value="/qna_view")
+	public String qnaView(QnaVO vo, HttpSession session, Model model) {
+		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
+		
+		if (loginUser == null) {
 			return "member/login";
 		} else {
 			vo.setId(loginUser.getId());
 			
-			cartService.insertCart(vo);
+			QnaVO qna = qnaService.getQna(vo.getQseq());
+			model.addAttribute("qnaVO", qna);
 			
+			return "navigation/qnaView";
+		}
 		
-		return "product/rentBook";
-		}	
 	}
+	
 }

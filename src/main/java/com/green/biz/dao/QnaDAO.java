@@ -29,6 +29,16 @@ public class QnaDAO {
 		mybatis.update("mappings.qna-mapping.updateQna", vo);
 	}
 	
+	public void insertQna(QnaVO vo) {
+		
+		mybatis.insert("mappings.qna-mapping.insertQna", vo);
+	}
+	
+	public List<QnaVO> listQna(String id) {
+		
+		return mybatis.selectList("mappings.qna-mapping.listQna", id);
+	}
+	
 }
 
 
