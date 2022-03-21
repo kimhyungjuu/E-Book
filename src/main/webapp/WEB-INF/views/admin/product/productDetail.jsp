@@ -73,7 +73,7 @@ function go_del(){
 <input type="hidden" name="bseq" value="${productVO.bseq}">
 <table id="list">
   <tr>
-    <th>상품분류</th>
+    <th>카테고리</th>
     <td  colspan="5">
   		<c:choose>
          	<c:when test="${productVO.category==1}">소설</c:when>
@@ -111,7 +111,7 @@ function go_del(){
     </tr>
     
     <tr>
-     <th>상품이미지</th>
+     <th>책 이미지</th>
      <td colspan="5" align="center">
   <!--[7] 상품 이미지를 출력하기 -->     
      <img src="ebook-image/${productVO.image}" width="200pt">    

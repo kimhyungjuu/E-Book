@@ -180,26 +180,18 @@
 	       		<input type="checkbox" class="" id="collapsible">
 		        <ul id="menuitems" class="menuitems" style="padding: 0 0 ;">
 		        <h5>문학</h5>
-		            <li><a href="#">소설</a></li>
-		            <li><a href="#">경영/경제</a></li>
-		            <li><a href="#">인문/사회/역사</a></li>
-		            <li><a href="#">자기계발</a></li>
-		            <li><a href="#">에세이</a></li>
-		            <li><a href="#">여행</a></li>
+					<li><a href="category?category=2">경영/경제 </a></li>
+					<li><a href="category?category=3">인문/사회/역사 </a></li>
+					<li><a href="category?category=4">자기계발</a></li>
 		        </ul> 
 		        <ul id="menuitems" class="menuitems" >
 		        <h5>소설</h5>
-		            <li><a href="#">추리/미스터리</a></li>
-		            <li><a href="#">판타지/환상문학</a></li>
-		            <li><a href="#">역사소설</a></li>
-		            <li><a href="#">액션/스릴러</a></li>
+		            <li><a href="category?category=1">추리/미스터리</a></li>
 		        </ul>
 		        <ul id="menuitems" class="menuitems" >
-		        <h5>만화</h5>
-		            <li><a href="#">소년 만화</a></li>
-		            <li><a href="#">순정 만화</a></li>
-		            <li><a href="#">스포츠 만화</a></li>
-		            <li><a href="#">웹툰</a></li>
+		        <h5>만화</h5>		        
+					<li><a href="category?category=5">웹소설 </a></li>
+					<li><a href="category?category=6">웹만화</a></li>
 		        </ul>		        
 		      </div>
 		</nav>

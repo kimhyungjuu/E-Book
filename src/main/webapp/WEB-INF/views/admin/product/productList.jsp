@@ -44,10 +44,10 @@ article {
 	margin: 0 7px 7px 0px;
 }
 table#productList {
-	border-collapse: collapse; /* border �궗�씠�쓽 媛꾧꺽 �뾾�빊 */
+	border-collapse: collapse; 
 	border-top: 2px solid #333;
 	border-bottom: 1px solid #333;
-	width: 80%; /* �쟾泥� �뀒�씠釉� 湲몄씠 �꽕�젙 */
+	width: 80%; 
 	margin-left: 140px;
 	margin-bottom: 20px;
 	
@@ -58,7 +58,7 @@ th, td{
 	
 }
 
-#productList td{ /* �뀒�씠釉붿쓽 th �� td 留덉쭊怨� �뙣�뵫 吏��젙 */
+#productList td{ 
 	padding-right: 40px;
 }
 </style>
