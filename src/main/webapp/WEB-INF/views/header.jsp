@@ -50,10 +50,10 @@
                             <c:choose>
        						<c:when test="${empty sessionScope.loginUser}">
        						<li>
-                            <a href="login_form" class="nav-item nav-link active">LOGIN(CUSTOMER</a> 
-                                <a href="admin_login_form" class="nav-item nav-link active">| ADMIN)</a>
+                            <a href="login_form" class="nav-item nav-link active">LOGIN</a> 
+                            <a href="admin_login_form" style="text-align : left"> ADMIN</a>   
                             </li>
-                            <li>/</li>
+                            <li></li>
                             <li><a href="contract" class="nav-item nav-link">회원가입</a></li>
                             </c:when>
                             <c:otherwise>
@@ -67,13 +67,12 @@
                             <div class="nav-item dropdown">
                                 <a href="mypage" class="nav-link dropdown-toggle" data-toggle="dropdown">마이페이지</a>
                                 <div class="dropdown-menu">
-                                    <a href="orderlist" class="dropdown-item">내 서재</a>
+                                    <a href="order_all" class="dropdown-item">내 서재</a>
                                     <a href="wishlist" class="dropdown-item">위시리스트</a>
                                     <a href="mypage" class="dropdown-item">진행중인 주문 목록</a>
                                     
                                    
                                 </div>
-                                
                             </div>
                             
                         </div>

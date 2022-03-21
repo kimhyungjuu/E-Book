@@ -10,6 +10,10 @@
 .cart-btn {
 text-align: center;
 }
+table {
+width: 800px;
+text-align: left;
+}
 </style>
 </head> 
 
@@ -30,52 +34,49 @@ text-align: center;
         
             <div class="container-fluid">
                 <div class="row">
-                <form action="cart" id="cartform" name="cartform" method="post">
-                    <div class="col-lg-8">
-                        <div class="cart-page-inner">
-                            <div class="table-responsive">
-                                <table class="table table-bordered">
-                                    <thead class="thead-dark">
-                                        <tr>
-                                            <th>상품명</th>
-                                            <th>가격</th>
-                                            <th>주문일</th>
-                                            <th>삭제</th>
-                                        </tr>
-                                    </thead>
-                                    
-                                    <c:forEach items="${cartList}"  var="cartVO">
-                                        <tr>
-                                            <td>
-                                                <div class="img">
-                                                    
-                                                    <a href="product-detail?bseq=${cartVO.bseq}">
-                                                   
-              										<span> ${cartVO.title} </span>              
-            										</a>    
-                                                </div>
-                                            </td>
-                                            
-                                            
-                                            
-                                            <td>${cartVO.price} </td>
-                                            <td> <fmt:formatDate value="${cartVO.indate}" type="date"/></td>
-                                            <td><input type="checkbox" name="cseq" value= "${cartVO.cseq}"></td>
-                                        </tr>
-                                        
-                                    </c:forEach>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    </form>
-                    
-                    
-                    <div class="col-lg-4">
+                	<div class="col-md-2">
+                	</div>
+                	                  
+                    <div class="col-md-10">
                         <div class="cart-page-inner">
                             <div class="row">
-                    
-                                <div class="col-md-12">
+                            	<div class="col-md-8">
+                               	<form action="cart" id="cartform" name="cartform" method="post">
+                    			
+	                    			<div class="table-responsive-sm">
+	                                <table class="table table-bordered table-stripped">
+	                                    <thead class="thead-light">
+	                                        <tr>
+	                                            <th>상품명</th>
+	                                            <th>가격</th>
+	                                            <th>주문일</th>
+	                                            <th>삭제</th>
+	                                        </tr>
+	                                    </thead>
+	                                    
+	                                    <c:forEach items="${cartList}"  var="cartVO">
+	                                        <tr>
+	                                            <td>
+	                                                <div class="img">
+	                                                    
+	                                                    <a href="product-detail?bseq=${cartVO.bseq}">
+	                                                   
+	              										<span> ${cartVO.title} </span>              
+	            										</a>    
+	                                                </div>
+	                                            </td>
+
+	                                            <td>${cartVO.price} </td>
+	                                            <td> <fmt:formatDate value="${cartVO.indate}" type="date"/></td>
+	                                            <td><input type="checkbox" name="cseq" value= "${cartVO.cseq}"></td>
+	                                        </tr>
+	                                        
+	                                    </c:forEach>
+	                                </table>
+	                            </div>
+                    			</form>
+                    			</div>
+                                <div class="col-md-4">
                                     <div class="cart-summary">
                                         <div class="cart-content">
                                         <span><a>총 액</a></span>
