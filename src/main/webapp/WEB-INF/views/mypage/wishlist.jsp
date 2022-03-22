@@ -53,7 +53,7 @@
                                             </td>
                                             <td>${wishlistVO.price} </td>
 								
-                                           <td><button class="btn-cart" onclick="go_cart()">Add to Cart</button></td>
+                                           <td><button class="btn-cart" onclick="go_cart(${wishlistVO.bseq})">Add to Cart</button></td>
                                             <td><input type="checkbox" id ="wseq" name="wseq" value= "${wishlistVO.wseq}"></td>
                                         </tr>
                                         </c:forEach>

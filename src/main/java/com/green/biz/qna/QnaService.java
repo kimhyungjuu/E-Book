@@ -14,4 +14,6 @@ public interface QnaService {
 	void insertQna(QnaVO vo);
 	
 	List<QnaVO> listQna(String id);
+	
+	public void deleteQna(int qseq);
 }

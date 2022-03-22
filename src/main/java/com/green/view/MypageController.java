@@ -144,7 +144,7 @@ public class MypageController {
 			model.addAttribute("totalPrice", totalAmount);
 
 			// (5) 화면 호출
-			return "mypage/mybook";
+			return "mypage/orderlist";
 		}
 	}
 
@@ -291,7 +291,7 @@ public class MypageController {
 			}
 
 			// 결과를 화면에 전달
-			model.addAttribute("title", "총 주문내역");
+			
 			model.addAttribute("orderlist", orderList);
 
 			return "mypage/orderlist";

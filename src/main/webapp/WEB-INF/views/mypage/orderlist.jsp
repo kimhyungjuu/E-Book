@@ -4,7 +4,29 @@
 <!DOCTYPE html>
 <html lang="ko">
  <%@ include file="../header.jsp" %>
-
+<head>
+<style>
+      table, th, td {
+        border: 1px solid #bcbcbc;
+        
+      }
+      table {
+    width: 800px;
+    margin-left:auto; 
+    margin-right:auto;
+  }
+  article {
+  text-align: center;
+  }
+  .jb-th-1 {
+    width: 800px;
+    }
+    .jb-th-2 {
+    width: 500px;
+    }
+ 
+</style>
+</head> 
   
  
   <!-- Breadcrumb Start -->
@@ -18,15 +40,14 @@
             </div>
         </div>
         <!-- Breadcrumb End -->
-        
-<%@ include file="sub_menu(order).jsp" %>
+       
         
       <article>
-      <h2> 총 주문 내역 </h2>
+      <h2> 내 서재 </h2>
       <form name="orderlist" method="post">
         <table id="cartList">
        <tr>
-        <th>책 이름</th> <th>가 격</th> <th>주문일</th> <th> 진행 상태 </th>    
+        <th class="jb-th-1">책 이름</th> <th>가 격</th> <th class="jb-th-2">주문일</th>   
        </tr>
        <c:forEach items="${orderlist}"  var="orderVO">
        <tr>      
@@ -38,14 +59,9 @@
         <td> <fmt:formatNumber value="${orderVO.price}" type="currency"/> </td>
               
         <td> <fmt:formatDate value="${orderVO.indate}" type="date"/></td>
-        <td> 처리 진행 중 </td>
+        
        </tr>
        </c:forEach>
-       <tr>
-         <th colspan="2"> 총 액 </th>
-         <th colspan="2"> <fmt:formatNumber value="${totalPrice}" type="currency"/><br></th> 
-         <th> 주문 처리가 완료되었습니다. </th>                
-       </tr> 
       </table>   
           
       <div class="clear"></div>

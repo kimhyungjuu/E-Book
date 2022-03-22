@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.green.biz.dao.QnaDAO;
+import com.green.biz.dto.NoticeVO;
 import com.green.biz.dto.QnaVO;
 import com.green.biz.qna.QnaService;
 
@@ -39,6 +40,11 @@ public class QnaServiceImpl implements QnaService {
 	public List<QnaVO> listQna(String id) {
 		
 		return qnaDao.listQna(id);
+	}
+
+	@Override
+	public void deleteQna(int qseq) {
+		qnaDao.deleteQna(qseq);
 	}
 
 	

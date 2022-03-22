@@ -157,4 +157,13 @@ public class NavigationController {
 		
 	}
 	
+	@RequestMapping(value="/qna_delete", method={RequestMethod.GET, RequestMethod.POST}) 
+	public String qnaDeleteAction(QnaVO vo, HttpSession session, Model model, 
+			HttpServletRequest request,@RequestParam(value = "qseq") int qseq) {
+		
+			System.out.println(("ªË¡¶«“ wishlist seq = " + qseq));
+			qnaService.deleteQna(qseq);
+
+		return "redirect:qna_list";
+	}
 }

@@ -62,6 +62,7 @@ th, td{
 	padding-right: 40px;
 }
 </style>
+
 <script>
 function go_wrt() {
 	var theForm = document.frm;
