@@ -62,8 +62,6 @@ th, td{
 	padding-right: 40px;
 }
 </style>
-<script type="text/javascript" src="js/admin-product.js"></script>
-
 
 <body>
 <article>

@@ -21,6 +21,9 @@
   .jb-th-1 {
     width: 800px;
     }
+    .jb-th-2 {
+    width: 500px;
+    }
  
 </style>
 </head> 
@@ -44,7 +47,7 @@
       <form name="orderlist" method="post">
         <table id="cartList">
        <tr>
-        <th class="jb-th-1">책 이름</th> <th>가 격</th> <th>주문일</th>   
+        <th class="jb-th-1">책 이름</th> <th>가 격</th> <th class="jb-th-2">주문일</th>   
        </tr>
        <c:forEach items="${orderlist}"  var="orderVO">
        <tr>      
@@ -59,11 +62,6 @@
         
        </tr>
        </c:forEach>
-       <tr>
-         <th colspan="2"> 총 액 </th>
-         <th colspan="2"> <fmt:formatNumber value="${totalPrice}" type="currency"/><br></th> 
-         <th> 주문 처리가 완료되었습니다. </th>                
-       </tr> 
       </table>   
           
       <div class="clear"></div>
