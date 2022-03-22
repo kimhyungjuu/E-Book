@@ -62,7 +62,13 @@ th, td{
 	padding-right: 40px;
 }
 </style>
-<script type="text/javascript" src="js/admin-product.js"></script>
+<script>
+function go_wrt() {
+   var theForm = document.frm;
+   theForm.action =  "admin_product_write_form";
+   theForm.submit();
+  }
+</script>
 
 
 <body>
