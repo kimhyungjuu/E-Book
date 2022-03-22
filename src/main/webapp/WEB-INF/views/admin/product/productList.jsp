@@ -65,9 +65,9 @@ th, td{
 
 <script>
 function go_wrt() {
-	var theForm = document.frm;
-	theForm.action =  "admin_product_write_form";
-	theForm.submit();
+   var theForm = document.frm;
+   theForm.action =  "admin_product_write_form";
+   theForm.submit();
   }
 </script>
 
