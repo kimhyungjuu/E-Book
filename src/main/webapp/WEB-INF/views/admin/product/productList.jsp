@@ -71,7 +71,6 @@ function go_wrt() {
   }
 </script>
 
-
 <body>
 <article>
 <h1>책 리스트</h1>	
