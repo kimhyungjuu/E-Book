@@ -104,11 +104,11 @@
                         <div class="user">
                             <a href="wishlist" class="btn wishlist">
                                 <i class="fa fa-heart"></i>
-                                <span>(0)</span>
+                                <span></span>
                             </a>
                             <a href="cart" class="btn cart">
                                 <i class="fa fa-shopping-cart"></i>
-                                <span>(0)</span>
+                                <span></span>
                             </a>
                         </div>
                     </div>

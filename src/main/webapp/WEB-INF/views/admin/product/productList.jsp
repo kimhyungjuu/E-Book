@@ -62,6 +62,8 @@ th, td{
 	padding-right: 40px;
 }
 </style>
+
+
 <script>
 function go_wrt() {
    var theForm = document.frm;
@@ -69,7 +71,6 @@ function go_wrt() {
    theForm.submit();
   }
 </script>
-
 
 <body>
 <article>
