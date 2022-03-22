@@ -63,6 +63,14 @@ th, td{
 }
 </style>
 
+<script>
+function go_wrt() {
+	var theForm = document.frm;
+	theForm.action =  "admin_product_write_form";
+	theForm.submit();
+  }
+</script>
+
 <body>
 <article>
 <h1>책 리스트</h1>	
